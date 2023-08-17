@@ -1,10 +1,16 @@
+
+
 @extends('layouts.master')
+@section('title')
+Restaurants
+@endsection
 @section('content')
-<div id="bodyContainer">
-    <span class="emphasis"> Popular </span> 
-    <div id="row">
-        
-    @foreach($mats as $mat)
+<?php $check = explode(",",Auth::user()->favs); ?> 
+<div id= "bodyContainer">
+    <a id="return2" href="/mat-mart/public"> < Back </a>
+  <div id="row">
+    @if($favs)
+    @foreach($favs as $mat)
     @if($loop->index % 3 == 2 && $loop->index > 0)
         <div class="matBox">
          
@@ -58,8 +64,13 @@
         </div>
     
     @endif
+   
     @endforeach
-    </div>
-
+    @else
+    <p> No results available </p> 
+    @endif 
 </div>
+</div> 
+ 
+
 @endsection

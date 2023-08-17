@@ -52,7 +52,8 @@
                     
                         @auth 
                         <div id="loginOut">
-                        <p>{{Auth::user()->name}} </p>
+                             <a href="/mat-mart/public/favs/{{Auth::user()->id}}">  
+                        <p>{{Auth::user()->name}} </p></a>
                         <div id="logOut" >
                             <form method="POST"action ="{{url('/logout')}}">
                                 {{csrf_field()}}
