@@ -1,0 +1,307 @@
+/*
+
+
+
+GLOBAL STYLING
+
+
+
+
+
+*/
+/*FONT OF CHOICE WILL BE RUBIKS */
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+.emphasis {
+    font-size:xx-large;
+    font-family: 'Rubik', sans-serif;
+    color:#F49110; 
+    font-weight:bold; 
+}
+button {
+    cursor: pointer;
+}
+a{
+    color:#F49110;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+/*
+
+
+
+
+
+MENU BAR STYLING
+
+
+
+
+
+
+*/
+
+#menuBar{
+    padding-top:0; 
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    border-bottom: 2px solid #F49110;
+    border-left: 2px solid #F49110;
+    border-right: 2px solid #F49110;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background:white; 
+}
+
+#searchBar {
+    display:flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    width:40%; 
+    align-items:center; 
+   
+}
+.navLink {
+    color:#F49110;
+    border-right:#F49110;
+    font-family: 'Rubik', sans-serif;
+    width:15%; 
+    font-size:large; 
+    align-self: center;
+    text-align: center;
+}
+.navLink:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+#userOptions {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-evenly;
+    width:30%;
+}
+#searchBar input {
+    width:90%;
+    padding:20px 0px;   
+    margin-right:10px; 
+}
+#searchBar {
+    display:flex;
+    justify-content: center;
+}
+#logo {
+    width:30%; 
+    display:flex;
+    justify-content: center;
+
+}
+.menuBtn button{
+    width: 100%;
+    height:50px; 
+    margin:10px 0px;
+    padding:20px; 
+    border:none; 
+}
+#container {
+    overflow-x: hidden;
+    margin:-8px; 
+    background-color: rgb(224, 224, 224);
+}
+#loginOut {
+    margin-top: 10px;
+    display:flex;
+    flex-direction:column; 
+}
+#loginOut button {
+    width: 100%;
+    border:none; 
+    height:100%;
+    
+}
+#loginOut a {
+    margin-top: 10px;
+}
+/*
+
+
+
+
+
+HOME PAGE STYLING
+
+
+
+
+
+
+*/
+#bodyContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    width: 80%;
+}
+    
+#row {
+    width:100%; 
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+}
+.matBox {
+    padding:10px; 
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border:1px solid black;
+    margin:2.5% 2.5% 2.5% 0;
+    width:30%;  
+}
+.matBox img {
+    height:100px; 
+}
+/*
+
+
+
+DETAIL PAGE STYLING
+
+
+
+
+
+*/
+#showContainer .emphasis a{
+    color:#F49110; 
+    text-decoration: none;
+    margin-left:10%; 
+}
+
+#showContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    width: 80%;
+}
+#itemContainer {
+    display:flex;
+    flex-direction: row;
+    width: 80%;
+    align-self: center;
+    margin:20px; 
+    background:white;
+    box-shadow: 0px 0px 20px gray;
+    padding:20px; 
+    border:2px solid #F49110;
+    border-radius:25px; 
+}
+#showImg img{
+   
+    height:275px;
+    padding:20px; 
+}
+#showDetails {
+    display:flex;
+    flex-direction:column;
+   
+}
+#showDetails * {
+    margin: 5px 0px;
+}
+#showDetails h1 {
+    text-align:center; 
+}
+#subtitles {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#line {
+    width:80%;
+    height:1px; 
+    background-color: gray;
+}
+#quantity {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#addCartButton {
+    width:95%;
+    margin:5%; 
+}
+#addCartButton button {
+    width:100%;
+    height:50px; 
+    border:none;
+    cursor: pointer; 
+}
+/*
+
+
+
+
+FOOTER STYLING
+
+
+
+
+
+
+*/
+#footer {
+    background:white;
+    border-top:2px solid #F49110; 
+    display:flex;
+    flex-direction:row;
+    justify-content: space-around;
+}
+.fSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right:1px solid #F49110; 
+    width:33%; 
+    padding:0px 30px; 
+}
+.fSection ul {
+   list-style-type: none;
+   margin-left:-35px; 
+   margin-top:10px; 
+   font-size: x-large;
+   
+}
+.fSection li {
+    margin-top:20px; 
+   
+}
+.fSection a {
+    color: black;
+}
+.fSection a:active {
+    color:#F49110; 
+}
+.fSection a:hover {
+    color:#f49110d2;
+}
+#contact {
+    display:flex; 
+    flex-direction:column;
+}
+.cInfo span{
+    display:flex;
+    flex-direction:row; 
+    margin:0; 
+}
+.cInfo {
+    margin-top:0; 
+}
+.cInfo h5 {
+    margin-top: 18px; 
+    margin-right:3px; 
+}
