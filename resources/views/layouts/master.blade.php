@@ -10,7 +10,16 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link rel="stylesheet" href="{{asset('css/wp.css')}}" type="text/css">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
+        <link rel="stylesheet" href="{{asset('js/scroll.js')}}" type="text/js">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link href="{{asset('/fontawesome-free-6.4.0-web/css/fontawesome.css')}}" rel="stylesheet">
+        <link href="{{asset('/fontawesome-free-6.4.0-web/css/solid.css')}}" rel="stylesheet">
+    
      
       
     </head>
@@ -79,9 +88,11 @@
                     </div>
 
                     <div class="menuBtn">
+                        <a data-toggle="modal" data-target="#exampleModal">
                         <button>
                             CART
                         </button>
+                        </a>
                     </div>
 
                 </div>
@@ -132,5 +143,120 @@
 
             </div>
         </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <?php $total = 0  ?>
+            @if(session('cart') != '[]' and session('cart') != null)
+                <div id="cartTitle">
+                    <em> Order For: </em> <b> {{Auth::user()->name}} </b>
+                </div>
+            
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+          
+                {{ csrf_field() }}
+            <div class="modal-body">
+                  @foreach(session('cart') as $id => $details)
+            <?php $total += $details['price'] * $details['quantity'] ?>
+            <div class="cartItem">
+                <div id="cartImg">
+                    
+                    <img src="{{url('images/noImg.jpg')}}"/>
+
+                </div>
+                <div class="cartInfo"> 
+                    <div class="cartDetails">
+                        <div> 
+                            <span class="quant"> 
+                                {{$details['quantity']}} 
+                            </span>
+                           x {{$details['name']}} 
+                        </div>
+                            <div id ="clearCart"> 
+                                <form method="POST" action='{{url("remove-from-cart")}}'>
+                                    {{csrf_field()}}
+                                    {{method_field('DELETE')}}
+                                    <input type="hidden" name="id" value="{{$id}}" /> 
+                                    <button type="submit"> X </button>
+                                </form>
+                            </div>
+                    </div>
+                    <div class="cartDetails">
+                        <div> 
+                            <b> Price </b> 
+                        </div>
+                        <div>
+                            ${{number_format($details['quantity'] * $details['price'], 2)}}
+                        </div> 
+                    </div>
+
+                </div>
+            </div>
+            <div class="line">
+            </div>
+            @endforeach
+        @endif
+        @if($total != 0)
+        <div id="totals">
+            <div class="rInfo">
+                <div> 
+                    Subtotal
+                </div>
+                <div>
+                    ${{number_format($total,2)}}
+                </div>
+            </div>
+            <div class="rInfo">
+                <div> 
+                    GST
+                </div>
+                <div>
+                    ${{number_format($total*0.1,2)}}
+                </div>
+            </div>
+            <div class="line"> </div>
+            <div class="rInfo">
+                <div> 
+                    <b> Total </b>
+                </div>
+                <div>
+                   <b> ${{number_format(($total + $total*0.1),2)}} </b> 
+                </div>
+            </div>
+        </div>
+        <div class="line"> </div>
+        <div id="cartOptions">
+            <div id="deleteCart">
+                <form method="POST" action='{{url("clear-cart")}}'>
+                    {{csrf_field()}}
+                    {{method_field('DELETE')}} 
+                    <button type="submit"> Clear Cart </button>
+                </form>
+            </div>
+
+            <div id="purchaseCart">
+                <form method="POST" action='{{url("order")}}'>
+                    {{csrf_field()}}
+                    <input type="hidden" value="{{Auth::user()->id}}" name="id" /> 
+                    <button type="submit"> Purchase </button> 
+                </form>
+            </div>
+
+        </div>
+        @else
+        <div id="empty">
+            <p> Your Cart is Empty! </p> 
+        </div>
+        @endif
+            </div>
+        </div>
+        </div>
+    </div>
+    {{-- cart model end here  --}}
     </body>
 </html>

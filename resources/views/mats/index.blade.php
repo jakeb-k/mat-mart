@@ -11,7 +11,7 @@
         <a href="mat/{{$mat->id}}">
 
             <div>
-                <h1>{{$mat->name}}</h1>
+                <h1>{{$mat->name}}</h1> <p id="addButton"> <a href='{{url("add-to-cart/$mat->id")}}'> &#65291 </a> </p>
             </div>
 
             <div>
@@ -28,13 +28,11 @@
         <div id="row">
     @else 
        <div class="matBox">
-         
+        
         <a href="mat/{{$mat->id}}">
-
             <div>
-                <h1>{{$mat->name}}</h1>
+                <h1>{{$mat->name}}</h1>  <p id="addButton"> <a href='{{url("add-to-cart/$mat->id")}}'> &#65291 </a> </p>
             </div>
-
             <div>
                 <img src="{{url('images/noImg.jpg')}}" /> 
             </div>

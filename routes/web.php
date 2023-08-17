@@ -17,11 +17,11 @@ use App\Http\Controllers\MatController;
 */
 Route::resource('mat', MatController::class); 
 Route::get('mats/{type}', [MatController::class, 'filter']); 
-Route::get('/', function () {
-      $mats = Mat::paginate(6); 
-       
-        return view('mats.index')->with('mats', $mats); 
-});
+Route::get('/', [MatController::class, 'index']);
+
+Route::get('add-to-cart/{id}', [MatController::class, 'addToCart']);
+Route::delete('remove-from-cart', [MatController::class, 'remove']);
+Route::delete('clear-cart', [MatController::class, 'clearCart']);
 
 Route::get('/dashboard', function () {
     return redirect('/')->with('mats', Mat::paginate(6));

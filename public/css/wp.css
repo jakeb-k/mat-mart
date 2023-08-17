@@ -152,6 +152,13 @@ HOME PAGE STYLING
     flex-direction: row;
     align-self: center;
 }
+.matBox a {
+    color:#F49110;
+    font-size:18px; 
+}
+.matBox a:hover {
+    color:#f49110d2; 
+}
 .matBox {
     padding:10px; 
     display:flex;
@@ -164,6 +171,7 @@ HOME PAGE STYLING
 .matBox img {
     height:100px; 
 }
+
 /*
 
 
@@ -304,4 +312,146 @@ FOOTER STYLING
 .cInfo h5 {
     margin-top: 18px; 
     margin-right:3px; 
+}
+/*
+
+
+
+
+CART MODAL PAGE STYLING
+
+
+
+
+*/
+#cartOptions {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
+    margin: 10px 0px 0px 0px;
+    padding: 10px;
+}
+
+#deleteCart button,
+#purchaseCart button {
+    width: 245px;
+    padding: 10px 20px;
+    border: none;
+    font-family: Helvetica;
+}
+
+#deleteCart button {
+    border-top-left-radius: 35px;
+    border-bottom-left-radius: 35px;
+    background-color: black;
+    color: #ffc300
+}
+
+#deleteCart button:hover {
+    background-color: rgba(0, 0, 0, 0.815);
+    color: #ffc400d9
+}
+
+#purchaseCart button {
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
+    background-color: #ffc300;
+    color: black;
+}
+
+#purchaseCart button:hover {
+    background-color: #ffc400d9;
+    color: rgba(0, 0, 0, 0.815);
+}
+
+#clearCart button {
+    font-size: 18px;
+    padding: 0 10px 0 10px;
+    color: #ffc300;
+    background-color: white;
+    border: none;
+}
+
+#clearCart button:hover {
+    color: #ffc400da;
+}
+
+.cartItem {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.cartInfo {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 100%;
+    margin-left: auto;
+    padding: 0 10px;
+}
+
+#cartImg img {
+    width: 150px;
+    height: 100px;
+    border-radius: 5%;
+    margin: 20px;
+}
+
+.cartDetails {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: Helvetica;
+    font-size: 18px;
+    margin: 5px;
+    width: 100%;
+}
+
+#totals {
+    padding: 0 10px;
+}
+
+#totals #line {
+    overflow-x: visible;
+    width: 110%;
+}
+
+#cartContainer {
+    width: 45%;
+    margin: 175px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    border: 5px solid #ffc300;
+    border-radius: 35px;
+    background-color: white;
+}
+
+#cartTitle {
+    font-family: 'Alegraya Sans', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 24px;
+    align-self: center;
+}
+
+#cartTitle em {
+    color: #ffc300;
+    font-weight: bold;
+}
+
+.addy {
+    display: flex;
+    justify-content: center;
+    font-style: italic;
+    font-size: 16px;
+    margin: auto;
+    font-family: Helvetica;
+    font-weight: 600;
+}
+
+#empty p {
+    text-align: center;
 }
