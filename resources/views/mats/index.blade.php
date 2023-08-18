@@ -52,9 +52,14 @@
             @endauth
 
             <div>
-                <img src="{{url('images/noImg.jpg')}}" /> 
+                @if($mat->image)
+                    <img src="{{ asset('storage/images/'.$dish->image) }}" />
+                @else
+                     <img src="{{url('images/noImg.jpg')}}" /> 
+                @endif
             </div>
             </a>
+
             <div>
                 <h3>{{$mat->type}} Mat  - ${{$mat->price}} </h3>
             </div>

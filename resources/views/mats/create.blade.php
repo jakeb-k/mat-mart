@@ -41,6 +41,13 @@
                     <div class="alert">{{ $message }}</div>
                 @enderror
             </div>
+            <div class="createInput">
+                <label class="form-label"> Image<span class="formReq">*</span>: </label> 
+                <input id="file" type="file" name="image">
+                @error('image')
+                    <div class="alert">{{ $message }}</div>
+                @enderror
+            </div>
             <!-- IMAGE AND TAGS (NOT READY FOR IMPLEMENTATION)
             <div class="createInput">
                 <label class="form-label"> Name<span class="formReq">*</span>: </label>

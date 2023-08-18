@@ -172,6 +172,7 @@ HOME PAGE STYLING
 }
 .matBox img {
     height:100px; 
+    width:100%; 
 }
 .matOps {
     display:flex;

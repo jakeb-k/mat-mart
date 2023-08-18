@@ -9,5 +9,5 @@ class Mat extends Model
 {
     use HasFactory;
 
-    protected $fillable=['name','price','type','description','img','tags']; 
+    protected $fillable=['name','price','type','description','image','tags']; 
 }
