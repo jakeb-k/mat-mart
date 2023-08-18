@@ -42,17 +42,35 @@
                     <div class="alert">{{ $message }}</div>
                 @enderror
             </div>
+
+            <div class="createInput2">
+                <a data-toggle="modal" data-target="#exampleModal3">
+                    <label class="form-label">Add Tags: </label>
+                </a>
+                <div id="tagCont">
+                    <span class="form-label"> Click to Remove </span> <br />
+                    @foreach($tags as $tag)
+                        <a href='{{url("mat/$mat->id/add-tag/$tag/")}}' class="tag"> {{$tag}} </a> 
+                    @endforeach
+                    
+                </div>
+                
+                    
+                @error('tags')
+                    <div class="alert">{{ $message }}</div>
+                @enderror
+            </div>
             <!-- IMAGE AND TAGS (NOT READY FOR IMPLEMENTATION)
             <div class="createInput">
                 <label class="form-label"> Name<span class="formReq">*</span>: </label>
-                <input type="text" name="name" placeholder="Enter a Name for the New Dish!">
+                <input type="text" name="name" placeholder="Enter a Name for the New mat!">
                 @error('name')
                     <div class="alert">{{ $message }}</div>
                 @enderror
             </div>
             <div class="createInput">
                 <label class="form-label"> Name<span class="formReq">*</span>: </label>
-                <input type="text" name="name" placeholder="Enter a Name for the New Dish!">
+                <input type="text" name="name" placeholder="Enter a Name for the New mat!">
                 @error('name')
                     <div class="alert">{{ $message }}</div>
                 @enderror
@@ -64,3 +82,35 @@
         </form>
     </div>
 @endsection
+
+{{-- tag modal start here  --}}
+
+    @auth
+    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3> Add Tags </h3> 
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+          
+               
+            <div class="modal-body">
+                   
+                        <div id="addTag">
+                        <form id="tagForm" method="POST" action='{{url("mat/$mat->id/add-tag/")}}'>
+                            {{csrf_field()}}
+                            {{method_field('POST')}}
+                            <input id="tag" type="text" name="tag">
+                            <div id="addTag">
+                                <button type="submit"> + </a> 
+                            </div>
+                        </form>
+                        </div>
+                </div> 
+        </div>
+        </div>
+    </div>
+    @endauth

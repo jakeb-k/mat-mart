@@ -164,7 +164,8 @@ class MatController extends Controller
     public function edit($id)
     {
         $mat = Mat::find($id);
-        return view('mats.edit')->with('mat', $mat); 
+        $tags = explode(",", $mat->tags); 
+        return view('mats.edit')->with('mat', $mat)->with('tags', $tags); 
     }
 
     /**
@@ -205,5 +206,27 @@ class MatController extends Controller
         $mat = Mat::find($id); 
         $mat->delete();
         return redirect()->back()->with('success', 'Product deleted successfully'); 
+    }
+
+    public function addTag(Request $request, $id) {
+        $mat = Mat::find($id);
+        $tags = explode(",",$mat->tags); 
+        $tags[] = $request->tag; 
+        
+        $mat->tags = implode(",",$tags);
+        $mat->save(); 
+        return redirect()->back(); 
+    }
+    public function deleteTag($id, $tag){
+        
+        $mat = Mat::find($id);
+        $tags = explode(",",$mat->tags); 
+        if(in_array($tag, $tags)){
+            $index = array_search($tag, $tags);
+            array_splice($tags, $index, 1); 
+            $mat->tags = implode(",", $tags); 
+            $mat->save();
+        } 
+        return redirect()->back(); 
     }
 }

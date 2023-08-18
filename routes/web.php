@@ -26,6 +26,10 @@ Route::delete('clear-cart', [MatController::class, 'clearCart']);
 Route::get('favs/{id}', [ProfileController::class, 'show']);
 Route::any('user/{id}/new-fav', [ProfileController::class, 'newFav']);
 
+
+Route::post('mat/{id}/add-tag', [MatController::class, 'addTag']); 
+Route::get('mat/{id}/add-tag/{tag}', [MatController::class, 'deleteTag']); 
+
 Route::get('/dashboard', function () {
     return redirect('/')->with('mats', Mat::paginate(6));
 })->middleware(['auth', 'verified'])->name('dashboard');

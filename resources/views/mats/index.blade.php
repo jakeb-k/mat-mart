@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('title')
+    Mat Mart
+@endsection
 @section('content')
 <div id="bodyContainer">
     <span class="emphasis"> Popular </span> 
