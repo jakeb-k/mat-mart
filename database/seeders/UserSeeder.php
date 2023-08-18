@@ -32,5 +32,12 @@ class UserSeeder extends Seeder
             'favs'=>'4,5,8',
             'password' => bcrypt('123456'),
         ]);
+        DB::table('users')->insert([
+            'name' => "Admin",
+            'email' => 'admin@mats.com',
+            'role'=>0,
+            'favs'=>'4,5,8',
+            'password' => bcrypt('123456'),
+        ]);
     }
 }

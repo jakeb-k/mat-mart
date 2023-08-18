@@ -31,7 +31,7 @@ class MatController extends Controller
      */
     public function create()
     {
-        //
+        return view('mats.create'); 
     }
 
     /**
@@ -42,7 +42,27 @@ class MatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required|max:255',
+            'price'=>'required|numeric|gt:0',
+            'type'=>'required',
+            //'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+        $mats = Mat::all(); 
+        $matNames = [];
+        foreach($mats as $mat) {
+            $matNames[] = $mat->name;
+        }
+        if(in_array($request->name, $matNames)== FALSE) {
+            $mat = new Mat();
+            $mat->name = $request->name; 
+            $mat->price = $request->price;
+            $mat->description = $request->description ?? ""; 
+            $mat->type = $request->type; 
+            //will need to add tags and image
+            $mat->save();
+            return redirect('/')->with('success', 'Added Successfully!'); 
+        }
     }
 
     /**
@@ -143,7 +163,8 @@ class MatController extends Controller
      */
     public function edit($id)
     {
-
+        $mat = Mat::find($id);
+        return view('mats.edit')->with('mat', $mat); 
     }
 
     /**
@@ -155,7 +176,22 @@ class MatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $this->validate($request,[
+            'name'=>'required|max:255',
+            'price'=>'required|numeric|gt:0',
+            'type'=>'required',
+            //'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+       
+        $mat = Mat::find($id); 
+        $mat->name = $request->name; 
+        $mat->price = $request->price;
+        $mat->description = $request->description ?? ""; 
+        $mat->type = $request->type; 
+        //will need to add tags and image
+        $mat->save();
+        return redirect("/")->with('success', 'Added Successfully!'); 
+        
     }
 
     /**
@@ -166,6 +202,8 @@ class MatController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $mat = Mat::find($id); 
+        $mat->delete();
+        return redirect()->back()->with('success', 'Product deleted successfully'); 
     }
 }

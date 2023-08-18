@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Mat Mart @yield('title')</title>
+        <title>@yield('title')</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -52,14 +52,20 @@
                     
                         @auth 
                         <div id="loginOut">
-                             <a href="/mat-mart/public/favs/{{Auth::user()->id}}">  
-                        <p>{{Auth::user()->name}} </p></a>
-                        <div id="logOut" >
-                            <form method="POST"action ="{{url('/logout')}}">
-                                {{csrf_field()}}
-                                <input type="submit" value="Log Out">
-                            </form>
-                        </div>
+                            <p>{{Auth::user()->name}} </p>
+                            <div>
+                                <a href='{{url("mat/create")}}'>
+                                    <button>
+                                        ADD MAT
+                                    </button>
+                                </a>
+                            </div>
+                            <div id="logOut" >
+                                <form method="POST"action ="{{url('/logout')}}">
+                                    {{csrf_field()}}
+                                    <input type="submit" value="Log Out">
+                                </form>
+                            </div>
                         </div>
                         @else
                         <div id="loginOut">
@@ -83,9 +89,13 @@
                    
 
                     <div class="menuBtn">
-                        <button>
-                            WISHLIST
-                        </button>
+                        @auth
+                        <a href="/mat-mart/public/favs/{{Auth::user()->id}}">
+                            <button>
+                                WISHLIST
+                            </button>
+                        </a>
+                        @endauth
                     </div>
 
                     <div class="menuBtn">
@@ -144,7 +154,7 @@
 
             </div>
         </div>
-
+    {{-- CART MODAL START HERE --}}
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -258,6 +268,6 @@
         </div>
         </div>
     </div>
-    {{-- cart model end here  --}}
+    {{-- CART MODAL END HERE --}}
     </body>
 </html>
