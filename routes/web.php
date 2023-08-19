@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Mat; 
 use App\Http\Controllers\MatController; 
+use App\Http\Controllers\StripeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,17 @@ Route::any('user/{id}/new-fav', [ProfileController::class, 'newFav']);
 
 Route::post('mat/{id}/add-tag', [MatController::class, 'addTag']); 
 Route::get('mat/{id}/add-tag/{tag}', [MatController::class, 'deleteTag']); 
+
+//Route::get('/payment', [StripeController::class, 'index']);
+Route::get('/payment', 'App\Http\Controllers\StripeController@index')->name('index');
+
+Route::get('/checkout', function () {
+    return redirect('/')->with('mats', Mat::paginate(6));
+});
+//Route::post('/checkout', [StripeController::class, 'checkout']);
+Route::post('/checkout', 'App\Http\Controllers\StripeController@checkout')->name('checkout');
+//Route::get('/success', [StripeController::class, 'success']);
+Route::get('/success', 'App\Http\Controllers\StripeController@success')->name('success');
 
 Route::get('/dashboard', function () {
     return redirect('/')->with('mats', Mat::paginate(6));
