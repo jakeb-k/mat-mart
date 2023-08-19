@@ -420,7 +420,12 @@ CART MODAL PAGE STYLING
     margin: 5px;
     width: 100%;
 }
-
+.quantityInput input{
+    border:1px solid #F49110;
+    border-radius:5px; 
+    display:inline;
+    width:20%; 
+}
 #totals {
     padding: 0 10px;
 }

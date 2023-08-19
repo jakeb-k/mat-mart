@@ -182,12 +182,14 @@
                 </div>
                 <div class="cartInfo"> 
                     <div class="cartDetails">
-                        <div> 
-                            <span class="quant"> 
-                                {{$details['quantity']}} 
+                        <div class="quantityInput"> 
+                            <span class="quant">
+                                <input type="number" value="{{$details['quantity']}}" min=1 step=1 name='quantity'/>
+                                 
                             </span>
                            x {{$details['name']}} 
                         </div>
+
                             <div id ="clearCart"> 
                                 <form method="POST" action='{{url("remove-from-cart")}}'>
                                     {{csrf_field()}}
@@ -249,11 +251,10 @@
                     <button type="submit"> Clear Cart </button>
                 </form>
             </div>
-
             <div id="purchaseCart">
-                <form method="POST" action='{{url("order")}}'>
+                <form action='/mat-mart/public/checkout' method="POST">
                     {{csrf_field()}}
-                    <input type="hidden" value="{{Auth::user()->id}}" name="id" /> 
+                    <input type="hidden" value="{{number_format(($total + $total*0.1),2)}}" name="price" /> 
                     <button type="submit"> Purchase </button> 
                 </form>
             </div>

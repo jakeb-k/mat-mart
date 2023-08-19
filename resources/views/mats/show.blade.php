@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('title')
+{{$mat->name}}
+@endsection
 @section('content')
 <div id="showContainer">
     <span class="emphasis"><a href="/mat-mart/public/mats/{{$mat->type}}">◄ </a></span>
@@ -30,19 +33,12 @@
                 {{$mat->description}}
             </div>
 
-            <div id="quantity">
-                <div>
-                    Quantity:
-                </div>
-                <div>
-                    <input type="number" min="0" step="1" value="1" />
-                </div>
-            </div>
-
             <div class="line"></div>
 
             <div id="addCartButton">
-                <button>Add To Cart! </button>
+                <a href='{{url("add-to-cart/$mat->id")}}'>
+                    <button>Add To Cart! </button>
+                </a>
             </div>
 
         </div>

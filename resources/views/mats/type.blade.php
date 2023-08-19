@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('title')
+{{$mats[0]->type}} mats
+@endsection
 @section('content')
 <div id="bodyContainer">
     <span class="emphasis"><span class="emphasis"><a href="/mat-mart/public/">◄ </a></span> {{$type}} </span> 
@@ -32,7 +35,7 @@
     @else 
        <div class="matBox">
          
-        <a href="/mat-mart/public/mat/{{$mat->id}}">
+        <a href="mat-mart/public/mat/{{$mat->id}}">
 
             <div>
                 <h1>{{$mat->name}}</h1>
