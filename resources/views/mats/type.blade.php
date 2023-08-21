@@ -10,7 +10,7 @@
     @if($loop->index % 3 == 2 && $loop->index > 0)
         <div class="matBox">
          
-        <a href="mat-mart/public/mat/{{$mat->id}}">
+        <a href="/mat-mart/public/mat/{{$mat->id}}">
 
             <div>
                 <h1>{{$mat->name}}</h1>
@@ -35,7 +35,7 @@
     @else 
        <div class="matBox">
          
-        <a href="mat-mart/public/mat/{{$mat->id}}">
+       <a href="/mat-mart/public/mat/{{$mat->id}}">
 
             <div>
                 <h1>{{$mat->name}}</h1>

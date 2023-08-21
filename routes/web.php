@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Mat; 
 use App\Http\Controllers\MatController; 
 use App\Http\Controllers\StripeController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,8 @@ Route::get('/checkout', function () {
 Route::post('/checkout', 'App\Http\Controllers\StripeController@checkout')->name('checkout');
 //Route::get('/success', [StripeController::class, 'success']);
 Route::get('/success', 'App\Http\Controllers\StripeController@success')->name('success');
+
+Route::post('/addReview/{id}', [ReviewController::class, 'addReview']);
 
 Route::get('/dashboard', function () {
     return redirect('/')->with('mats', Mat::paginate(6));

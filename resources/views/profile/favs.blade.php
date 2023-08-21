@@ -14,7 +14,7 @@ Favs
     @if($loop->index % 3 == 2 && $loop->index > 0)
         <div class="matBox">
          
-        <a href="mat/{{$mat->id}}">
+        <a href="/mat-mart/public/mat/{{$mat->id}}">
 
             <div>
                 <h1>{{$mat->name}}</h1> <p id="addButton"> <a href='{{url("add-to-cart/$mat->id")}}'> &#65291 </a> </p>
@@ -35,7 +35,7 @@ Favs
     @else 
        <div class="matBox">
         
-        <a href="mat/{{$mat->id}}">
+        <a href="/mat-mart/public/mat/{{$mat->id}}">
             @auth
             <div class="matOps">
                 <div>

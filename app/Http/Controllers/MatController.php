@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Mat;
 use App\Models\User;
+use App\Models\Review;
 
 
 class MatController extends Controller
@@ -67,7 +68,7 @@ class MatController extends Controller
             $mat->save();
             return redirect('/')->with('success', 'Added Successfully!'); 
         }
-    }
+    } 
 
     /**
      * Display the specified resource.
@@ -78,7 +79,17 @@ class MatController extends Controller
     public function show($id)
     {
         $mat = Mat::find($id);
-        return view('mats.show')->with('mat', $mat); 
+        $rReviews = Review::whereRaw('mat_id = ?', array($id))->get(); 
+        $reviews = []; 
+        //potentially add image, probs not tho
+        foreach($rReviews as $r) {
+            $u = User::find($r['user_id']);
+            $n = [$u['name'],$r['rating'],$r['content']];
+            $reviews[]=$n; 
+        }
+        //rating func needs to be done here
+        
+        return view('mats.show')->with('mat', $mat)->with('reviews', $reviews); 
     }
      public function addToCart($id)
     {
@@ -117,30 +128,7 @@ class MatController extends Controller
             //"photo" => $product->photo
         ];
         session()->put('cart', $cart);
-        /*foreach($cart as $details) {
-            
-            if($mat->restaurant_id != $details['restaurant_id']) {
-                session()->forget('cart'); 
-                $cart[$id] = [
-                "name" => $mat->name,
-                "quantity" => 1,
-                "price" => $mat->price,
-                ];
-                MatController::addToCart($id); 
-                return redirect()->back(); 
-            } elseif($mat->restaurant_id == $details['restaurant_id']) {
-                $cart[$id] = [
-                "name" => $mat->name,
-                "quantity" => 1,
-                "price" => $mat->price,
-                "restaurant_id" => $mat->restaurant_id,
-                "image" => $mat->image
-                ];
-                session()->put('cart', $cart);
-                return redirect()->back();
-               
-            }
-        }*/ 
+       
         return redirect()->back()->with('success', 'Product added to cart successfully!');
         
     }

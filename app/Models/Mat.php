@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mat extends Model
 {
+    function review(){
+        return $this->hasMany('App\Models\Review');
+    }
     use HasFactory;
 
     protected $fillable=['name','price','type','description','image','tags']; 

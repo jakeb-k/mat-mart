@@ -161,6 +161,7 @@
             <div class="modal-header">
             <?php $total = 0  ?>
             @if(session('cart') != '[]' and session('cart') != null)
+            @auth
                 <div id="cartTitle">
                     <em> Order For: </em> <b> {{Auth::user()->name}} </b>
                 </div>
@@ -260,6 +261,7 @@
             </div>
 
         </div>
+        @endauth 
         @else
         <div id="empty">
             <p> Your Cart is Empty! </p> 
