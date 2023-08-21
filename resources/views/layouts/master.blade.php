@@ -44,7 +44,12 @@
                     <div class="navLink">
                         <a href="{{url('mats/car')}}"> CAR </a>
                     </div>
-                    <input type="text" placeholder="Search Mats!" />
+                    <form>
+                        <div id="subInput"> 
+                            <input type="text" name="search" placeholder="Search for mats" > 
+                            <button type="submit"> <p> Find Mats! <p> </button> 
+                        </div> 
+                    </form>
                 </div>
 
                 <div id="userOptions">

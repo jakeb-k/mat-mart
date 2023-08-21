@@ -17,6 +17,12 @@ class MatController extends Controller
      */
     public function index()
     {
+        if (request('search')) {
+            $mats = Mat::where('tags', 'like', '%' . request('search') . '%')->get(); 
+            return view('mats.search')->with('mats', $mats)->with('search', request('search')); 
+        } else {
+            $mats = Mat::paginate(6);
+        }
         $mats = Mat::paginate(6); 
        
         return view('mats.index')->with('mats', $mats); 
