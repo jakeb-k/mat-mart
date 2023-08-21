@@ -13,47 +13,58 @@
         <div class="matBox">
          
         <a href="mat/{{$mat->id}}">
-            <h1> {{$mat->name}} </h1> 
-            @auth
-            @if(Auth::user()->role == 1)
-            <div class="matOps">
-                <div>
-                   <p id="addButton"> <a href='{{url("add-to-cart/$mat->id")}}'> &#65291 </a> </p>
-                </div>
-
-                <div>
+            <div class="productLinks">
+                <h1> {{$mat->name}} </h1> 
+                @auth
+                    @if(Auth::user()->role == 1)
+                    <?php $check = explode(",",Auth::user()->favs); ?>
+                    <div class="matOps">
+                    @if(in_array(strval($mat->id), $check, true)) 
                     <span class="favButton">
-                        <form id="favForm2" method="POST" action="/mat-mart/public/user/{{Auth::user()->id}}/new-fav" enctype="multipart/form-data">
+                            <form class="favForm2" method="POST" action="/mat-mart/public/user/{{Auth::user()->id}}/new-fav" enctype="multipart/form-data">
                             {{csrf_field()}}
                             {{method_field('POST')}}
                             <input name="mat_id" type="hidden" value="{{$mat->id}}" /> 
                             <button type="submit">
                                 <i class="fa-regular fa-heart"></i>
                             </button>
-                        </form>
-                    </span>
-                </div>
-            </div>
-            @elseif(Auth::user()->role == 0)
-                    <div id="matOps">
-                        <div id="deletemat">
-                            <form method="POST" action='{{url("mat/$mat->id")}}'>
-                                {{csrf_field()}}
-                                {{method_field('DELETE')}}
-                                <button type="submit" value="">Delete</button>
                             </form>
-                        </div> 
-                        <span id="editmat">
-                            <a href='{{url("mat/$mat->id/edit")}}'> <button> Edit  </button></a>  
                         </span>
+                    @else 
+                        <span class="favButton">
+                            <form class="favForm" method="POST" action="/mat-mart/public/user/{{Auth::user()->id}}/new-fav" enctype="multipart/form-data">
+                            {{csrf_field()}}
+                            {{method_field('POST')}}
+                            <input name="mat_id" type="hidden" value="{{$mat->id}}" /> 
+                            <button type="submit">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            </form>
+                        </span>
+                    @endif
+            
                     </div>
-          
-            @endif
-            @endauth
+                    @elseif(Auth::user()->role == 0)
+                        <span class="favButton">
+                            <form class="favForm" method="POST" action='{{url("mat/$mat->id")}}' enctype="multipart/form-data">
+                            {{csrf_field()}}
+                            {{method_field('DELETE')}}
+                            <input name="mat_id" type="hidden" value="{{$mat->id}}" /> 
+                            <button type="submit">
+                                <i class="fa-regular fa-x"></i>
+                            </button>
+                            </form>
+                        </span>
+                
+                    @endif
+                @endauth
+            </div>
+            
+            
 
             <div>
                 @if($mat->image)
-                    <img src="{{ asset('storage/images/'.$dish->image) }}" />
+                    <img src="{{ asset('storage/images/'.$mat->image) }}" />
                 @else
                      <img src="{{url('images/noImg.jpg')}}" /> 
                 @endif
@@ -73,43 +84,52 @@
        <div class="matBox">
         
         <a href="mat/{{$mat->id}}">
+            <div class="productLinks">
             <h1>{{$mat->name}}</h1>  
-            @auth
-            @if(Auth::user()->role == 1)
-            <div class="matOps">
-                <div>
-                   <p id="addButton"> <a href='{{url("add-to-cart/$mat->id")}}'> &#65291 </a> </p>
-                </div>
-
-                <div>
+             @auth
+                    @if(Auth::user()->role == 1)
+                    <?php $check = explode(",",Auth::user()->favs); ?>
+                    <div class="matOps">
+                    @if(in_array(strval($mat->id), $check, true)) 
                     <span class="favButton">
-                        <form id="favForm2" method="POST" action="/mat-mart/public/user/{{Auth::user()->id}}/new-fav" enctype="multipart/form-data">
+                            <form class="favForm2" method="POST" action="/mat-mart/public/user/{{Auth::user()->id}}/new-fav" enctype="multipart/form-data">
                             {{csrf_field()}}
                             {{method_field('POST')}}
                             <input name="mat_id" type="hidden" value="{{$mat->id}}" /> 
                             <button type="submit">
                                 <i class="fa-regular fa-heart"></i>
                             </button>
-                        </form>
-                    </span>
-                </div>
-            </div>
-             @elseif(Auth::user()->role == 0)
-                    <div id="matOps">
-                        <div id="deletemat">
-                            <form method="POST" action='{{url("mat/$mat->id")}}'>
-                                {{csrf_field()}}
-                                {{method_field('DELETE')}}
-                                <button type="submit" value="">Delete</button>
                             </form>
-                        </div> 
-                        <span id="editmat">
-                            <a href='{{url("mat/$mat->id/edit")}}'> <button> Edit  </button></a>  
                         </span>
+                    @else 
+                        <span class="favButton">
+                            <form class="favForm" method="POST" action="/mat-mart/public/user/{{Auth::user()->id}}/new-fav" enctype="multipart/form-data">
+                            {{csrf_field()}}
+                            {{method_field('POST')}}
+                            <input name="mat_id" type="hidden" value="{{$mat->id}}" /> 
+                            <button type="submit">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            </form>
+                        </span>
+                    @endif
+            
                     </div>
-          
-            @endif
-            @endauth
+                    @elseif(Auth::user()->role == 0)
+                        <span class="favButton">
+                            <form class="favForm" method="POST" action='{{url("mat/$mat->id")}}' enctype="multipart/form-data">
+                            {{csrf_field()}}
+                            {{method_field('DELETE')}}
+                            <input name="mat_id" type="hidden" value="{{$mat->id}}" /> 
+                            <button type="submit">
+                                <i class="fa-regular fa-x"></i>
+                            </button>
+                            </form>
+                        </span>
+                
+                    @endif
+                @endauth
+            </div>
 
             <div>
                 <img src="{{url('images/noImg.jpg')}}" /> 

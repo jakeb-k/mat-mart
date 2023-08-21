@@ -172,7 +172,7 @@ HOME PAGE STYLING
 }
 .matBox img {
     height:100px; 
-    width:100%; 
+    width:auto; 
 }
 .matOps {
     display:flex;
@@ -180,7 +180,31 @@ HOME PAGE STYLING
     justify-content: center;
     width:100%;  
 }
-
+.productLinks {
+    display:flex;
+    flex-direction:row; 
+}
+.productLinks button {
+    margin-left:100%; 
+    color:#F49110;
+    border:none;
+    background:none; 
+    font-size:28px;
+}
+.favForm button i:hover {
+    transition: 0.15s ease-in-out;
+    color: #ffc300;
+}
+.favForm2 button i:hover {
+    transition: 0.15s ease-in-out;
+    color: rgb(23, 23, 23);
+}
+.favForm button {
+    color: rgb(23, 23, 23);
+}
+.favForm2 button {
+    color:#F49110;
+}
 /*
 
 
