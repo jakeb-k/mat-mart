@@ -448,7 +448,7 @@ CART MODAL PAGE STYLING
     border-top-left-radius: 35px;
     border-bottom-left-radius: 35px;
     background-color: black;
-    color: #ffc300
+    color: #F49110
 }
 
 #deleteCart button:hover {
@@ -459,7 +459,7 @@ CART MODAL PAGE STYLING
 #purchaseCart button {
     border-top-right-radius: 35px;
     border-bottom-right-radius: 35px;
-    background-color: #ffc300;
+    background-color: #F49110;
     color: black;
 }
 
@@ -471,7 +471,7 @@ CART MODAL PAGE STYLING
 #clearCart button {
     font-size: 18px;
     padding: 0 10px 0 10px;
-    color: #ffc300;
+    color: #F49110;
     background-color: white;
     border: none;
 }
@@ -533,7 +533,7 @@ CART MODAL PAGE STYLING
     margin: 175px auto 0 auto;
     display: flex;
     flex-direction: column;
-    border: 5px solid #ffc300;
+    border: 5px solid #F49110;
     border-radius: 35px;
     background-color: white;
 }
@@ -545,7 +545,7 @@ CART MODAL PAGE STYLING
 }
 
 #cartTitle em {
-    color: #ffc300;
+    color: #F49110;
     font-weight: bold;
 }
 
@@ -561,4 +561,110 @@ CART MODAL PAGE STYLING
 
 #empty p {
     text-align: center;
+}
+/*
+
+
+
+
+ORDER STYLING
+
+
+
+
+
+
+*/
+.orderTick {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    font-size: x-large;
+    top: -60px;
+    margin-bottom: -40px;
+    width: min-content;
+}
+
+.orderTick a {
+    padding: 0 10px 0 10px;
+    width: 100%;
+    color: #F49110;
+    font-size: 32px;
+}
+
+.orderTick a:hover {
+    background-color: #F49110;
+    color: white;
+    border-radius: 100%;
+}
+
+#ordContainer {
+    margin: 50px auto 0 auto;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.orderBox {
+    width: 75%;
+    border: 5px solid #F49110;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    background-color: white;
+    border-radius: 35px;
+}
+
+.rInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
+    margin-top: 5px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.line {
+    margin: auto;
+    width: 97%;
+    height: 1px;
+    background-color: #F49110;
+}
+
+#background {
+    background-color: rgb(209, 207, 207);
+    height: 2000px;
+    width: 100%;
+    position: fixed;
+    z-index: -1;
+    margin-top: -250px;
+}
+
+#ordContainer img {
+    align-self: center;
+    margin-left: 80px;
+    margin-bottom: -50px;
+    margin-top: -20px;
+    display: inline;
+}
+
+.quant {
+    background-color: #F49110;
+    align-self: center;
+    border-radius: 5px;
+    padding: 0px 0px 0px 5px;
+    margin-right: 10px;
+    margin-left: 6px;
+}
+
+.time {
+    font-size: small;
+    align-self: center;
+}
+
+#pageBar {
+    margin-left: 45%;
+    margin-top: 25px;
 }

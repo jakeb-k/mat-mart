@@ -35,11 +35,22 @@
 
             <div class="line"></div>
             @auth
+            @if(Auth::user()->role == 0)
+                    <div id="addCartButton">
+                        <a href='{{url("mat/$mat->id/edit")}}'> 
+                            <button>
+                                 Edit  
+                            </button>
+                        </a>  
+                    </div>
+            @elseif(Auth::user()->role == 1)
             <div id="addCartButton">
                 <a href='{{url("add-to-cart/$mat->id")}}'>
                     <button>Add To Cart! </button>
                 </a>
             </div>
+            @endif
+
             @else
              <div id="addCartButton">
                 <a href='{{url("login")}}'>
@@ -116,9 +127,9 @@
             </form>
         </div>
         @else
-         
-        <p><a href='{{url("login")}}'>Sign in</a> to leave reviews </p> 
+        <p><a href='{{url("login")}}'>Sign in</a> to leave reviews </p>
         @endauth
+         
     </div>
 
 

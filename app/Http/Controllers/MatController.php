@@ -105,6 +105,7 @@ class MatController extends Controller
         if(!$cart) {
             $cart = [
                     $id => [
+                        "id"=> $mat->id, 
                         "name" => $mat->name,
                         "quantity" => 1,
                         "price" => $mat->price
@@ -122,6 +123,7 @@ class MatController extends Controller
       
         // if item not exist in cart then add to cart with quantity = 1
         $cart[$id] = [
+            "id"=> $mat->id,
             "name" => $mat->name,
             "quantity" => 1,
             "price" => $mat->price

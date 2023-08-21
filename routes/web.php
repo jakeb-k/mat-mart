@@ -6,6 +6,7 @@ use App\Models\Mat;
 use App\Http\Controllers\MatController; 
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,7 @@ use App\Http\Controllers\ReviewController;
 |
 */
 Route::resource('mat', MatController::class); 
+Route::resource('orders', OrderController::class);
 Route::get('mats/{type}', [MatController::class, 'filter']); 
 Route::get('/', [MatController::class, 'index']);
 
@@ -32,8 +34,7 @@ Route::any('user/{id}/new-fav', [ProfileController::class, 'newFav']);
 Route::post('mat/{id}/add-tag', [MatController::class, 'addTag']); 
 Route::get('mat/{id}/add-tag/{tag}', [MatController::class, 'deleteTag']); 
 
-//Route::get('/payment', [StripeController::class, 'index']);
-Route::get('/payment', 'App\Http\Controllers\StripeController@index')->name('index');
+
 
 Route::get('/checkout', function () {
     return redirect('/')->with('mats', Mat::paginate(6));
@@ -44,6 +45,7 @@ Route::post('/checkout', 'App\Http\Controllers\StripeController@checkout')->name
 Route::get('/success', 'App\Http\Controllers\StripeController@success')->name('success');
 
 Route::post('/addReview/{id}', [ReviewController::class, 'addReview']);
+
 
 Route::get('/dashboard', function () {
     return redirect('/')->with('mats', Mat::paginate(6));

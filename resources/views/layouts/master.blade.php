@@ -53,6 +53,7 @@
                         @auth 
                         <div id="loginOut">
                             <p>{{Auth::user()->name}} </p>
+                            @if(Auth::user()->role == 0)
                             <div>
                                 <a href='{{url("mat/create")}}'>
                                     <button>
@@ -60,6 +61,7 @@
                                     </button>
                                 </a>
                             </div>
+                            @endif
                             <div id="logOut" >
                                 <form method="POST"action ="{{url('/logout')}}">
                                     {{csrf_field()}}
@@ -90,11 +92,19 @@
 
                     <div class="menuBtn">
                         @auth
+                        @if(Auth::user()->role == 1)
                         <a href="/mat-mart/public/favs/{{Auth::user()->id}}">
                             <button>
                                 WISHLIST
                             </button>
                         </a>
+                        @elseif(Auth::user()->role == 0)
+                        <a href="/mat-mart/public/orders">
+                            <button>
+                               ORDERS
+                            </button>
+                        </a>
+                        @endif
                         @endauth
                     </div>
 
