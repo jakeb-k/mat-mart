@@ -19,7 +19,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <link href="{{asset('/fontawesome-free-6.4.0-web/css/fontawesome.css')}}" rel="stylesheet">
         <link href="{{asset('/fontawesome-free-6.4.0-web/css/solid.css')}}" rel="stylesheet">
-    
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
      
       
     </head>
@@ -48,11 +48,14 @@
             <!-- THIS WILL BE DROPDOWN MENU -->
    
                 <div class="menuItem">
-                    <select name="type">
-                        <option><a href="{{url('mats/yoga')}}">Fitness</a></option>
-                        <option><a href="{{url('mats/car')}}">Utility</a></option>
-                        <option><a href="{{url('mats/door')}}">Household</a></option>
-                    </select>
+                    <div class="dropdown">
+                        <button class="dropbtn">Categories</button>
+                        <div class="dropdown-content">
+                            <a href="{{url('mats/yoga')}}">Fitness</a>
+                            <a href="{{url('mats/car')}}">Utility</a>
+                            <a href="{{url('mats/door')}}">Household</a>
+                        </div>
+                    </div> 
                 </div>
 
                 <div class="menuItem">

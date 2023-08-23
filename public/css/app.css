@@ -21,6 +21,61 @@ MENU BAR STYLING
 
 
 */
+ /* Dropdown Button */
+ .dropbtn {
+     background-color: white;
+     color: #F49110;
+     padding: 43px 0px;
+     font-size: 26px;
+     border: none;
+ }
+
+ /* The container <div> - needed to position the dropdown content */
+ .dropdown {
+    text-align: center;
+     position: relative;
+     display: inline-block;
+     
+    font-family: 'League Gothic', Arial, Helvetica, sans-serif;
+ }
+
+ /* Dropdown Content (Hidden by Default) */
+ .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #F49110;
+    width:100%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+ }
+
+ /* Links inside the dropdown */
+ .dropdown-content a {
+     color: white;
+     padding: 12px 16px;
+     text-decoration: none;
+     display: block;
+     font-size: 22px;
+ }
+
+ /* Change color of dropdown links on hover */
+ .dropdown-content a:hover {
+     background-color: #7cadc8;
+ }
+
+ /* Show the dropdown menu on hover */
+ .dropdown:hover .dropdown-content {
+    display: block;
+    background:#F49110; 
+ }
+
+ /* Change the background color of the dropdown button when the dropdown content is shown */
+ .dropdown:hover .dropbtn {
+    width:100%; 
+    background-color: #F49110;
+    color:white; 
+ }
+
 #container {
     display:flex;
     flex-direction:column;
@@ -44,7 +99,8 @@ MENU BAR STYLING
 }
 #accBar * {
     color: #F49110;
-    font-size: 24px;
+    font-size: 18px;
+    font-family: 'League Gothic', Arial, Helvetica, sans-serif;
 }
 #menuBar {
     background:white; 
@@ -59,12 +115,10 @@ MENU BAR STYLING
 }
 .menuItem {
     border-right:2px solid #F49110;
-   
     width:90%; 
     display:flex;
     flex-direction:column; 
     justify-content: center;
-    padding:10px; 
     text-align:center; 
 }
 /*
@@ -89,11 +143,20 @@ HOME PAGE BODY STYLING
     align-self:center; 
     margin:20px; 
     width:40%;
-    height:250px; 
+    height:253px; 
     background:rgb(40,40,40);
-    border-radius:25px;
+    border-radius:28px;
     border: 3px solid #7cadc8;
+    
 }
+
+.contentBox img {
+    height:247px;
+    width:100%; 
+    border-radius:25px; 
+}
+
+
 #shopNow {
     align-self: center;
     width:20%;
