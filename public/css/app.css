@@ -1,0 +1,116 @@
+/*
+
+
+GENERAL STYLING
+
+
+*/
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
+@import url('https: //fonts.googleapis.com/css?family=Rubik'); 
+html {
+    background-color: #F49110;
+    
+}
+/*
+
+
+
+MENU BAR STYLING
+
+
+
+
+*/
+#container {
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    background:none; 
+    background-color: #F49110;
+    font-family: 'League Gothic', Arial, Helvetica, sans-serif;
+}
+#accBar {
+    display:flex;
+    flex-direction:row; 
+    justify-content: space-between;
+    background:rgb(40, 40, 40); 
+   
+}
+#devInfo, #accLinks {
+    width:45%;
+    display:flex;
+    flex-direction:row; 
+    justify-content: space-evenly;
+}
+#accBar * {
+    color: #F49110;
+    font-size: 24px;
+}
+#menuBar {
+    background:white; 
+    align-self:center;
+    width:80%;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    font-family: 'Rubik', Arial, Helvetica, sans-serif;
+    box-shadow: 0 0 30px rgb(40,40,40);
+    height: 125px;
+}
+.menuItem {
+    border-right:2px solid #F49110;
+   
+    width:90%; 
+    display:flex;
+    flex-direction:column; 
+    justify-content: center;
+    padding:10px; 
+    text-align:center; 
+}
+/*
+
+
+
+HOME PAGE BODY STYLING
+
+
+
+
+
+*/
+#bodyContainer {
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    background:#F49110; 
+    justify-content:center;
+}
+.contentBox {
+    align-self:center; 
+    margin:20px; 
+    width:40%;
+    height:250px; 
+    background:rgb(40,40,40);
+    border-radius:25px;
+    border: 3px solid #7cadc8;
+}
+#shopNow {
+    align-self: center;
+    width:20%;
+    height:75px;
+    background: rgb(40, 40, 40);
+    border-radius: 25px;
+    border: 3px solid #7cadc8;
+    font-family:'League Gothic', Arial, Helvetica, sans-serif; 
+    font-size:46px; 
+    display:flex;
+    flex-direction:row; 
+    justify-content: space-around;
+    color: #7cadc8;
+}
+.contentBox p {
+    margin:45px 30px 30px 2px; 
+    color:#7cadc8;
+    font-size:30px; 
+    font-family:'League Gothic', Arial, Helvetica, sans-serif; 
+}

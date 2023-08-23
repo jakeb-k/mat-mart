@@ -8,7 +8,7 @@
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
-        <link rel="stylesheet" href="{{asset('css/wp.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/app.css')}}" type="text/css">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
@@ -24,6 +24,59 @@
       
     </head>
     <body>
+    <div id="container">
+
+        <div id="accBar">
+            <div id="devInfo">
+                <h4>jk_web_dev@outlook.com</h4>
+                <h4>+61 12345678</h4>
+            </div>
+            <div id="accLinks">
+                <h3><a href="">My Account</a></h3>
+                <h3><a href="">Wishlist</a></h3>
+                <h3><a href="">Checkout</a></h3>
+            </div>
+        </div>
+
+        <div id="menuBar">
+            
+            <div class="menuItem">
+                <a href="{{url('/')}}">
+                    <img src="{{url('images/matMartLogo.png')}}" /> 
+                </a> 
+            </div>
+            <!-- THIS WILL BE DROPDOWN MENU -->
+   
+                <div class="menuItem">
+                    <select name="type">
+                        <option><a href="{{url('mats/yoga')}}">Fitness</a></option>
+                        <option><a href="{{url('mats/car')}}">Utility</a></option>
+                        <option><a href="{{url('mats/door')}}">Household</a></option>
+                    </select>
+                </div>
+
+                <div class="menuItem">
+                    <h2><a href="#">Deals</a></h2>
+                </div>
+
+                <div class="menuItem">
+                    <a href="{{ route('login') }}">
+                        <button>Login</button>
+                    </a>
+                </div>
+
+                <div class="menuItem">
+                    <form>
+                        <input type="text" name="search" placeholder="Search Mats!" > 
+                        <button type="submit"> Find Mats! </button> 
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+        <!--
         <div id="container">
 
             <div id="menuBar">
@@ -124,8 +177,9 @@
                 </div>
 
             </div>
+-->
             @yield('content') 
-
+            <!--
             <div id="footer">
 
                 <div class="fSection">
@@ -169,6 +223,9 @@
 
             </div>
         </div>
+-->
+
+        
     {{-- CART MODAL START HERE --}}
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
