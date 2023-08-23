@@ -18,28 +18,60 @@
             <img class="mySlides" src="{{url('images/yoga2.png')}}">
             <img class="mySlides" src="{{url('images/yoga3.png')}}">
         </div>
+        <a href="{{url('mats/yoga')}}">
+        <div class="overlay">
+            <div class="text">Browse Fitness Mats</div>
+        </div></a>
         
     </div>
     <div class="contentBox">
+        <div class="slideBox"> 
+            <img class="mySlides2" src="{{url('images/noImg.jpg')}}">
+            <img class="mySlides2" src="{{url('images/noImg.jpg')}}">
+            <img class="mySlides2" src="{{url('images/noImg.jpg')}}">
+        </div>
+        <a href="{{url('mats/utility')}}">
+        <div class="overlay">
+            <div class="text">Browse Utility Mats</div>
+        </div></a>
+        
     </div>
 </div>
 <script>
 
-    var slideIndex = 0;
-    carousel();
+    var slideIndex1 = 0;
+    carousel1();
 
-    function carousel() {
+    function carousel1() {
      
     var x = document.getElementsByClassName("mySlides");
     for (let i = 0; i < x.length; i++) {
         x[i].style.display = "none";
     }
     
-    slideIndex++;
+    slideIndex1++;
     
-    if (slideIndex > x.length) {slideIndex = 1}
+    if (slideIndex1 > x.length) {slideIndex1 = 1}
     
-    x[slideIndex-1].style.display = "block";
+    x[slideIndex1-1].style.display = "block";
+    setTimeout(carousel1, 2000); // Change image every 4 seconds
+    
+    }
+    var slideIndex2 = 0;
+    carousel();
+
+    function carousel() {
+     
+    var x = document.getElementsByClassName("mySlides2");
+    for (let i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    
+    slideIndex2++;
+    
+    if (slideIndex2 > x.length) {slideIndex2 = 1}
+    
+    x[slideIndex2-1].style.display = "block";
     setTimeout(carousel, 2000); // Change image every 4 seconds
     
     }

@@ -112,14 +112,76 @@ MENU BAR STYLING
     font-family: 'Rubik', Arial, Helvetica, sans-serif;
     box-shadow: 0 0 30px rgb(40,40,40);
     height: 125px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
 }
-.menuItem {
-    border-right:2px solid #F49110;
+.menuItem, .menuItem2 {
+    
     width:90%; 
     display:flex;
     flex-direction:column; 
     justify-content: center;
     text-align:center; 
+}
+.menuItem {
+    border-right: 2px solid #F49110;
+}
+.menuItem #login button {
+    width:90%;
+    padding:10px;
+    font-size:24px; 
+    font-family:'League Gothic', Arial, Helvetica, sans-serif; 
+    color:#F49110;
+    border-radius:25px; 
+    border:3px solid #F49110; 
+    background: none;
+    transition:0.1s ease-in-out; 
+}
+.menuItem #login button:hover {
+    color:white; 
+    background-color: #F49110;
+}
+.menuItem2 form {
+    width:90%; 
+    display:flex;
+    flex-direction:row; 
+    align-self: center;
+} 
+.menuItem2 input {
+    width:80%;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-right: none;
+    border: 3px solid #F49110; 
+    padding:15px; 
+    font-family: 'League Gothic', Arial, Helvetica, sans-serif;
+}
+.menuItem2 button {
+    width: 30%;
+    border: 3px solid #F49110;
+    border-left:none;
+    background:none; 
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    font-family: 'League Gothic', Arial, Helvetica, sans-serif;
+    color:#F49110;
+}
+.menuItem2 button:hover {
+    
+    color:white; 
+    background:#F49110;
+    transition: 0.1s ease-in-out;
+}
+.menuItem2 input:focus { 
+    outline:1px solid #bc700c;
+}
+.menuItem h2 {
+   color:#F49110; 
+    font-family: 'League Gothic', Arial, Helvetica, sans-serif;
+    font-size:24px; 
+}
+.menuItem h2 a:hover {
+    color:rgba(244, 145, 16, 0.619); 
 }
 /*
 
@@ -147,16 +209,47 @@ HOME PAGE BODY STYLING
     background:rgb(40,40,40);
     border-radius:28px;
     border: 3px solid #7cadc8;
-    
+    position:relative; 
 }
 
 .contentBox img {
     height:247px;
     width:100%; 
     border-radius:25px; 
+    display:block; 
+}
+/* OVER LAY CSS */
+.overlay {
+    border-radius:25px; 
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(64, 64, 64, 0.606);
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
 }
 
+.contentBox:hover .overlay {
+    bottom: 0;
+    height: 100%;
+}
 
+.text {
+    font-family: 'League Gothic', Arial, Helvetica, sans-serif;
+    color: #7cadc8;
+    font-size: 32px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+/*OVERLAY CSS END */ 
 #shopNow {
     align-self: center;
     width:20%;

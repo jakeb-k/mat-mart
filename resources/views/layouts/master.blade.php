@@ -63,12 +63,12 @@
                 </div>
 
                 <div class="menuItem">
-                    <a href="{{ route('login') }}">
+                    <a id="login" href="{{ route('login') }}">
                         <button>Login</button>
                     </a>
                 </div>
 
-                <div class="menuItem">
+                <div class="menuItem2">
                     <form>
                         <input type="text" name="search" placeholder="Search Mats!" > 
                         <button type="submit"> Find Mats! </button> 
