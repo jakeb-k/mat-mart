@@ -4,15 +4,15 @@
 @endsection
 @section('content')
 <div id="bodyContainer">
-    <span class="emphasis"><span class="emphasis"><a href="/mat-mart/public/">◄ </a></span> {{$type}} </span> 
+   <span class="emphasis"><a href="/mat-mart/public/">◄ </a> {{$type}} </span> 
     <div id="row">
    @foreach($mats as $mat)
     @if($loop->index % 3 == 2 && $loop->index > 0)
         <div class="matBox">
          
-        <a href="{{url('mat/$mat->id')}}">
+        <a href='{{url("mat/$mat->id")}}'>
             <div class="productLinks">
-                <h1> {{$mat->name}} </h1> 
+                
                 @auth
                     @if(Auth::user()->role == 1)
                     <?php $check = explode(",",Auth::user()->favs); ?>
@@ -67,13 +67,8 @@
                      <img src="{{url('images/noImg.jpg')}}" /> 
                 @endif
             </div>
+                <h1> {{$mat->name}} </h1> 
             </a>
-
-            <div>
-                <h3>{{$mat->type}} Mat  - ${{$mat->price}} </h3>
-            </div>
-           
-        
         </div>
         
         </div>
@@ -83,7 +78,7 @@
         
         <a href='{{url("mat/$mat->id")}}'>
             <div class="productLinks">
-            <h1>{{$mat->name}}</h1>  
+           
              @auth
                     @if(Auth::user()->role == 1)
                     <?php $check = explode(",",Auth::user()->favs); ?>
@@ -132,16 +127,15 @@
             <div>
                 <img src="{{url('images/noImg.jpg')}}" /> 
             </div>
+            <h1>{{$mat->name}}</h1>  
             </a>
-            <div>
-                <h3>{{$mat->type}} Mat  - ${{$mat->price}} </h3>
-            </div>
+            
         
         </div>
     
     @endif
     @endforeach
     </div>
-
+    
 </div>
 @endsection

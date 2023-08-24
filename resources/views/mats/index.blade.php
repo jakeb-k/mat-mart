@@ -6,7 +6,7 @@
 
 <div id="bodyContainer">
     <div class="contentBox">
-        <p> Welcome to <i>Mat Mart</i> , where we don't just believe that flooring should be fabulous - we make it! Our quality selection of mats will blow your mind and cushion your feet, all in one swift move.</p>
+        <p> Welcome to <i>Mat Mart</i> , where we don't just believe that flooring should be fabulous - we make it! Our quality selection of mats will blow your mind and cushion your feet, all in one swift step.</p>
     </div>
     <div id="shopNow">
         <p> Shop Now! </p>
@@ -30,16 +30,18 @@
             <img class="mySlides2" src="{{url('images/noImg.jpg')}}">
             <img class="mySlides2" src="{{url('images/noImg.jpg')}}">
         </div>
-        <a href="{{url('mats/utility')}}">
+        <a href="{{url('mats/car')}}">
         <div class="overlay">
             <div class="text">Browse Utility Mats</div>
         </div></a>
         
     </div>
 </div>
-<script>
 
+<script>
     var slideIndex1 = 0;
+    var slideIndex2 = 0;
+    carousel();
     carousel1();
 
     function carousel1() {
@@ -57,9 +59,7 @@
     setTimeout(carousel1, 2000); // Change image every 4 seconds
     
     }
-    var slideIndex2 = 0;
-    carousel();
-
+    
     function carousel() {
      
     var x = document.getElementsByClassName("mySlides2");

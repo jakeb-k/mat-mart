@@ -9,6 +9,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link rel="stylesheet" href="{{asset('css/app.css')}}" type="text/css">
+        
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
@@ -63,9 +64,18 @@
                 </div>
 
                 <div class="menuItem">
+                    @guest
                     <a id="login" href="{{ route('login') }}">
                         <button>Login</button>
                     </a>
+                    @else
+                     
+                                <form id="login" method="POST"action ="{{url('/logout')}}">
+                                    {{csrf_field()}}
+                                    <button type="submit">Logout </button>
+                                </form>
+                            
+                    @endguest
                 </div>
 
                 <div class="menuItem2">
@@ -182,7 +192,7 @@
             </div>
 -->
             @yield('content') 
-            <!--
+           
             <div id="footer">
 
                 <div class="fSection">
@@ -211,22 +221,22 @@
                     <h3>CONTACT</h3>
 
                     <div class="cInfo">
-                        <span><h5>Email:</h5><p>place@holder.com</p></span>
+                        <p>Email: place@holder.com</p>
                     </div>
 
                     <div class="cInfo">
-                        <span><h5>Address:</h5><p>123 Mat Place</p></span>
+                        <p>Address: 123 Mat Place</p>
                     </div>
-
                     <div class="cInfo">
-                        <span><h5>Number:</h5><p>+61 12345678</p></span>
+                        <p>Number: +61 12345678</p>
                     </div>
                   
                 </div>
 
             </div>
         </div>
--->
+
+</body>
 
         
     {{-- CART MODAL START HERE --}}

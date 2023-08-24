@@ -11,6 +11,11 @@ html {
     background-color: #F49110;
     
 }
+
+.emphasis a:hover {
+    text-decoration:none;
+    color:#7cadc8; 
+}
 /*
 
 
@@ -267,6 +272,179 @@ HOME PAGE BODY STYLING
 .contentBox p {
     margin:45px 30px 30px 2px; 
     color:#7cadc8;
-    font-size:30px; 
+    font-size:26px; 
     font-family:'League Gothic', Arial, Helvetica, sans-serif; 
+}
+/*
+
+
+
+PRODUCT PAGE STYLING
+
+
+
+
+*/
+#bodyContainer {
+    padding:0px 10%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+}
+
+#row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+}
+.matBox h1{
+    font-family: 'League Gothic', Arial, Helvetica, sans-serif;
+}
+.matBox a {
+    
+    font-size: 18px;
+    font-family: 'League Gothic', Arial, Helvetica, sans-serif; 
+}
+
+.matBox a:hover {
+    color:#bc700c; 
+}
+
+.matBox {
+    font-family: 'League Gothic', Arial, Helvetica, sans-serif;
+    background:rgb(64, 64, 64);
+    box-shadow: 0 0 10px black; 
+    padding-bottom:40px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2.5% 2.5% 2.5% 0;
+    width: 30%;
+    height:325px;  
+    color:#F49110; 
+    text-align:center; 
+}
+
+.matBox img {
+    height: 250px;
+    width: 100%;
+}
+
+.matOps {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.productLinks {
+    display: flex;
+    flex-direction: row;
+}
+
+.productLinks button {
+    margin-left: 100%;
+    color: #F49110;
+    border: none;
+    background: none;
+    font-size: 28px;
+}
+
+.favForm button i:hover {
+    transition: 0.15s ease-in-out;
+    color: #F49110;
+}
+
+.favForm2 button i:hover {
+    transition: 0.15s ease-in-out;
+    color: rgb(23, 23, 23);
+}
+
+.favForm button {
+    color: rgb(23, 23, 23);
+}
+
+.favForm2 button {
+    color: #F49110;
+}
+#bodyContainer a {
+    font-family: 'League Gothic', Arial, Helvetica, sans-serif;
+    font-size:32px; 
+}
+/*
+
+
+
+
+FOOTER STYLING
+
+
+
+
+*/
+#footer {
+    background: rgb(40, 40, 40);
+    border-top: 2px solid #7cadc8;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color:#7cadc8; 
+    font-family: 'Rubik', Arial, Helvetica, sans-serif; 
+}
+
+.fSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid #7cadc8;
+    width: 33%;
+    padding: 0px 30px;
+}
+
+.fSection ul {
+    list-style-type: none;
+    margin-left: -35px;
+    margin-top: 10px;
+    font-size: x-large;
+
+}
+
+.fSection li {
+    margin-top: 20px;
+
+}
+
+.fSection a {
+    color: #7cadc8;
+}
+
+.fSection a:active {
+    color: #7cadc8;
+}
+
+.fSection a:hover {
+    color: #6892a8;
+}
+
+#contact {
+    display: flex;
+    flex-direction: column;
+}
+
+.cInfo span {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+}
+
+.cInfo {
+    margin-top: 10px;
+}
+
+.cInfo h5 {
+
+    margin-right: 3px;
 }
