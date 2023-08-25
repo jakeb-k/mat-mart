@@ -17,7 +17,7 @@
                 <h1>{{$mat->name}}</h1>
             </div>
             <div class="ratingsAvg">
-                5 ★ (100)
+                {{$avg}} ★  ({{count($reviews)}})
             </div>
 
             <div id="subtitles">
@@ -82,11 +82,9 @@
         </div>
         @auth
         <div id="reviewInput">
+            <p>Leave a Review</p>
             <form method="POST" action='{{url("addReview/$mat->id")}}'>
                 {{csrf_field()}}
-                <div>
-                    <input type="text" name="content" placeholder="Enter your thoughts on the product" />
-                </div>
                 
                 <!--RATING INPUT -->
                 <div>
@@ -124,6 +122,9 @@
                     </fieldset>
                 </div>
                 <div>
+                    <input type="text" name="content" placeholder="Enter your thoughts on the product" />
+                </div>
+                <div class="createSubmit3">
                     <button type="submit">
                         Submit Review 
                     </button>

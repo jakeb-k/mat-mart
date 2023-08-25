@@ -94,15 +94,18 @@ class MatController extends Controller
         $mat = Mat::find($id);
         $rReviews = Review::whereRaw('mat_id = ?', array($id))->get(); 
         $reviews = []; 
+        $totAvg = 0; 
         //potentially add image, probs not tho
         foreach($rReviews as $r) {
             $u = User::find($r['user_id']);
             $n = [$u['name'],$r['rating'],$r['content']];
+            $totAvg += $r['rating']; 
             $reviews[]=$n; 
         }
+        $avg = $totAvg / count($reviews); 
         //rating func needs to be done here
         
-        return view('mats.show')->with('mat', $mat)->with('reviews', $reviews); 
+        return view('mats.show')->with('mat', $mat)->with('reviews', $reviews)->with('avg', $avg); 
     }
      public function addToCart($id)
     {

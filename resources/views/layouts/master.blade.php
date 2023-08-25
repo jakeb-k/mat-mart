@@ -7,16 +7,14 @@
         <title>@yield('title')</title>
 
         <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
+        
         <link rel="stylesheet" href="{{asset('css/app.css')}}" type="text/css">
         
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+       
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
-        <link rel="stylesheet" href="{{asset('js/scroll.js')}}" type="text/js">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <link href="{{asset('/fontawesome-free-6.4.0-web/css/fontawesome.css')}}" rel="stylesheet">
         <link href="{{asset('/fontawesome-free-6.4.0-web/css/solid.css')}}" rel="stylesheet">
@@ -67,7 +65,14 @@
                     <h2><a href="#">Deals</a></h2>
                 </div>
 
-                <div class="menuItem">
+                <div class="menuItem2">
+                    <form action="{{url('/')}}">
+                        <input type="text" name="search" placeholder="Search Mats!" > 
+                        <button type="submit"> Find Mats! </button> 
+                    </form>
+                </div>
+
+                 <div class="menuItem3">
                     @guest
                     <a id="login" href="{{ route('login') }}">
                         <button>Login</button>
@@ -82,12 +87,6 @@
                     @endguest
                 </div>
 
-                <div class="menuItem2">
-                    <form action="{{url('/')}}">
-                        <input type="text" name="search" placeholder="Search Mats!" > 
-                        <button type="submit"> Find Mats! </button> 
-                    </form>
-                </div>
             </div>
         </div>
 

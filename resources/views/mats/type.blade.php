@@ -10,11 +10,7 @@
     
     @if($mats == '[]' or $mats[0] == null)
     <div id="noMatch">
-        @if($mats == '[]')
-        <h1> No Mats :( </h1>
-        @else
-        <h1> Nice Try Dipshit </h1>
-        @endif
+        <h1>No Mats Here :(</h1>
     </div>
     @else
     <div id="row">
