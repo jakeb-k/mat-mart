@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Mat;
 use App\Models\User;
 use App\Models\Review;
+use App\Http\Middleware\Authenticate;
 
 
 class MatController extends Controller
@@ -19,7 +20,7 @@ class MatController extends Controller
     {
         if (request('search')) {
             $mats = Mat::where('tags', 'like', '%' . request('search') . '%')->get(); 
-            return view('mats.search')->with('mats', $mats)->with('search', request('search')); 
+            return view('mats.type')->with('mats', $mats)->with('search', request('search'))->with('type', request('search')); 
         } else {
             $mats = Mat::paginate(6);
         }
@@ -39,6 +40,7 @@ class MatController extends Controller
      */
     public function create()
     {
+        
         return view('mats.create'); 
     }
 
@@ -72,7 +74,7 @@ class MatController extends Controller
             $mat->image = $fileName; 
             //will need to add tags and image
             $mat->save();
-            return redirect('/')->with('success', 'Added Successfully!'); 
+            return redirect('/')->with('success', 'Added Successfully!')->middleware(['auth', 'verified'])->name('dashboard');; 
         }
     } 
 

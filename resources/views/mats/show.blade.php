@@ -13,18 +13,20 @@
 
         <div id="showDetails">
 
-            <div><h1>{{$mat->name}}</h1></div>
+            <div>
+                <h1>{{$mat->name}}</h1>
+            </div>
+            <div class="ratingsAvg">
+                5 ★ (100)
+            </div>
 
             <div id="subtitles">
 
-                <div>
-                   <span class="emphasis"> ${{$mat->price}} </span>
-                </div>
-
-                <div>
-                    5 ★ (100)
-                </div>
-
+                
+                    <div class="discount"> ${{number_format($mat->price * 1.75, 2)}} </div>
+                    <div class="emphasis"> ${{$mat->price}} </div>
+                
+                
             </div>
 
             <div class="line"></div>
@@ -69,8 +71,10 @@
             
             @if($reviews != [])
             @foreach($reviews as $r)
+            <div class="reviews">
                 <h3>{{$r[0]}} - {{$r[1]}} ★</h3>
                 <p>{{$r[2]}}</p>
+            </div>
             @endforeach
             @else
             <h3>Be the first to leave a review!</h3>

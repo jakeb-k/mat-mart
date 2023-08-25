@@ -27,14 +27,14 @@ Route::get('add-to-cart/{id}', [MatController::class, 'addToCart']);
 Route::delete('remove-from-cart', [MatController::class, 'remove']);
 Route::delete('clear-cart', [MatController::class, 'clearCart']);
 
-Route::get('favs/{id}', [ProfileController::class, 'show']);
-Route::any('user/{id}/new-fav', [ProfileController::class, 'newFav']);
+Route::get('favs/{id}', [ProfileController::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard');;
+Route::any('user/{id}/new-fav', [ProfileController::class, 'newFav'])->middleware(['auth', 'verified'])->name('dashboard');;
 
 
-Route::post('mat/{id}/add-tag', [MatController::class, 'addTag']); 
-Route::get('mat/{id}/add-tag/{tag}', [MatController::class, 'deleteTag']); 
+Route::post('mat/{id}/add-tag', [MatController::class, 'addTag'])->middleware(['auth', 'verified'])->name('dashboard');; 
+Route::get('mat/{id}/add-tag/{tag}', [MatController::class, 'deleteTag'])->middleware(['auth', 'verified'])->name('dashboard');; 
 
-
+Route::get('mat/create',  [MatController::class, 'create'])->middleware(['auth','verified']);
 
 Route::get('/checkout', function () {
     return redirect('/')->with('mats', Mat::paginate(6));

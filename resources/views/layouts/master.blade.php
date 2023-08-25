@@ -79,7 +79,7 @@
                 </div>
 
                 <div class="menuItem2">
-                    <form>
+                    <form action="{{url('/')}}">
                         <input type="text" name="search" placeholder="Search Mats!" > 
                         <button type="submit"> Find Mats! </button> 
                     </form>

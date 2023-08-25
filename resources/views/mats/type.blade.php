@@ -1,10 +1,18 @@
 @extends('layouts.master')
 @section('title')
-{{$mats[0]->type}} mats
+
+{{$mats[0]->type ?? 'no matching'}} mats 
+
 @endsection
 @section('content')
 <div id="bodyContainer">
    <span class="emphasis"><a href="/mat-mart/public/">◄ </a> {{$type}} </span> 
+  
+    @if($mats == '[]')
+    <div id="noMatch">
+        <h1> No Matching Mats :( </h1>
+    </div>
+    @else
     <div id="row">
    @foreach($mats as $mat)
     @if($loop->index % 3 == 2 && $loop->index > 0)
@@ -135,7 +143,11 @@
     
     @endif
     @endforeach
+   
     </div>
+      
+    @endif
+    
     
 </div>
 @endsection

@@ -16,6 +16,17 @@ html {
     text-decoration:none;
     color:#7cadc8; 
 }
+.emphasis {
+    font-size:xx-large; 
+    font-family:'League Gothic', Arial, Helvetica, sans-serif; 
+}
+#line {
+    width: 80%;
+    height: 2px;
+    background-color: black;
+    position:relative;
+}
+
 /*
 
 
@@ -447,4 +458,159 @@ FOOTER STYLING
 .cInfo h5 {
 
     margin-right: 3px;
+}
+/*
+
+
+
+
+
+PRODUCT PAGE STYLING
+
+
+
+
+*/
+#showContainer .emphasis a {
+    text-decoration: none;
+    margin-left: 20%;  
+}
+#showContainer .emphasis a:hover {
+    color:#7cadc8; 
+}
+.ratingsAvg {
+    font-size:24px; 
+}
+
+#showContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    
+    font-family: 'League Gothic', Arial, Helvetica, sans-serif;
+    font-size:32px; 
+    background:#F49110;
+}
+
+#showContainer #desc {
+    font-family:'Rubrik', Arial, Helvetica, sans-serif; 
+    font-size:14px; 
+}
+
+#itemContainer {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    align-self: center;
+    margin: 20px;
+    background:white;
+    box-shadow: 0px 0px 20px rgb(40,40,40);
+    padding: 20px;
+}
+
+
+#showImg img {
+    height: 275px;
+    padding: 20px;
+}
+
+#showDetails {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#showDetails * {
+    margin: 5px 0px;
+}
+#showContainer h1{
+    font-family:'League Gothic', Arial, Helvetica, sans-serif; 
+    color:#F49110; 
+    font-size:42px; 
+}
+
+
+#subtitles {
+    display: flex;
+    flex-direction: row;
+}
+
+#line {
+    width: 80%;
+    height: 1px;
+    background-color: gray;
+}
+
+#quantity {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+#addCartButton button {
+    width: 100%;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    font-size:24px;
+    background-color:#F49110;
+    box-shadow:0 0 5px black; 
+}
+
+#reviewContainer {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    align-self: center;
+    margin: 20px;
+    background: white;
+    box-shadow: 0px 0px 20px gray;
+    padding: 20px;
+   
+}
+.reviews {
+    box-shadow:0 0 5px black;
+    padding:10px; 
+    margin:20px 0px; 
+    border-radius:20px
+}
+.reviewBox {
+    padding: 25px 50px;
+    border-radius: 25px;
+    height: 250px;
+    overflow-y: scroll;
+   
+    margin-bottom: 25px;
+    font-size:14px; 
+    font-family:'Rubrik', Arial, Helvetica, sans-serif; 
+}
+.reviewBox h3 {
+    font-family:'League Gothic', Arial, Helvetica, sans-serif; 
+    font-size:28px; 
+}
+#reviewContainer a {
+    color:#F49110;
+    text-decoration: underline;
+}
+#reviewContainer a:hover {
+    color:#bc700c; 
+}
+.discount {
+    text-decoration: line-through;
+    font-size:22px; 
+    padding-top:15px; 
+}
+#subtitles .emphasis {
+    margin-left: 20px;
+    color:#F49110;
+    font-size:36px;
+}
+#noMatch h1{
+    margin-top:50px; 
+    margin-bottom:150px; 
+    font-family:'League Gothic', Arial, Helvetica, sans-serif; 
+    font-size:46px; 
+    text-align:center;
 }
