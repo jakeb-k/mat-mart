@@ -19,22 +19,13 @@ use App\Http\Controllers\OrderController;
 |
 */
 Route::resource('mat', MatController::class); 
-Route::resource('orders', OrderController::class);
+
 Route::get('mats/{type}', [MatController::class, 'filter']); 
 Route::get('/', [MatController::class, 'index']);
 
 Route::get('add-to-cart/{id}', [MatController::class, 'addToCart']);
 Route::delete('remove-from-cart', [MatController::class, 'remove']);
 Route::delete('clear-cart', [MatController::class, 'clearCart']);
-
-Route::get('favs/{id}', [ProfileController::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard');;
-Route::any('user/{id}/new-fav', [ProfileController::class, 'newFav'])->middleware(['auth', 'verified'])->name('dashboard');;
-
-
-Route::post('mat/{id}/add-tag', [MatController::class, 'addTag'])->middleware(['auth', 'verified'])->name('dashboard');; 
-Route::get('mat/{id}/add-tag/{tag}', [MatController::class, 'deleteTag'])->middleware(['auth', 'verified'])->name('dashboard');; 
-
-Route::get('mat/create',  [MatController::class, 'create'])->middleware(['auth','verified']);
 
 Route::get('/checkout', function () {
     return redirect('/')->with('mats', Mat::paginate(6));
@@ -55,6 +46,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('favs/{id}', [ProfileController::class, 'show']);
+    Route::any('user/{id}/new-fav', [ProfileController::class, 'newFav']);
+    Route::get('mat/create',  [MatController::class, 'create']); 
+});
+Route::middleware('auth')->group(function () {
+    Route::get('mat/create',  [MatController::class, 'create'])->name('mat.create');
+    Route::post('mat/{id}/add-tag', [MatController::class, 'addTag']);
+    Route::get('mat/{id}/add-tag/{tag}', [MatController::class, 'deleteTag']); 
+    Route::resource('orders', OrderController::class);
 });
 
 require __DIR__.'/auth.php';

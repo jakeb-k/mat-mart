@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Mat;
 use App\Models\User;
 use App\Models\Review;
-use App\Http\Middleware\Authenticate;
+use Illuminate\Support\Facades\Auth;
 
 
 class MatController extends Controller
@@ -25,7 +25,12 @@ class MatController extends Controller
             $mats = Mat::paginate(6);
         }
         $mats = Mat::paginate(6); 
-       
+        
+        $x = Auth::user()->role ?? ""; 
+        if($x == 0){
+            session()->put('isAdmin', true); 
+        }
+        
         return view('mats.index')->with('mats', $mats); 
     }
     public function filter($type){
@@ -74,7 +79,7 @@ class MatController extends Controller
             $mat->image = $fileName; 
             //will need to add tags and image
             $mat->save();
-            return redirect('/')->with('success', 'Added Successfully!')->middleware(['auth', 'verified'])->name('dashboard');; 
+            return redirect('/')->with('success', 'Added Successfully!'); 
         }
     } 
 

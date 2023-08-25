@@ -89,6 +89,6 @@ class ProfileController extends Controller
         }
         
        
-        return view('profile.favs')->with('favs', $favs); 
+        return view('mats.type')->with('mats', $favs); 
     }
 }

@@ -6,11 +6,15 @@
 @endsection
 @section('content')
 <div id="bodyContainer">
-   <span class="emphasis"><a href="/mat-mart/public/">◄ </a> {{$type}} </span> 
-  
-    @if($mats == '[]')
+   <span class="emphasis"><a href="/mat-mart/public/">◄ </a> {{$type ?? "Wishlist"}} </span> 
+    
+    @if($mats == '[]' or $mats[0] == null)
     <div id="noMatch">
-        <h1> No Matching Mats :( </h1>
+        @if($mats == '[]')
+        <h1> No Mats :( </h1>
+        @else
+        <h1> Nice Try Dipshit </h1>
+        @endif
     </div>
     @else
     <div id="row">
@@ -50,7 +54,9 @@
                     @endif
             
                     </div>
+                   
                     @elseif(Auth::user()->role == 0)
+                    <div class="matOps">
                         <span class="favButton">
                             <form class="favForm" method="POST" action='{{url("mat/$mat->id")}}' enctype="multipart/form-data">
                             {{csrf_field()}}
@@ -61,9 +67,10 @@
                             </button>
                             </form>
                         </span>
-                
+                    </div>
                     @endif
                 @endauth
+                
             </div>
             
             
@@ -117,6 +124,7 @@
             
                     </div>
                     @elseif(Auth::user()->role == 0)
+                    <div class="matOps">
                         <span class="favButton">
                             <form class="favForm" method="POST" action='{{url("mat/$mat->id")}}' enctype="multipart/form-data">
                             {{csrf_field()}}
@@ -127,7 +135,7 @@
                             </button>
                             </form>
                         </span>
-                
+                    </div>
                     @endif
                 @endauth
             </div>

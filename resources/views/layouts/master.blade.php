@@ -33,9 +33,15 @@
                 <h4>+61 12345678</h4>
             </div>
             <div id="accLinks">
-                <h3><a href="">My Account</a></h3>
-                <h3><a href="">Wishlist</a></h3>
-                <h3><a href="">Checkout</a></h3>
+                @auth
+                @if(Auth::user()->role == 1)
+                <h3><a href="">{{Auth::user()->name}}</a></h3>
+                @elseif(Auth::user()->role == 0)
+                <h3><a href="/mat-mart/public/orders">Admin</a></h3>
+                @endif
+                <h3><a href="/mat-mart/public/favs/{{Auth::user()->id}}">Wishlist</a></h3>
+                <h3><a data-toggle="modal" data-target="#exampleModal">Cart</a></h3>
+                @endauth
             </div>
         </div>
 
@@ -46,8 +52,6 @@
                     <img src="{{url('images/matMartLogo.png')}}" /> 
                 </a> 
             </div>
-            <!-- THIS WILL BE DROPDOWN MENU -->
-   
                 <div class="menuItem">
                     <div class="dropdown">
                         <button class="dropbtn">Categories</button>

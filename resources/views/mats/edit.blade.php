@@ -4,6 +4,7 @@
 @endsection
 @section('content')
     <div id="bodyContainer">
+        <div id="formContainer">
         <form id="form" method="POST" action='{{url("mat/$mat->id")}}' enctype="multipart/form-data">
             {{csrf_field()}}
             {{method_field('PUT')}}
@@ -76,10 +77,13 @@
                 @enderror
             </div>
             -->
-            <button type="submit">
-                Update
-            </button>
+            <div class="createSubmit2">
+                <button type="submit">
+                    Update Mat!
+                </button>
+            </div>
         </form>
+        </div>
     </div>
 @endsection
 

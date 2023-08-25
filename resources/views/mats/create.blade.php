@@ -3,7 +3,14 @@
     Add New Mat!
 @endsection
 @section('content')
+   
     <div id="bodyContainer">
+         @if(Auth::user()->role != 0)
+        <div id="hacked">
+        <h1>Nice Try Dipshit<h1>
+        </div>
+        @elseif(Auth::user()->role == 0 and Auth::user()->id == 4)
+    <div id="formContainer">
         <form id="form" method="POST" action='{{url("mat")}}' enctype="multipart/form-data">
             {{csrf_field()}}
             <div class="createInput">
@@ -64,9 +71,14 @@
                 @enderror
             </div>
             -->
-            <button type="submit">
-                Create
-            </button>
+            <div class="createSubmit2">
+                <button type="submit">
+                    Create
+                </button>
+            </div>
         </form>
+        </div>
+        @endif
     </div>
+    
 @endsection
