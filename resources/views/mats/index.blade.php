@@ -8,10 +8,13 @@
     <div class="contentBox">
         <p> Welcome to <i>Mat Mart</i> , where we don't just believe that flooring should be fabulous - we make it! Our quality selection of mats will blow your mind and cushion your feet, all in one swift step.</p>
     </div>
-    <div id="shopNow">
-        <p> Shop Now! </p>
-        <p> → </p>
-    </div>
+    
+    <a href='{{url("deals")}}'>
+        <div id="shopNow">
+            <p> Shop Now! </p>
+            <p> → </p>
+        </div>
+    </a>
     <div class="contentBox">
         <div class="slideBox"> 
             <img class="mySlides" src="{{url('images/yoga1.png')}}">

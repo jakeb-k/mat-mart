@@ -10,7 +10,9 @@
         <h1>Nice Try Dipshit<h1>
         </div>
         @elseif(Auth::user()->role == 0 and Auth::user()->id == 4)
+        <span class="emphasis"><a href="/mat-mart/public/orders">◄</a> </span>
     <div id="formContainer">
+        <h1> Add New Mat! </h1> 
         <form id="form" method="POST" action='{{url("mat")}}' enctype="multipart/form-data">
             {{csrf_field()}}
             <div class="createInput">
@@ -36,14 +38,12 @@
             </div>
        
             <div class="createInput">
-                <label class="form-label"> Type<span class="formReq">*</span>: </label>
-                <select name="type" id="createSelect">
-
-                    <option value="yoga">Yoga </option>
-                    <option value="car"> Car</option>
-                    <option value="door"> Door</option>
-
-                </select>
+                <label class="form-label"> Type<span class="formReq">*</span>: </label><br /> 
+                    <select name="type">
+                        <option value="Fitness">Fitness</option>
+                        <option value="Utility">Utility</option>
+                        <option value="Decorative">Decorative</option>
+                    </select>
                 @error('type')
                     <div class="alert">{{ $message }}</div>
                 @enderror
@@ -80,5 +80,5 @@
         </div>
         @endif
     </div>
-    
+
 @endsection

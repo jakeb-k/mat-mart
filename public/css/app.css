@@ -241,6 +241,9 @@ HOME PAGE BODY STYLING
     background:#F49110; 
     justify-content:center;
 }
+#bodyContainer #shopNow {
+    margin-left:40%; 
+}
 .contentBox {
     align-self:center; 
     margin:20px; 
@@ -303,6 +306,17 @@ HOME PAGE BODY STYLING
     flex-direction:row; 
     justify-content: space-around;
     color: #7cadc8;
+    text-decoration: none;
+}
+#shopNow:hover {
+    cursor: pointer;
+    border: 3px solid #F49110;
+    color: #F49110;
+    box-shadow: 0 0 10px black;
+    transition: .25s ease-in-out;
+}
+#bodyContainer * {
+    text-decoration:none; 
 }
 .contentBox p {
     margin:45px 30px 30px 2px; 
@@ -993,15 +1007,6 @@ ADMIN PAGE STYLING
     width: 100%;
 }
 
-#ordContainer #shopNow:hover {
-    
-    cursor: pointer;
-    text-decoration:none; 
-    border:3px solid #F49110; 
-    color:#F49110;
-    box-shadow: 0 0 10px black;
-    transition:.25s ease-in-out; 
-}
 #ordContainer a:hover{
     text-decoration:none; 
 }
@@ -1055,9 +1060,8 @@ CREATE AND EDIT FORM STYLING
 
 .form-label {
     align-self: flex-start;
-    text-emphasis: bold;
     font-size: 20px;
-    font-weight: bold;
+    
     font-family: 'Rubrik', Arial, Helvetica, sans-serif;
 
 }
@@ -1172,6 +1176,30 @@ CREATE AND EDIT FORM STYLING
 
 #addTag i {
     font-size: 12px;
+}
+.createInput select{
+    border:none; 
+    background:white; 
+    font-family:'League Gothic', Arial, Helvetica, sans-serif; 
+    padding: 20px;
+    font-size: 18px;
+}
+
+.createInput select:hover{
+    background: rgba(244, 145, 16, 0.7); 
+}
+.createInput select:focus {
+    border: 1px solid rgba(244, 145, 16, 0.7);
+    background:white; 
+}
+select option {
+    font-family: 'League Gothic', Arial, Helvetica, sans-serif;
+    padding: 20px;
+    font-size: 18px;
+}
+#formContainer h1 {
+    font-family:'Rubrik', Arial, Helvetica, sans-serif; 
+    text-align:center; 
 }
 /*
 

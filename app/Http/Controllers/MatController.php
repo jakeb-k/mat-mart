@@ -36,7 +36,7 @@ class MatController extends Controller
          
         $mats = Mat::where('tags', 'like', '%' . request('search') . '%')->get(); 
         
-        return view('mats.type')->with('mats', $mats)->with('search', request('search'))->with('type', $search)->with('paginated', false); 
+        return view('mats.type')->with('mats', $mats)->with('type', $search)->with('paginated', false); 
     }
     /**
      * Show the form for creating a new resource.
@@ -80,7 +80,7 @@ class MatController extends Controller
             $mat->rating = 0; 
             //will need to add tags and image
             $mat->save();
-            return redirect('/')->with('success', 'Added Successfully!'); 
+            return redirect('/orders')->with('success', 'Added Successfully!'); 
         }
     }
      /**
@@ -125,7 +125,7 @@ class MatController extends Controller
         $mat->type = $request->type; 
         $mat->image = $fileName; 
         $mat->save();
-        return redirect("/")->with('success', 'Added Successfully!'); 
+        return redirect("/orders")->with('success', 'Added Successfully!'); 
         
     } 
 
@@ -237,6 +237,18 @@ class MatController extends Controller
         
         $mat->tags = implode(",",$tags);
         $mat->save(); 
+        return redirect()->back(); 
+    }
+    public function deleteTag($id, $tag){
+        
+        $mat = Mat::find($id);
+        $tags = explode(",",$mat->tags); 
+        if(in_array($tag, $tags)){
+            $index = array_search($tag, $tags);
+            array_splice($tags, $index, 1); 
+            $mat->tags = implode(",", $tags); 
+            $mat->save();
+        } 
         return redirect()->back(); 
     }
     public function deals(){

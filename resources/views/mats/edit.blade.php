@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    Add New Mat!
+    Edit {{$mat->name}}
 @endsection
 @section('content')
     <div id="bodyContainer">
@@ -35,15 +35,13 @@
                 @enderror
             </div>
        
-            <div class="createInput">
-                <label class="form-label"> Type<span class="formReq">*</span>: </label>
-                <select name="type" id="createSelect">
-
-                    <option value="yoga">Yoga </option>
-                    <option value="car"> Car</option>
-                    <option value="door"> Door</option>
-
-                </select>
+             <div class="createInput">
+                <label class="form-label"> Type<span class="formReq">*</span>: </label><br /> 
+                    <select name="type">
+                        <option value="Fitness">Fitness</option>
+                        <option value="Utility">Utility</option>
+                        <option value="Decorative">Decorative</option>
+                    </select>
                 @error('type')
                     <div class="alert">{{ $message }}</div>
                 @enderror

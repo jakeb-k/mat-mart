@@ -54,9 +54,9 @@
                     <div class="dropdown">
                         <button class="dropbtn">Categories</button>
                         <div class="dropdown-content">
-                            <a href="{{url('mats/yoga')}}">Fitness</a>
-                            <a href="{{url('mats/car')}}">Utility</a>
-                            <a href="{{url('mats/door')}}">Household</a>
+                            <a href="{{url('mats/Fitness')}}">Fitness</a>
+                            <a href="{{url('mats/Utility')}}">Utility</a>
+                            <a href="{{url('mats/Decorative')}}">Decorative</a>
                         </div>
                     </div> 
                 </div>
