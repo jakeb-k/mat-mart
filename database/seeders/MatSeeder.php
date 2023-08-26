@@ -44,7 +44,7 @@ class MatSeeder extends Seeder
             'type'=> 'Decorative',
             'rating'=> 4,
             'description'=> 'a safe surface that can be used to clean footwear and prevent dirt from getting into a property.',
-            'tags' => 'deals,door,welcome,home,door mat, welcome mat,clean,front door mat',
+            'tags' => 'deals,door,welcome,home,door mat,welcome mat,clean,front door mat,decorative',
         ]);
         DB::table('mats')->insert([
             'name'=> 'door_mat2',
@@ -52,7 +52,7 @@ class MatSeeder extends Seeder
             'type'=> 'Decorative',
             'rating'=> 5,
             'description'=> 'a safe surface that can be used to clean footwear and prevent dirt from getting into a property',
-            'tags' => 'door,welcome,home,door mat, welcome mat,clean,front door mat',
+            'tags' => 'door,welcome,home,door mat, welcome mat,clean,front door mat,decorative',
         ]);
         DB::table('mats')->insert([
             'name'=> 'door_mat3',
@@ -60,7 +60,7 @@ class MatSeeder extends Seeder
             'type'=> 'Decorative',
             'rating'=> 1,
             'description'=> 'a safe surface that can be used to clean footwear and prevent dirt from getting into a property',
-            'tags' => 'door,welcome,home,door mat, welcome mat,clean,front door mat',
+            'tags' => 'door,welcome,home,door mat, welcome mat,clean,front door mat,decorative',
         ]);
 
         DB::table('mats')->insert([
@@ -69,7 +69,7 @@ class MatSeeder extends Seeder
             'type'=> 'Utility',
             'rating'=> 2,
             'description'=> 'keep your vehicle clean and protected, shielding the carpet and surface underneath from dirt and damage.',
-            'tags'=>'car,car mat,clean car,clean,protective,durable,automobile',
+            'tags'=>'car,car mat,clean car,clean,protective,durable,automobile,utility',
         ]);
         DB::table('mats')->insert([
             'name'=> 'car_mat2',
@@ -77,7 +77,7 @@ class MatSeeder extends Seeder
             'type'=> 'Utility',
             'rating'=> 3,
             'description'=> 'keep your vehicle clean and protected, shielding the carpet and surface underneath from dirt and damage.',
-            'tags'=>'car,car mat,clean car,clean,protective,durable,automobile',
+            'tags'=>'car,car mat,clean car,clean,protective,durable,automobile,utility',
         ]);
         DB::table('mats')->insert([
             'name'=> 'car_mat3',
@@ -85,7 +85,7 @@ class MatSeeder extends Seeder
             'type'=> 'Utility',
             'rating'=> 4,
             'description'=> 'keep your vehicle clean and protected, shielding the carpet and surface underneath from dirt and damage.',
-            'tags'=>'car,car mat,clean car,clean,protective,durable,automobile',
+            'tags'=>'car,car mat,clean car,clean,protective,durable,automobile,utility',
         ]);
 
     }

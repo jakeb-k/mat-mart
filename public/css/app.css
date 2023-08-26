@@ -36,6 +36,7 @@ html {
     background:#F49110; 
     margin: 80px 0px;
 }
+
 /*
 
 
@@ -234,20 +235,29 @@ HOME PAGE BODY STYLING
 
 
 */
-#bodyContainer {
+#bodyContainer,#bodyContainer2 {
     width:100%;
     display:flex;
     flex-direction:column;
     background:#F49110; 
     justify-content:center;
+
+    padding: 0px 10%;
+    margin: auto;
 }
-#bodyContainer #shopNow {
-    margin-left:40%; 
+
+.section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.section #shopNow {
+    width:95%; 
 }
 .contentBox {
     align-self:center; 
     margin:20px; 
-    width:40%;
+    width:95%;
     height:253px; 
     background:rgb(40,40,40);
     border-radius:28px;
@@ -308,6 +318,11 @@ HOME PAGE BODY STYLING
     color: #7cadc8;
     text-decoration: none;
 }
+#shopNow a {
+    display:flex;
+    flex-direction:row; 
+    justify-content: space-between;
+}
 #shopNow:hover {
     cursor: pointer;
     border: 3px solid #F49110;
@@ -315,15 +330,20 @@ HOME PAGE BODY STYLING
     box-shadow: 0 0 10px black;
     transition: .25s ease-in-out;
 }
+#shopNow a:hover {
+    color:#F49110; 
+    transition: .25s ease-in-out;
+}
 #bodyContainer * {
     text-decoration:none; 
 }
 .contentBox p {
-    margin:45px 30px 30px 2px; 
+    margin:20px 30px 10px 2px; 
     color:#7cadc8;
     font-size:26px; 
     font-family:'League Gothic', Arial, Helvetica, sans-serif; 
 }
+
 /*
 
 
@@ -334,20 +354,11 @@ PRODUCT PAGE STYLING
 
 
 */
-#bodyContainer {
-    padding:0px 10%; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: auto;
-    width: 100%;
-}
 
 #row {
     width: 100%;
     display: flex;
     flex-direction: row;
-    align-self: center;
 }
 .matBox h1{
     font-family: 'League Gothic', Arial, Helvetica, sans-serif;
@@ -939,7 +950,7 @@ ADMIN PAGE STYLING
 }
 
 .orderBox {
-    width: 35%;
+    width: 45%;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -970,7 +981,7 @@ ADMIN PAGE STYLING
     height: 2000px;
     width: 100%;
     position: fixed;
-    z-index: -1;
+    
     margin-top: -250px;
 }
 
@@ -1150,7 +1161,7 @@ CREATE AND EDIT FORM STYLING
 
 #addTag button:hover {
     cursor: pointer;
-    z-index: 1;
+   
     text-decoration: none;
     color: black;
     transition: 0.15s ease-in-out;
@@ -1277,4 +1288,257 @@ FOOTER STYLING
 .cInfo h5 {
 
     margin-right: 3px;
+}
+
+/*
+
+MEDIA QUERIES
+
+
+
+*/
+@media only screen and (max-width: 800px) {
+    #bodyContainer2, #itemContainer, #row {
+        flex-direction: column;
+    }
+
+    #devInfo {
+        display: none;
+    }
+
+    #menuBar #rm {
+        display: none;
+    }
+    .matBox {
+        width:60%; 
+        align-self:center;
+    }
+    .matBox img {
+    
+        background-size:stretch; 
+        padding:0; 
+    }
+    
+    
+
+
+}
+@media only screen and (max-width: 800px) {
+    .orderBox,
+        #shopNow {
+            width: 80%;
+        }
+
+}
+@media only screen and (max-width: 1200px) {
+    .contentBox p {
+        font-size: 20px;
+    }
+
+}
+
+@media only screen and (min-width: 800px) {
+    #bodyContainer2 {
+        flex-direction: row;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#logo2 {
+    scale:0.5; 
+    background:rgb(255, 255, 255);
+    border-radius:25px; 
+    margin:-35px 0 -35px -70px; 
+    border:3px solid #F49110;  
+    
+}
+.page_title,
+.what_to_do {
+    font-weight: 300;
+    line-height: 120%;
+    text-align: center;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, .8);
+    text-transform: uppercase;
+    
+}
+
+/* PEN STYLES ========== */
+a,
+.side_menu {
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+.menu_title {
+    font-family:'League Gothic', Arial, Helvetica, sans-serif; 
+    color:#F49110;
+}
+/* MENU CONTAINER ----- */
+.side_menu {
+    background: rgba(40, 40, 40, .9);
+    height: 100vh;
+    left: -250px;
+    position: fixed;
+    top: 0;
+    width: 250px;
+    z-index:1; 
+    font-family: 'Rubrik', Arial, Helvetica, sans-serif;
+    font-size:12px; 
+}
+.list_title {
+    font-family:'League Gothic',Arial, Helvetica, sans-serif; 
+    color:#F49110; 
+    font-size: 24px;
+    margin-bottom:0px; 
+}
+.side_menu .container {
+    padding: 0 1em;
+}
+
+/* HAMBURGER STYLES ----- */
+.burger_box {
+    display: block;
+    float: right;
+    margin-right: -45px;
+}
+
+.burger_box a.menu-icon {
+    display: inline-block;
+    float: none;
+    height: 25px;
+    
+    opacity: .5;
+    width: 25px;
+    z-index: 100;
+}
+
+.burger_box a.menu-icon:hover,
+.burger_box a.menu-icon.opened {
+    opacity: 1;
+}
+
+.burger_box a.menu-icon.opened {
+    background: rgba(40, 40, 40, .9);
+    
+}
+
+.burger_box .menu-icon_box {
+    display: inline-block;
+    height: 25px;
+    position: relative;
+    text-align: left;
+    width: 25px;
+    
+}
+
+.burger_box .menu-icon_line {
+    background: #fff;
+    border-radius: 2px;
+    display: inline-block;
+    height: 3px;
+    position: absolute;
+    width: 100%;
+}
+
+.burger_box .menu-icon_line--1 {
+    top: 2px;
+}
+
+.burger_box .menu-icon_line--2 {
+    top: 10px;
+}
+
+.burger_box .menu-icon_line--3 {
+    top: 18px;
+}
+
+.burger_box .menu-icon_line--1 {
+    transition: top 200ms 250ms, transform 200ms;
+    -webkit-transition: top 200ms 250ms, -webkit-transform 200ms;
+}
+
+.burger_box .menu-icon_line--2 {
+    transition: opacity 0ms 300ms;
+    -webkit-transition: opacity 0ms 300ms;
+}
+
+.burger_box .menu-icon_line--3 {
+    transition: top 100ms 300ms, transform 200ms;
+    -webkit-transition: top 100ms 300ms, -webkit-transform 200ms;
+}
+
+.burger_box .menu-icon.opened .menu-icon_box {
+    transform: scale3d(0.9, 0.9, 0.9);
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+}
+
+.burger_box .menu-icon.opened .menu-icon_line {
+    top: 10px;
+}
+
+.burger_box .menu-icon.opened .menu-icon_line--1 {
+    transform: rotate3d(0, 0, 1, 45deg);
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+    transition: top 100ms, transform 200ms 250ms;
+    -webkit-transition: top 100ms, -webkit-transform 200ms 250ms;
+}
+
+.burger_box .menu-icon.opened .menu-icon_line--2 {
+    opacity: 0;
+    transition: opacity 200ms;
+    -webkit-transition: opacity 200ms;
+}
+
+.burger_box .menu-icon.opened .menu-icon_line--3 {
+    transform: rotate3d(0, 0, 1, -45deg);
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    transition: top 200ms, transform 200ms 250ms;
+    -webkit-transition: top 200ms, -webkit-transform 200ms 250ms;
+}
+
+/* STAGGER LIST ----- */
+.list_load {
+    display: none;
+    list-style: none;
+    padding: 0;
+}
+
+.list_item {
+    margin-left: -20px;
+    opacity: 0;
+    -webkit-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+
+.list_item a {
+    color: #fff;
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+.list_item a:hover {
+    background: rgba(255, 255, 255, .2);
+}
+.column {
+    display:flex;
+    flex-direction:column;
 }

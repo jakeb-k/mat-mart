@@ -4,12 +4,14 @@ Mat-Mart Orders
 @endsection
 @section('content')
 <div id="ordContainer">
-    <a href='{{url("mat/create")}}'>
+   
         <div id="shopNow">
+             <a href='{{url("mat/create")}}'>
             <p> Add Mat! </p>
             <p> → </p>
+             </a>
         </div>
-    </a>
+   
             @if(count($orders) != 0)
                 @for($i = 0; $i < count($orders); $i++)
                 @if($orders[$i]->sent == false)

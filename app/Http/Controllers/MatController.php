@@ -27,10 +27,12 @@ class MatController extends Controller
         return view('mats.index')->with('mats', $mats); 
     }
     public function type($type){
-        $mats = Mat::whereRaw('type = ?', array($type))->paginate(6);
+        
+        $mats = Mat::where('tags', 'like', '%' . $type . '%')->paginate(6); 
         
         return view('mats.type')->with('mats', $mats)->with('type', $type)->with('paginated', true); 
     }
+
     public function search() {
         $search = request('search'); 
          
@@ -77,6 +79,7 @@ class MatController extends Controller
             $mat->description = $request->description ?? ""; 
             $mat->type = $request->type; 
             $mat->image = $fileName; 
+            $mat->tags = $request->type; 
             $mat->rating = 0; 
             //will need to add tags and image
             $mat->save();
