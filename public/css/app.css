@@ -36,7 +36,14 @@ html {
     background:#F49110; 
     margin: 80px 0px;
 }
-
+.row {
+    display:flex;
+    flex-direction:row; 
+}
+.column {
+    display:flex;
+    flex-direction:column; 
+}
 /*
 
 
@@ -61,7 +68,7 @@ MENU BAR STYLING
     text-align: center;
      position: relative;
      display: inline-block;
-     
+    
     font-family: 'League Gothic', Arial, Helvetica, sans-serif;
  }
 
@@ -70,18 +77,20 @@ MENU BAR STYLING
     display: none;
     position: absolute;
     background-color: #F49110;
-    width:100%;
+    width:120%;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    margin-left:-75px; 
  }
 
  /* Links inside the dropdown */
  .dropdown-content a {
      color: white;
-     padding: 12px 16px;
+     padding: 12px;
      text-decoration: none;
      display: block;
-     font-size: 22px;
+     font-size: 14px;
+     font-family:'Rubrik', Arial, Helvetica, sans-serif; 
  }
 
  /* Change color of dropdown links on hover */
@@ -92,7 +101,8 @@ MENU BAR STYLING
  /* Show the dropdown menu on hover */
  .dropdown:hover .dropdown-content {
     display: block;
-    background:#F49110; 
+    background:rgba(0, 0, 0, 0.9); 
+    width:400px; 
  }
 
  /* Change the background color of the dropdown button when the dropdown content is shown */
@@ -101,7 +111,10 @@ MENU BAR STYLING
     background-color: #F49110;
     color:white; 
  }
-
+#row2 {
+    display:flex;
+    flex-direction:row;
+}
 #container {
     display:flex;
     flex-direction:column;
@@ -133,7 +146,7 @@ MENU BAR STYLING
     transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
 }
 #accLinks a:hover{
-    box-shadow: inset 100px 0 0 0 #F49110;
+    box-shadow: inset 150px 0 0 0 #F49110;
     color: white;
 }
 #accBar * {
@@ -155,7 +168,6 @@ MENU BAR STYLING
     border-bottom-right-radius: 25px;
 }
 .menuItem, .menuItem2, .menuItem3 {
-    
     width:90%; 
     display:flex;
     flex-direction:column; 
@@ -169,7 +181,7 @@ MENU BAR STYLING
     width:90%;
     padding:10px;
     font-size:24px; 
-    font-family:'League Gothic', Arial, Helvetica, sans-serif; 
+    
     color:#F49110;
     border-radius:25px; 
     border:3px solid #F49110; 
@@ -179,6 +191,22 @@ MENU BAR STYLING
 .menuItem3 #login button:hover {
     color:white; 
     background-color: #F49110;
+}
+.menuItem3 #logout button {
+    width: 90%;
+    padding: 10px;
+    font-size: 24px;
+    border-radius: 25px;
+    border: 3px solid #F49110;
+    background: #F49110;
+    color:white; 
+    transition: 0.1s ease-in-out;
+    
+}
+
+.menuItem3 #logout button:hover {
+    color: #F49110;
+    background-color: white;
 }
 .menuItem2 form {
     width:90%; 
@@ -258,22 +286,22 @@ HOME PAGE BODY STYLING
     align-self:center; 
     margin:20px; 
     width:95%;
-    height:253px; 
+    height:250px; 
     background:rgb(40,40,40);
-    border-radius:28px;
-    border: 3px solid #7cadc8;
     position:relative; 
+    box-shadow: 0px 5px 10px rgba(40, 40, 40, 0.345);
+    border-radius:10px; 
 }
 
 .contentBox img {
-    height:247px;
+    height:250px;
+    border-radius: 10px;
     width:100%; 
-    border-radius:25px; 
     display:block; 
 }
 /* OVER LAY CSS */
 .overlay {
-    border-radius:25px; 
+    border-radius: 10px;
     position: absolute;
     bottom: 100%;
     left: 0;
@@ -360,6 +388,7 @@ PRODUCT PAGE STYLING
     display: flex;
     flex-direction: row;
 }
+
 .matBox h1{
     font-family: 'League Gothic', Arial, Helvetica, sans-serif;
 }
@@ -493,6 +522,7 @@ PRODUCT DETAIL PAGE STYLING
 #showDetails {
     display: flex;
     flex-direction: column;
+    width:100%;
 
 }
 
@@ -1246,7 +1276,7 @@ FOOTER STYLING
 }
 
 .fSection ul {
-    list-style-type: none;
+   
     margin-left: -35px;
     margin-top: 10px;
     font-size: x-large;
@@ -1298,10 +1328,18 @@ MEDIA QUERIES
 
 */
 @media only screen and (max-width: 800px) {
-    #bodyContainer2, #itemContainer, #row {
-        flex-direction: column;
+    
+    img {
+        width:100%; 
     }
-
+    #bodyContainer2, #row {
+        flex-direction: column;
+        
+    }
+    #logout button, #login button, .logout{
+        padding:0px; 
+     
+    }
     #devInfo {
         display: none;
     }
@@ -1310,31 +1348,44 @@ MEDIA QUERIES
         display: none;
     }
     .matBox {
-        width:60%; 
         align-self:center;
+       
     }
-    .matBox img {
-    
-        background-size:stretch; 
-        padding:0; 
+    .menuItem, .menuItem2 {
+        border:none; 
+        font-size:12px; 
+
     }
     
-    
-
-
-}
-@media only screen and (max-width: 800px) {
-    .orderBox,
+    #formContainer {
+        width:100%; 
+        
+    }
+        .orderBox,
         #shopNow {
             width: 80%;
         }
+    
+}
+@media only screen and (max-width: 900px) {
+    #itemContainer {
+        flex-direction:column
+    }
 
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width:1200px){
+    #rm2 {
+            display: none;
+    }
+    #searchInput {
+        width:100%;
+        border-radius:25px; 
+    }
     .contentBox p {
         font-size: 20px;
     }
 
+    
 }
 
 @media only screen and (min-width: 800px) {
@@ -1534,7 +1585,6 @@ a,
     padding: 5px 10px;
     text-decoration: none;
 }
-
 .list_item a:hover {
     background: rgba(255, 255, 255, .2);
 }
@@ -1542,3 +1592,21 @@ a,
     display:flex;
     flex-direction:column;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

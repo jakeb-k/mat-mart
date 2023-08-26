@@ -36,7 +36,8 @@
             </div>
         </div>
         <div class="container">
-            <img id="logo2" src="{{url('images/matMartLogo.png')}}" /> 
+            <a href="{{url('/')}}">
+            <img id="logo2" src="{{url('images/matMartLogo.png')}}" /> </a>
             <ul class="list_load">
                 <p class="list_title">Fitness</p>
                 <div class="row">
@@ -86,49 +87,29 @@
             </ul>
         </div>
     </div>
-<script>
-$(document).on('click','.js-menu_toggle.closed',function(e){
-	e.preventDefault(); $('.list_load, .list_item').stop();
-	$(this).removeClass('closed').addClass('opened');
 
-	$('.side_menu').css({ 'left':'0px' });
 
-	var count = $('.list_item').length;
-	$('.list_load').slideDown( (count*.6)*100 );
-	$('.list_item').each(function(i){
-		var thisLI = $(this);
-		timeOut = 100*i;
-		setTimeout(function(){
-			thisLI.css({
-				'opacity':'1',
-				'margin-left':'0'
-			});
-		},100*i);
-	});
-});
 
-$(document).on('click','.js-menu_toggle.opened',function(e){
-	e.preventDefault(); $('.list_load, .list_item').stop();
-	$(this).removeClass('opened').addClass('closed');
 
-	$('.side_menu').css({ 'left':'-250px' });
 
-	var count = $('.list_item').length;
-	$('.list_item').css({
-		'opacity':'0',
-		'margin-left':'-20px'
-	});
-	$('.list_load').slideUp(300);
-});
-</script>
+
+
+
+
+
+
+
+
+
+
 
 
     <div id="container">
 
         <div id="accBar">
-            <div id="devInfo">
-                <h4>jk_web_dev@outlook.com</h4>
-                <h4>+61 12345678</h4>
+            <div id="accLinks">
+                <div><h3><a href="mailto:jk_web_dev@outlook.com">jk_web_dev@outlook.com</a></h3></div>
+                <h3><a href="/mat-mart/public/deals">Deals</a></h3>
             </div>
             <div id="accLinks">
                 @auth
@@ -145,7 +126,7 @@ $(document).on('click','.js-menu_toggle.opened',function(e){
 
         <div id="menuBar">
             
-            <div id="rm" class="menuItem">
+            <div class="menuItem">
                 <a href="{{url('/')}}">
                     <img id="logo" src="{{url('images/matMartLogo.png')}}" /> 
                 </a> 
@@ -153,22 +134,71 @@ $(document).on('click','.js-menu_toggle.opened',function(e){
                 <div id="rm" class="menuItem">
                     <div class="dropdown">
                         <button class="dropbtn">Categories</button>
+                        
                         <div class="dropdown-content">
-                            <a href="{{url('mats/Fitness')}}">Fitness</a>
-                            <a href="{{url('mats/Utility')}}">Utility</a>
-                            <a href="{{url('mats/Decorative')}}">Decorative</a>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="column">
+                                                <a href="#">Golf Mats</a>
+                                                <a href="#">Anti-Fatigue</a>
+                                                <a href="{{url('mats/yoga')}}">Yoga Mats</a>
+                                                <a href="#">Landing Mats</a>
+                                            </div>
+                                            <div class="column">
+                                                <a href="#"> 01 Mats</a>
+                                                <a href="#"> 02 Mats</a>
+                                                <a href="#"> 03 Mats</a>
+                                                <a href="#"> 04 Mats</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td> 
+                                        <div class="row">
+                                            <div class="column">  
+                                                <a href="{{url('mats/car')}}">Car Mats</a>
+                                                <a href="#">Non-Slip Mats</a>
+                                                <a href="#">Coir Mats</a>
+                                                <a href="#">Drying Mats</a>
+                                            </div>
+                                            <div class="column">
+                                                <a href="#">Kneeling Mats</a>
+                                                <a href="#">Cleaning Mats</a>
+                                                <a href="#"> 03 Mats</a>
+                                                <a href="#"> 04 Mats</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="column">
+                                                <a href="#">Placemats</a>
+                                                <a href="#">Rugs</a>
+                                                <a href="#">Comfort Mats</a>
+                                                <a href="{{url('mats/door')}}">Welcome Mats</a>
+                                            </div>
+                                            <div class="column">
+                                                <a href="#"> 01 Mats</a>
+                                                <a href="#"> 02 Mats</a>
+                                                <a href="#"> 03 Mats</a>
+                                                <a href="#"> 04 Mats</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                                
+                            
                         </div>
                     </div> 
                 </div>
 
-                <div id="rm" class="menuItem">
-                    <h2><a href="{{url('deals')}}">Deals</a></h2>
-                </div>
-
                 <div class="menuItem2">
                     <form method="GET" action="{{url('search')}}">
-                        <input type="text" name="search" placeholder="Search Mats!" > 
-                        <button type="submit"> Find Mats! </button> 
+                        <input id="searchInput" type="text" name="search" placeholder="Search Mats!" > 
+                        <button id="rm2" type="submit"> Find Mats! </button> 
                     </form>
                 </div>
 
@@ -179,10 +209,10 @@ $(document).on('click','.js-menu_toggle.opened',function(e){
                     </a>
                     @else
                      
-                                <form id="login" method="POST"action ="{{url('/logout')}}">
-                                    {{csrf_field()}}
-                                    <button type="submit">Logout </button>
-                                </form>
+                    <form id="logout" method="POST"action ="{{url('/logout')}}">
+                        {{csrf_field()}}
+                        <button type="submit" class="logout">Logout</button>
+                    </form>
                             
                     @endguest
                 </div>
@@ -360,3 +390,38 @@ $(document).on('click','.js-menu_toggle.opened',function(e){
     {{-- CART MODAL END HERE --}}
     </body>
 </html>
+<script>
+$(document).on('click','.js-menu_toggle.closed',function(e){
+	e.preventDefault(); $('.list_load, .list_item').stop();
+	$(this).removeClass('closed').addClass('opened');
+
+	$('.side_menu').css({ 'left':'0px' });
+
+	var count = $('.list_item').length;
+	$('.list_load').slideDown( (count*.6)*100 );
+	$('.list_item').each(function(i){
+		var thisLI = $(this);
+		timeOut = 100*i;
+		setTimeout(function(){
+			thisLI.css({
+				'opacity':'1',
+				'margin-left':'0'
+			});
+		},100*i);
+	});
+});
+
+$(document).on('click','.js-menu_toggle.opened',function(e){
+	e.preventDefault(); $('.list_load, .list_item').stop();
+	$(this).removeClass('opened').addClass('closed');
+
+	$('.side_menu').css({ 'left':'-250px' });
+
+	var count = $('.list_item').length;
+	$('.list_item').css({
+		'opacity':'0',
+		'margin-left':'-20px'
+	});
+	$('.list_load').slideUp(300);
+});
+</script>
