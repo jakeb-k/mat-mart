@@ -18,14 +18,7 @@ class MatController extends Controller
      */
     public function index()
     {
-        if (request('search')) {
-            $mats = Mat::where('tags', 'like', '%' . request('search') . '%')->paginate(6); 
-            return view('mats.type')->with('mats', $mats)->with('search', request('search'))->with('type', request('search'))->with('paginated', true); 
-        } else {
-            $mats = Mat::paginate(6);
-        }
-        $mats = Mat::paginate(6); 
-        
+        $mats = Mat::all(); 
         $x = Auth::user()->role ?? ""; 
         if($x == 0){
             session()->put('isAdmin', true); 
@@ -37,6 +30,13 @@ class MatController extends Controller
         $mats = Mat::whereRaw('type = ?', array($type))->paginate(6);
         
         return view('mats.type')->with('mats', $mats)->with('type', $type)->with('paginated', true); 
+    }
+    public function search() {
+        $search = request('search'); 
+         
+        $mats = Mat::where('tags', 'like', '%' . request('search') . '%')->get(); 
+        
+        return view('mats.type')->with('mats', $mats)->with('search', request('search'))->with('type', $search)->with('paginated', false); 
     }
     /**
      * Show the form for creating a new resource.

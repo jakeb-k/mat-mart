@@ -47,7 +47,7 @@
             
             <div class="menuItem">
                 <a href="{{url('/')}}">
-                    <img src="{{url('images/matMartLogo.png')}}" /> 
+                    <img id="logo" src="{{url('images/matMartLogo.png')}}" /> 
                 </a> 
             </div>
                 <div class="menuItem">
@@ -66,7 +66,7 @@
                 </div>
 
                 <div class="menuItem2">
-                    <form action="{{url('/')}}">
+                    <form method="GET" action="{{url('search')}}">
                         <input type="text" name="search" placeholder="Search Mats!" > 
                         <button type="submit"> Find Mats! </button> 
                     </form>

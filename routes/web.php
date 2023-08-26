@@ -22,6 +22,7 @@ Route::resource('mat', MatController::class);
 
 Route::get('mats/{type}', [MatController::class, 'type']); 
 Route::get('/filter', [MatController::class, 'filter']);
+Route::get('/search', [MatController::class, 'search']);
 Route::get('/deals', [MatController::class, 'deals']);
 Route::get('/', [MatController::class, 'index']);
 
