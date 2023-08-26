@@ -4,6 +4,11 @@
 @endsection
 @section('content')
     <div id="bodyContainer">
+        @if(Auth::user()->role != 0)
+        <div id="hacked">
+        <h1>Nice Try Dipshit<h1>
+        </div>
+        @elseif(Auth::user()->role == 0 and Auth::user()->id == 4)
         <div id="formContainer">
         <form id="form" method="POST" action='{{url("mat/$mat->id")}}' enctype="multipart/form-data">
             {{csrf_field()}}
@@ -43,7 +48,13 @@
                     <div class="alert">{{ $message }}</div>
                 @enderror
             </div>
-
+            <div class="createInput">
+                <label class="form-label"> Image<span class="formReq">*</span>: </label> 
+                <input id="file" type="file" name="image">
+                @error('image')
+                    <div class="alert">{{ $message }}</div>
+                @enderror
+            </div>
             <div class="createInput2">
                 <a data-toggle="modal" data-target="#exampleModal3">
                     <label class="form-label">Add Tags: </label>
@@ -85,6 +96,7 @@
         </form>
         </div>
     </div>
+    @endif
 @endsection
 
 {{-- tag modal start here  --}}

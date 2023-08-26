@@ -17,7 +17,7 @@
                 <h1>{{$mat->name}}</h1>
             </div>
             <div class="ratingsAvg">
-                {{$avg}} ★  ({{count($reviews)}})
+                {{$avg}} ★ ({{count($reviews)}})
             </div>
 
             <div id="subtitles">

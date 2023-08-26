@@ -14,6 +14,15 @@
     </div>
     @else
     <div id="row">
+        <!--
+        THIS CAN REPLACE CURRENT ROW SYSTEM
+        @foreach ($mats->chunk(3) as $chunk)
+            <div class="row">
+                @foreach ($chunk as $product)
+                    <div class="col-xs-4">{{ $product->name }}</div>
+                @endforeach
+            </div>
+        @endforeach -->
    @foreach($mats as $mat)
     @if($loop->index % 3 == 2 && $loop->index > 0)
         <div class="matBox">
@@ -137,7 +146,11 @@
             </div>
 
             <div>
-                <img src="{{url('images/noImg.jpg')}}" /> 
+                @if($mat->image)
+                    <img src="{{ asset('storage/images/'.$mat->image) }}" />
+                @else
+                     <img src="{{url('images/noImg.jpg')}}" /> 
+                @endif 
             </div>
             <h1>{{$mat->name}}</h1>  
             </a>
@@ -147,11 +160,11 @@
     
     @endif
     @endforeach
-   
+    
     </div>
       
     @endif
-    
+    <div id="pageBar">{{$mats->links()}}</div>
     
 </div>
 @endsection

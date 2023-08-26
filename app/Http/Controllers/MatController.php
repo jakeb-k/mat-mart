@@ -33,7 +33,7 @@ class MatController extends Controller
         
         return view('mats.index')->with('mats', $mats); 
     }
-    public function filter($type){
+    public function type($type){
         $mats = Mat::whereRaw('type = ?', array($type))->get();
         
         return view('mats.type')->with('mats', $mats)->with('type', $type); 
@@ -102,7 +102,11 @@ class MatController extends Controller
             $totAvg += $r['rating']; 
             $reviews[]=$n; 
         }
-        $avg = $totAvg / count($reviews); 
+        if(count($reviews)==0){
+            $avg = 0; 
+        } else {
+            $avg = $totAvg / count($reviews); 
+        }
         //rating func needs to be done here
         
         return view('mats.show')->with('mat', $mat)->with('reviews', $reviews)->with('avg', $avg); 
@@ -191,15 +195,21 @@ class MatController extends Controller
             'name'=>'required|max:255',
             'price'=>'required|numeric|gt:0',
             'type'=>'required',
-            //'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
        
         $mat = Mat::find($id); 
+        if($request->image != null) {
+            $fileName = time() . '.' . $request->image->extension();
+            $request->image->storeAs('public/images', $fileName);
+        } else {
+            $fileName = $mat->image; 
+        }
         $mat->name = $request->name; 
         $mat->price = $request->price;
         $mat->description = $request->description ?? ""; 
         $mat->type = $request->type; 
-        //will need to add tags and image
+        $mat->image = $fileName; 
         $mat->save();
         return redirect("/")->with('success', 'Added Successfully!'); 
         
@@ -238,5 +248,60 @@ class MatController extends Controller
             $mat->save();
         } 
         return redirect()->back(); 
+    }
+    public function array_sort($array, $on, $order=SORT_ASC)
+    {
+        $new_array = array();
+        $sortable_array = array();
+
+        if (count($array) > 0) {
+            foreach ($array as $k => $v) {
+                if (is_array($v)) {
+                    foreach ($v as $k2 => $v2) {
+                        if ($k2 == $on) {
+                            $sortable_array[$k] = $v2;
+                        }
+                    }
+                } else {
+                    $sortable_array[$k] = $v;
+                }
+            }
+
+            switch ($order) {
+                case SORT_ASC:
+                    asort($sortable_array);
+                break;
+                case SORT_DESC:
+                    arsort($sortable_array);
+                break;
+            }
+
+            foreach ($sortable_array as $k => $v) {
+                $new_array[$k] = $array[$k];
+            }
+        }
+
+        return $new_array;
+    }
+    public function filter(Request $request){
+    
+        $mats = Mat::all()->sortByDesc('price');
+        $fil = 'ex'; 
+        
+       
+        
+       //add rating field to mats to sort by popularity
+        switch($fil) {
+            case 'ex':
+                $mats = Mat::orderBy('price')->paginate(6); 
+                $type = 'Filtered by Price - ASC'; 
+                break;
+            case 'ch':
+                $mats = Mat::orderByDesc('price')->paginate(6);
+                $type = 'Filtered by Price - DESC'; 
+                break; 
+        }
+        
+        return view('mats.type')->with('mats', $mats)->with('type', $type); 
     }
 }

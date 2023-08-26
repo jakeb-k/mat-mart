@@ -674,6 +674,65 @@ EXTERNAL RATING CSSS
 
 
 
+PAGINATION STYLING
+
+
+
+*/
+
+#pageBar .pagination>li>a,
+#pageBar .pagination>li>span {
+    background-color: white !important;
+    color: #7cadc8 !important;
+    border: solid 1px #7cadc8 !important;
+    z-index: 0 !important;
+    font-size:24px; 
+    font-family:'League Gothic', Arial, Helvetica, sans-serif; 
+    height:50px; 
+}
+
+#pageBar .pagination>li>span {
+    background-color: #7cadc8 !important;
+    color: white !important;
+    height: 50px;
+}
+
+#pageBar .pagination>li>a:focus,
+#pageBar .pagination>li>a:hover,
+#pageBar .pagination>li>span:focus,
+#pageBar .pagination>li>span:hover {
+    color: white !important;
+    background-color: #7cadc8 !important;
+    border-color: #7cadc8;
+    z-index: 0;
+    font-size: 24px;
+    font-family: 'League Gothic', Arial, Helvetica, sans-serif;
+    height: 50px;
+}
+
+#pageBar .pagination>.active>a,
+#pageBar .pagination>.active>li {
+    color: white !important;
+    background-color: #7cadc8 !important;
+    border: solid 1px #7cadc8 !important;
+    z-index: 0;
+    font-size: 24px;
+    font-family: 'League Gothic', Arial, Helvetica, sans-serif;
+    height: 50px;
+}
+
+#pageBar .pagination>.active>a:hover {
+    background-color: #7cadc8 !important;
+    border: solid 1px #7cadc8;
+    z-index: 0;
+    font-size: 24px;
+    font-family: 'League Gothic', Arial, Helvetica, sans-serif;
+    height: 50px;
+}
+/*
+
+
+
 
 CART MODAL STYLING
 

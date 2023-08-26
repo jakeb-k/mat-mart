@@ -20,7 +20,8 @@ use App\Http\Controllers\OrderController;
 */
 Route::resource('mat', MatController::class); 
 
-Route::get('mats/{type}', [MatController::class, 'filter']); 
+Route::get('mats/{type}', [MatController::class, 'type']); 
+Route::get('/filter', [MatController::class, 'filter']);
 Route::get('/', [MatController::class, 'index']);
 
 Route::get('add-to-cart/{id}', [MatController::class, 'addToCart']);
