@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="menuItem">
-                    <h2><a href="#">Deals</a></h2>
+                    <h2><a href="{{url('deals')}}">Deals</a></h2>
                 </div>
 
                 <div class="menuItem2">

@@ -19,8 +19,8 @@ class MatController extends Controller
     public function index()
     {
         if (request('search')) {
-            $mats = Mat::where('tags', 'like', '%' . request('search') . '%')->get(); 
-            return view('mats.type')->with('mats', $mats)->with('search', request('search'))->with('type', request('search')); 
+            $mats = Mat::where('tags', 'like', '%' . request('search') . '%')->paginate(6); 
+            return view('mats.type')->with('mats', $mats)->with('search', request('search'))->with('type', request('search'))->with('paginated', true); 
         } else {
             $mats = Mat::paginate(6);
         }
@@ -34,9 +34,9 @@ class MatController extends Controller
         return view('mats.index')->with('mats', $mats); 
     }
     public function type($type){
-        $mats = Mat::whereRaw('type = ?', array($type))->get();
+        $mats = Mat::whereRaw('type = ?', array($type))->paginate(6);
         
-        return view('mats.type')->with('mats', $mats)->with('type', $type); 
+        return view('mats.type')->with('mats', $mats)->with('type', $type)->with('paginated', true); 
     }
     /**
      * Show the form for creating a new resource.
@@ -77,10 +77,56 @@ class MatController extends Controller
             $mat->description = $request->description ?? ""; 
             $mat->type = $request->type; 
             $mat->image = $fileName; 
+            $mat->rating = 0; 
             //will need to add tags and image
             $mat->save();
             return redirect('/')->with('success', 'Added Successfully!'); 
         }
+    }
+     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $mat = Mat::find($id);
+        $tags = explode(",", $mat->tags); 
+        return view('mats.edit')->with('mat', $mat)->with('tags', $tags); 
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+         $this->validate($request,[
+            'name'=>'required|max:255',
+            'price'=>'required|numeric|gt:0',
+            'type'=>'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+       
+        $mat = Mat::find($id); 
+        if($request->image != null) {
+            $fileName = time() . '.' . $request->image->extension();
+            $request->image->storeAs('public/images', $fileName);
+        } else {
+            $fileName = $mat->image; 
+        }
+        $mat->name = $request->name; 
+        $mat->price = $request->price;
+        $mat->description = $request->description ?? ""; 
+        $mat->type = $request->type; 
+        $mat->image = $fileName; 
+        $mat->save();
+        return redirect("/")->with('success', 'Added Successfully!'); 
+        
     } 
 
     /**
@@ -105,11 +151,12 @@ class MatController extends Controller
         if(count($reviews)==0){
             $avg = 0; 
         } else {
-            $avg = $totAvg / count($reviews); 
+            $avg = $totAvg / count($reviews);
+            $mat->rating = $avg;  
         }
         //rating func needs to be done here
         
-        return view('mats.show')->with('mat', $mat)->with('reviews', $reviews)->with('avg', $avg); 
+        return view('mats.show')->with('mat', $mat)->with('reviews', $reviews)->with('back', $mat->type); 
     }
      public function addToCart($id)
     {
@@ -167,52 +214,7 @@ class MatController extends Controller
     }
     public function clearCart(){
         session()->forget('cart');
-        return redirect()->back()->with('restaurants', Mat::paginate(6));
-    }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $mat = Mat::find($id);
-        $tags = explode(",", $mat->tags); 
-        return view('mats.edit')->with('mat', $mat)->with('tags', $tags); 
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-         $this->validate($request,[
-            'name'=>'required|max:255',
-            'price'=>'required|numeric|gt:0',
-            'type'=>'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
-        ]);
-       
-        $mat = Mat::find($id); 
-        if($request->image != null) {
-            $fileName = time() . '.' . $request->image->extension();
-            $request->image->storeAs('public/images', $fileName);
-        } else {
-            $fileName = $mat->image; 
-        }
-        $mat->name = $request->name; 
-        $mat->price = $request->price;
-        $mat->description = $request->description ?? ""; 
-        $mat->type = $request->type; 
-        $mat->image = $fileName; 
-        $mat->save();
-        return redirect("/")->with('success', 'Added Successfully!'); 
-        
+        return redirect()->back()->with('mats', Mat::paginate(6));
     }
 
     /**
@@ -237,56 +239,15 @@ class MatController extends Controller
         $mat->save(); 
         return redirect()->back(); 
     }
-    public function deleteTag($id, $tag){
-        
-        $mat = Mat::find($id);
-        $tags = explode(",",$mat->tags); 
-        if(in_array($tag, $tags)){
-            $index = array_search($tag, $tags);
-            array_splice($tags, $index, 1); 
-            $mat->tags = implode(",", $tags); 
-            $mat->save();
-        } 
-        return redirect()->back(); 
-    }
-    public function array_sort($array, $on, $order=SORT_ASC)
-    {
-        $new_array = array();
-        $sortable_array = array();
+    public function deals(){
+        $mats =  Mat::orderBy('rating')->paginate(6); 
 
-        if (count($array) > 0) {
-            foreach ($array as $k => $v) {
-                if (is_array($v)) {
-                    foreach ($v as $k2 => $v2) {
-                        if ($k2 == $on) {
-                            $sortable_array[$k] = $v2;
-                        }
-                    }
-                } else {
-                    $sortable_array[$k] = $v;
-                }
-            }
-
-            switch ($order) {
-                case SORT_ASC:
-                    asort($sortable_array);
-                break;
-                case SORT_DESC:
-                    arsort($sortable_array);
-                break;
-            }
-
-            foreach ($sortable_array as $k => $v) {
-                $new_array[$k] = $array[$k];
-            }
-        }
-
-        return $new_array;
+        return view('mats.type')->with('mats', $mats)->with('type', 'Best Value Deals!')->with('paginated', true); 
     }
     public function filter(Request $request){
     
-        $mats = Mat::all()->sortByDesc('price');
-        $fil = 'ex'; 
+        
+        $fil = 'pop'; 
         
        
         
@@ -299,9 +260,13 @@ class MatController extends Controller
             case 'ch':
                 $mats = Mat::orderByDesc('price')->paginate(6);
                 $type = 'Filtered by Price - DESC'; 
-                break; 
+                break;
+            case 'pop':
+                $mats =  Mat::orderBy('rating')->paginate(6); 
+                $type = 'Filtered by Popularity';
+                break;
         }
         
-        return view('mats.type')->with('mats', $mats)->with('type', $type); 
+        return view('mats.type')->with('mats', $mats)->with('type', $type)->with('paginated', true); 
     }
 }

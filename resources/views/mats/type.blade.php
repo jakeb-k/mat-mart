@@ -14,15 +14,7 @@
     </div>
     @else
     <div id="row">
-        <!--
-        THIS CAN REPLACE CURRENT ROW SYSTEM
-        @foreach ($mats->chunk(3) as $chunk)
-            <div class="row">
-                @foreach ($chunk as $product)
-                    <div class="col-xs-4">{{ $product->name }}</div>
-                @endforeach
-            </div>
-        @endforeach -->
+
    @foreach($mats as $mat)
     @if($loop->index % 3 == 2 && $loop->index > 0)
         <div class="matBox">
@@ -164,7 +156,8 @@
     </div>
       
     @endif
+    @if($paginated)
     <div id="pageBar">{{$mats->links()}}</div>
-    
+    @endif
 </div>
 @endsection

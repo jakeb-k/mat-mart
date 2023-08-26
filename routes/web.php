@@ -22,6 +22,7 @@ Route::resource('mat', MatController::class);
 
 Route::get('mats/{type}', [MatController::class, 'type']); 
 Route::get('/filter', [MatController::class, 'filter']);
+Route::get('/deals', [MatController::class, 'deals']);
 Route::get('/', [MatController::class, 'index']);
 
 Route::get('add-to-cart/{id}', [MatController::class, 'addToCart']);

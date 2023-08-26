@@ -12,8 +12,10 @@ class ReviewController extends Controller
     public function addReview(Request $request, $id){
   
         $review = new Review(); 
-        $review->content = $request->content; 
-        $review->rating = $request->rating; 
+       
+                
+        $review->content = $request->content ?? ""; 
+        $review->rating = $request->rating ?? 0; 
         $review->mat_id = $id; 
         $review->user_id = Auth::user()->id; 
         $review->save();
