@@ -1,4 +1,9 @@
 <x-guest-layout>
+    <div id="logo" style="margin-left:20%; ">
+                <a href="{{url('/')}}">
+                    <img src="{{url('images/matMartLogo.png')}}" /> 
+                </a>
+            </div>
     <div class="mb-4 text-sm text-gray-600">
         {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
     </div>

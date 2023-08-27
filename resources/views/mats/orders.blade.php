@@ -11,14 +11,14 @@ Mat-Mart Orders
             <p> → </p>
              </a>
         </div>
-   
+           
             @if(count($orders) != 0)
                 @for($i = 0; $i < count($orders); $i++)
                 @if($orders[$i]->sent == false)
                 
                 <div class ="orderBox">
                     <img src="{{url('images/matMartLogo.png')}}" /> 
-                    <span class="orderTick"><a href='/FoodService/public/order/{{$orders[$i]->id}}/edit'>✔</a></span>   
+                    <span class="orderTick"><a href='/mat-mart/public/order/{{$orders[$i]->id}}/edit'>✔</a></span>   
                     <p class="time"><em>{{$orders[$i]->updated_at->format('D jS M y g:i A') ?? "none"}} </em></p>
                    
                     <div class="line">
@@ -64,6 +64,9 @@ Mat-Mart Orders
                         </div>
                     </div>
                 </div>
+                @else
+                
+                    <div class="spacer-box"></div>    
                 @endif 
                 @endfor
 

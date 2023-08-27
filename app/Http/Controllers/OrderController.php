@@ -25,4 +25,12 @@ class OrderController extends Controller
         
         return view('mats.orders')->with('orders', $orders)->with('users', $users)->with('ordered', $ordered)->with('total', $total); 
     }
+    public function edit($id)
+    {
+        $order = Order::find($id); 
+        $order->sent = true; 
+        $order->save(); 
+         
+        return back();
+    }
 }

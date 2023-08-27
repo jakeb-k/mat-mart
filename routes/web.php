@@ -19,10 +19,10 @@ use App\Http\Controllers\OrderController;
 |
 */
 Route::resource('mat', MatController::class); 
-
+Route::resource('order', OrderController::class); 
 Route::get('mats/{type}', [MatController::class, 'type']); 
 
-Route::post('mats/{type}/filter', [MatController::class, 'filter']);
+Route::any('mats/{type}/filter', [MatController::class, 'filter']);
 
 Route::get('/search', [MatController::class, 'search']);
 Route::get('/deals', [MatController::class, 'deals']);
@@ -53,9 +53,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('favs/{id}', [ProfileController::class, 'show']);
     Route::any('user/{id}/new-fav', [ProfileController::class, 'newFav']);
-    Route::get('mat/create',  [MatController::class, 'create']); 
-});
-Route::middleware('auth')->group(function () {
+
     Route::get('mat/create',  [MatController::class, 'create'])->name('mat.create');
     Route::post('mat/{id}/add-tag', [MatController::class, 'addTag']);
     Route::get('mat/{id}/add-tag/{tag}', [MatController::class, 'deleteTag']); 

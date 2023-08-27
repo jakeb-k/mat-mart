@@ -1,4 +1,9 @@
 <x-guest-layout>
+    <div id="logo" style="margin-left:20%; ">
+                <a href="{{url('/')}}">
+                    <img src="{{url('images/matMartLogo.png')}}" /> 
+                </a>
+            </div>
     <form method="POST" action="{{ route('register') }}">
         @csrf
 

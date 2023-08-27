@@ -10,88 +10,75 @@
         </div>
         @elseif(Auth::user()->role == 0 and Auth::user()->id == 4)
         <div id="formContainer">
-        <form id="form" method="POST" action='{{url("mat/$mat->id")}}' enctype="multipart/form-data">
-            {{csrf_field()}}
-            {{method_field('PUT')}}
-            <div class="createInput">
-                <label class="form-label"> Name<span class="formReq">*</span>: </label>
-                <input type="text" name="name" value="{{$mat->name}}">
-                @error('name')
-                    <div class="alert">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="createInput">
-                <label class="form-label"> Price<span class="formReq">*</span>: </label>
-                <input type="text" name="price" value="{{$mat->price}}">
-                @error('price')
-                    <div class="alert">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="createInput">
-                <label class="form-label"> Description<span class="formReq">*</span>: </label>
-                <input type="text" name="description" value="{{$mat->description}}">
-                @error('description')
-                    <div class="alert">{{ $message }}</div>
-                @enderror
-            </div>
-       
-             <div class="createInput">
-                <label class="form-label"> Type<span class="formReq">*</span>: </label><br /> 
-                    <select name="type">
-                        <option value="Fitness">Fitness</option>
-                        <option value="Utility">Utility</option>
-                        <option value="Decorative">Decorative</option>
-                    </select>
-                @error('type')
-                    <div class="alert">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="createInput">
-                <label class="form-label"> Image<span class="formReq">*</span>: </label> 
-                <input id="file" type="file" name="image">
-                @error('image')
-                    <div class="alert">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="createInput2">
-                <a data-toggle="modal" data-target="#exampleModal3">
-                    <label class="form-label">Add Tags: </label>
-                </a>
-                <div id="tagCont">
-                    <span class="form-label"> Click to Remove </span> <br />
-                    @foreach($tags as $tag)
-                        <a href='{{url("mat/$mat->id/add-tag/$tag/")}}' class="tag"> {{$tag}} </a> 
-                    @endforeach
+            <span class="emphasis"><a href="/mat-mart/public/mat/{{$mat->id}}">◄</a> </span>
+            <h1> Edit {{$mat->name}} </h1>
+            <form id="form" method="POST" action='{{url("mat/$mat->id")}}' enctype="multipart/form-data">
+                {{csrf_field()}}
+                {{method_field('PUT')}}
+                <div class="createInput">
+                    <label class="form-label"> Name<span class="formReq">*</span>: </label>
+                    <input type="text" name="name" value="{{$mat->name}}">
+                    @error('name')
+                        <div class="alert">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="createInput">
+                    <label class="form-label"> Price<span class="formReq">*</span>: </label>
+                    <input type="text" name="price" value="{{$mat->price}}">
+                    @error('price')
+                        <div class="alert">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="createInput">
+                    <label class="form-label"> Description<span class="formReq">*</span>: </label>
+                    <input type="text" name="description" value="{{$mat->description}}">
+                    @error('description')
+                        <div class="alert">{{ $message }}</div>
+                    @enderror
+                </div>
+        
+                <div class="createInput">
+                    <label class="form-label"> Type<span class="formReq">*</span>: </label><br /> 
+                        <select name="type">
+                            <option value="Fitness">Fitness</option>
+                            <option value="Utility">Utility</option>
+                            <option value="Decorative">Decorative</option>
+                        </select>
+                    @error('type')
+                        <div class="alert">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="createInput">
+                    <label class="form-label"> Image<span class="formReq">*</span>: </label> 
+                    <input id="file" type="file" name="image">
+                    @error('image')
+                        <div class="alert">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="createInput2">
+                    <a data-toggle="modal" data-target="#exampleModal3">
+                        <label class="form-label">Add Tags: </label>
+                    </a>
+                    <div id="tagCont">
+                        <span class="form-label"> Click to Remove </span> <br />
+                        @foreach($tags as $tag)
+                            <a href='{{url("mat/$mat->id/add-tag/$tag/")}}' class="tag"> {{$tag}} </a> 
+                        @endforeach
+                        
+                    </div>
                     
+                        
+                    @error('tags')
+                        <div class="alert">{{ $message }}</div>
+                    @enderror
                 </div>
                 
-                    
-                @error('tags')
-                    <div class="alert">{{ $message }}</div>
-                @enderror
-            </div>
-            <!-- IMAGE AND TAGS (NOT READY FOR IMPLEMENTATION)
-            <div class="createInput">
-                <label class="form-label"> Name<span class="formReq">*</span>: </label>
-                <input type="text" name="name" placeholder="Enter a Name for the New mat!">
-                @error('name')
-                    <div class="alert">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="createInput">
-                <label class="form-label"> Name<span class="formReq">*</span>: </label>
-                <input type="text" name="name" placeholder="Enter a Name for the New mat!">
-                @error('name')
-                    <div class="alert">{{ $message }}</div>
-                @enderror
-            </div>
-            -->
-            <div class="createSubmit2">
-                <button type="submit">
-                    Update Mat!
-                </button>
-            </div>
-        </form>
+                <div class="createSubmit2">
+                    <button type="submit">
+                        Update Mat!
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
     @endif

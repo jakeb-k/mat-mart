@@ -267,19 +267,19 @@ class MatController extends Controller
        //add rating field to mats to sort by popularity
         switch($fil) {
             case 'ex':
-                $mats =  Mat::where('tags', 'like', '%' . $type . '%')->orderBy('price')->paginate(6); 
+                $mats =  Mat::where('tags', 'like', '%' . $type . '%')->orderBy('price')->get(); 
                 $filterTag = 'Filtered by Price - ASC'; 
                 break;
             case 'ch':
-                $mats = Mat::where('tags', 'like', '%' . $type . '%')->orderByDesc('price')->paginate(6);
+                $mats = Mat::where('tags', 'like', '%' . $type . '%')->orderByDesc('price')->get();
                 $filterTag = 'Filtered by Price - DESC'; 
                 break;
             case 'pop':
-                $mats =  Mat::where('tags', 'like', '%' . $type . '%')->orderBy('rating')->paginate(6); 
+                $mats =  Mat::where('tags', 'like', '%' . $type . '%')->orderBy('rating')->get(); 
                 $filterTag = 'Filtered by Popularity';
                 break;
         }
         
-        return view('mats.type')->with('mats', $mats)->with('filterTag', $filterTag)->with('paginated', true)->with('type', $type); 
+        return view('mats.type')->with('mats', $mats)->with('filterTag', $filterTag)->with('paginated', false)->with('type', $type); 
     }
 }

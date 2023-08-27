@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title')
 
-{{$mats[0]->type ?? 'no matching'}} mats 
+{{$type ?? 'no matching'}} mats 
 
 @endsection
 @section('content')

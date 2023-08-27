@@ -10,8 +10,8 @@
         <h1>Nice Try <i class="fa-regular fa-face-grin-wink"></i><h1>
         </div>
         @elseif(Auth::user()->role == 0 and Auth::user()->id == 4)
-        <span class="emphasis"><a href="/mat-mart/public/orders">◄</a> </span>
     <div id="formContainer">
+        <span class="emphasis"><a href="/mat-mart/public/orders">◄</a> </span>
         <h1> Add New Mat! </h1> 
         <form id="form" method="POST" action='{{url("mat")}}' enctype="multipart/form-data">
             {{csrf_field()}}

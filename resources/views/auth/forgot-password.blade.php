@@ -1,4 +1,9 @@
 <x-guest-layout>
+    <div id="logo" style="margin-left:20%; ">
+                <a href="{{url('/')}}">
+                    <img src="{{url('images/matMartLogo.png')}}" /> 
+                </a>
+            </div>
     <div class="mb-4 text-sm text-gray-600">
         {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
     </div>

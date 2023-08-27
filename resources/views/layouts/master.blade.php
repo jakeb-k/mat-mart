@@ -109,6 +109,9 @@
                 <h3><a href="/mat-mart/public/favs/{{Auth::user()->id}}">Wishlist</a></h3>
                 <h3><a data-toggle="modal" data-target="#exampleModal">Cart</a></h3>
                 @endauth
+                @guest
+                <h3><a href="{{url('/register')}}">Register</a></h3>
+                @endguest
             </div>
         </div>
 
@@ -220,20 +223,53 @@
                         In ac dolor a dui sagittis venenatis. In hac habitasse platea dictumst.</p>
                 </div>
 
-                <div class="fSection">
-                    <div>
-                        <h3>LINKS</h3>
-                    </div>
-
-                    <div>
-                        <ul>
-                            
-                            <li><a href="#">Fitness Mats</a></li>
-                            <li><a href="#">Utility Mats</a></li>
-                            <li><a href="#">Decorative Mats</a></li>
-                        </ul>
-                    </div>
+               <div class="fSection2">
                     
+                       
+                            <div class="column2">
+                                
+                                <h3>Fitness</h3>
+                                
+                                    <a href="#">Golf Mats</a>
+                                    <a href="#">Anti-Fatigue</a>
+                                    <a href="{{url('mats/yoga')}}">Yoga Mats</a>
+                                    <a href="#">Landing Mats</a>
+                                    <a href="#"> 01 Mats</a>
+                                    <a href="#"> 02 Mats</a>
+                                    <a href="#"> 03 Mats</a>
+                                    <a href="#"> 04 Mats</a>
+                               
+                            </div>
+
+                            <div class="column2">
+                                <h3>Utility</h3>
+                                
+                                    <a href="#">Golf Mats</a>
+                                    <a href="#">Anti-Fatigue</a>
+                                    <a href="{{url('mats/yoga')}}">Yoga Mats</a>
+                                    <a href="#">Landing Mats</a>
+                                    <a href="#"> 01 Mats</a>
+                                    <a href="#"> 02 Mats</a>
+                                    <a href="#"> 03 Mats</a>
+                                    <a href="#"> 04 Mats</a>
+                                
+                            </div>
+
+                            <div class="column2">
+                                <h3>Decorative</h3>
+                                
+                                    <a href="#">Golf Mats</a>
+                                    <a href="#">Anti-Fatigue</a>
+                                    <a href="{{url('mats/yoga')}}">Yoga Mats</a>
+                                    <a href="#">Landing Mats</a>
+                                    <a href="#"> 01 Mats</a>
+                                    <a href="#"> 02 Mats</a>
+                                    <a href="#"> 03 Mats</a>
+                                    <a href="#"> 04 Mats</a>
+                                
+                            </div>
+                     
+                 
                 </div>
 
                 <div class="fSection" id="contact">
@@ -378,6 +414,7 @@
     {{-- CART MODAL END HERE --}}
     </body>
 </html>
+
 <script>
 $(document).on('click','.js-menu_toggle.closed',function(e){
 	e.preventDefault(); $('.list_load, .list_item').stop();

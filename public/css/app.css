@@ -329,6 +329,7 @@ HOME PAGE BODY STYLING
 
     padding: 0px 10%;
     margin: auto;
+    padding-bottom: 50px;
 }
 .bodyOptions {
     display:flex;
@@ -1031,7 +1032,8 @@ ADMIN PAGE STYLING
 }
 
 #ordContainer {
-    padding-top:50px; 
+    padding-top:50px;
+    padding-bottom:150px;  
     background:#F49110;
     display: flex;
     flex-direction: column;
@@ -1315,32 +1317,38 @@ FOOTER STYLING
 */
 #footer {
     background: rgb(40, 40, 40);
-    border-top: 2px solid #7cadc8;
+    box-shadow:-10px 0 10px rgba(40, 40, 40, .9);
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     color: #7cadc8;
     font-family: 'Rubik', Arial, Helvetica, sans-serif;
 }
-.fSection h3 {
+.fSection2 h3, .fSection h3 {
     font-family: 'League Gothic', Arial, Helvetica, sans-serif; 
     font-size:28px; 
 }
-.fSection {
+.fSection, .fSection2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-right: 1px solid #7cadc8;
-    width: 33%;
+    border-right: 3px solid #7cadc8;
+   
     padding: 0px 30px;
 }
-
-.fSection ul {
+.fSection {
+    width:50%;
+}
+.fSection2 {
+    width:140%;
+    flex-direction:row; 
+    justify-content:space-between ;
+    align-self: center;
    
-    margin-left: -35px;
-    margin-top: 10px;
-    font-size: x-large;
+}
 
+.fSection2 ul {
+   list-style-type:none; 
 }
 
 .fSection li {
@@ -1348,19 +1356,20 @@ FOOTER STYLING
 
 }
 
-.fSection a {
-    color: #7cadc8;
+.fSection2 a {
+    color: #F49110;
 }
 
-.fSection a:active {
-    color: #7cadc8;
+.fSection2 a:active {
+    color: #F49110;
 }
 
-.fSection a:hover {
-    color: #6892a8;
+.fSection2 a:hover {
+    color: #bc700c;
 }
 
 #contact {
+    color:#7cadc8; 
     display: flex;
     flex-direction: column;
 }
@@ -1372,6 +1381,7 @@ FOOTER STYLING
 }
 
 .cInfo {
+    color:#F49110; 
     margin-top: 10px;
 }
 
@@ -1379,7 +1389,9 @@ FOOTER STYLING
 
     margin-right: 3px;
 }
-
+.fSection p {
+    color: #F49110;
+}
 /*
 
 MEDIA QUERIES
@@ -1404,7 +1416,7 @@ MEDIA QUERIES
         display: none;
     }
 
-    #menuBar #rm {
+    #menuBar #rm, #contact {
         display: none;
     }
     .matBox {
@@ -1425,7 +1437,6 @@ MEDIA QUERIES
         #shopNow {
             width: 80%;
         }
-    
 }
 @media only screen and (max-width: 900px) {
     #itemContainer {
@@ -1434,7 +1445,7 @@ MEDIA QUERIES
 
 }
 @media only screen and (max-width:1200px){
-    #rm2 {
+    #rm2,.fSection {
             display: none;
     }
     #searchInput {
@@ -1444,6 +1455,7 @@ MEDIA QUERIES
     .contentBox p {
         font-size: 20px;
     }
+    
 
     
 }
@@ -1652,7 +1664,13 @@ a,
     display:flex;
     flex-direction:column;
 }
-
+.column2 {
+    display:flex;
+    flex-direction:column;
+    width:100%; 
+    align-items:center;
+    
+}
 
 
 

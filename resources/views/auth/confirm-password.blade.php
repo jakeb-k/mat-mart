@@ -1,4 +1,9 @@
 <x-guest-layout>
+    <div id="logo" style="margin-left:20%; ">
+                <a href="{{url('/')}}">
+                    <img src="{{url('images/matMartLogo.png')}}" /> 
+                </a>
+            </div>
     <div class="mb-4 text-sm text-gray-600">
         {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
     </div>
