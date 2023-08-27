@@ -7,7 +7,7 @@
     <div id="bodyContainer">
          @if(Auth::user()->role != 0)
         <div id="hacked">
-        <h1>Nice Try Dipshit<h1>
+        <h1>Nice Try <i class="fa-regular fa-face-grin-wink"></i><h1>
         </div>
         @elseif(Auth::user()->role == 0 and Auth::user()->id == 4)
         <span class="emphasis"><a href="/mat-mart/public/orders">◄</a> </span>

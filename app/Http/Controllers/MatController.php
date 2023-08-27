@@ -141,6 +141,9 @@ class MatController extends Controller
     public function show($id)
     {
         $mat = Mat::find($id);
+        if($mat == null) {
+            abort(404);
+        }
         $rReviews = Review::whereRaw('mat_id = ?', array($id))->get(); 
         $reviews = []; 
         $totAvg = 0; 
@@ -157,7 +160,7 @@ class MatController extends Controller
             $avg = $totAvg / count($reviews);
             $mat->rating = $avg;  
         }
-        //rating func needs to be done here
+        
         
         return view('mats.show')->with('mat', $mat)->with('reviews', $reviews)->with('back', $mat->type); 
     }
@@ -259,29 +262,24 @@ class MatController extends Controller
 
         return view('mats.type')->with('mats', $mats)->with('type', 'Best Value Deals!')->with('paginated', true); 
     }
-    public function filter(Request $request){
-    
-        
-        $fil = 'pop'; 
-        
-       
-        
+    public function filter(Request $request, $type){
+        $fil = $request->filter; 
        //add rating field to mats to sort by popularity
         switch($fil) {
             case 'ex':
-                $mats = Mat::orderBy('price')->paginate(6); 
-                $type = 'Filtered by Price - ASC'; 
+                $mats =  Mat::where('tags', 'like', '%' . $type . '%')->orderBy('price')->paginate(6); 
+                $filterTag = 'Filtered by Price - ASC'; 
                 break;
             case 'ch':
-                $mats = Mat::orderByDesc('price')->paginate(6);
-                $type = 'Filtered by Price - DESC'; 
+                $mats = Mat::where('tags', 'like', '%' . $type . '%')->orderByDesc('price')->paginate(6);
+                $filterTag = 'Filtered by Price - DESC'; 
                 break;
             case 'pop':
-                $mats =  Mat::orderBy('rating')->paginate(6); 
-                $type = 'Filtered by Popularity';
+                $mats =  Mat::where('tags', 'like', '%' . $type . '%')->orderBy('rating')->paginate(6); 
+                $filterTag = 'Filtered by Popularity';
                 break;
         }
         
-        return view('mats.type')->with('mats', $mats)->with('type', $type)->with('paginated', true); 
+        return view('mats.type')->with('mats', $mats)->with('filterTag', $filterTag)->with('paginated', true)->with('type', $type); 
     }
 }

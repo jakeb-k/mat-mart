@@ -80,7 +80,7 @@ MENU BAR STYLING
     width:120%;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    margin-left:-75px; 
+    margin-right:0; 
  }
 
  /* Links inside the dropdown */
@@ -263,6 +263,63 @@ HOME PAGE BODY STYLING
 
 
 */
+/* Filter Button */
+ /* Dropdown Button */
+ .dropbtn2 {
+    background:none; 
+    padding:10px; 
+    color:rgb(40,40,40); 
+    font-size: 24px;
+    border: none;
+ }
+ /* The container <div> - needed to position the dropdown content */
+ .dropdown2 {
+     position: relative;
+     display: inline-block;
+ }
+
+ /* Dropdown Content (Hidden by Default) */
+ .dropdown-content2 {
+     display: none;
+     position: absolute;
+     background-color: rgba(40, 40, 40, .9);
+     min-width: 160px;
+     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+     z-index: 1;
+     margin-left:-50px; 
+ }
+
+ /* Links inside the dropdown */
+ .dropdown-content2 button, .dropdown-content2 h3 {
+     color: #F49110;
+     padding: 6px 34px;
+     text-decoration: none;
+     display: block;
+     background:none;
+     border:none; 
+     font-family:'League Gothic', Arial, Helvetica, sans-serif;
+     align-self:center; 
+ }
+ .dropdown-content2 button {
+    color:white; 
+    font-family:'Rubrik', Arial, Helvetica, sans-serif; 
+ }
+
+ /* Change color of dropdown links on hover */
+ .dropdown-content2 button:hover {
+     background-color: #F49110;
+ }
+
+ /* Show the dropdown menu on hover */
+ .dropdown2:hover .dropdown-content2 {
+    color: #7cadc8;
+    display: block;
+ }
+
+ /* Change the background color of the dropdown button when the dropdown content is shown */
+ .dropdown2:hover .dropbtn2 {
+    color: #7cadc8;
+ }
 #bodyContainer,#bodyContainer2 {
     width:100%;
     display:flex;
@@ -273,7 +330,10 @@ HOME PAGE BODY STYLING
     padding: 0px 10%;
     margin: auto;
 }
-
+.bodyOptions {
+    display:flex;
+    flex-direction:row; 
+}
 .section {
     display: flex;
     flex-direction: column;

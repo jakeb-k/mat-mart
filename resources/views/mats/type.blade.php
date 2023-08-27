@@ -6,7 +6,34 @@
 @endsection
 @section('content')
 <div id="bodyContainer">
-   <span class="emphasis"><a href="/mat-mart/public/">◄ </a> {{$type ?? "Wishlist"}} </span> 
+    <div class="bodyOptions">
+        <span class="emphasis"><a href="/mat-mart/public/">◄ </a> {{$type ?? "Wishlist"}} {{$filterTag ?? ""}} </span> 
+        
+            <div class="dropdown2">
+                <button class="dropbtn2"><i class="fa-solid fa-filter"> </i></button>
+                <div class="dropdown-content2">
+                    <h3>Filter Options </h3>
+                        <form method="POST" action='{{url("mats/$type/filter")}}'>
+                            {{csrf_field()}}
+                        <input type="hidden" value="pop" name="filter" />
+                        <button type="submit"> Highest Rated </button>
+                        </form>
+
+                        <form method="POST" action='{{url("mats/$type/filter")}}'>
+                            {{csrf_field()}}
+                        <input type="hidden" value="ex" name="filter" />
+                        <button type="submit"> Highest Priced </button>
+                        </form>
+
+                        <form method="POST" action='{{url("mats/$type/filter")}}'>
+                            {{csrf_field()}}
+                        <input type="hidden" value="ch" name="filter" />
+                        <button type="submit"> Lowest Priced</button>
+                        </form>
+                </div>
+            </div>
+    </div>
+   
     
     @if($mats == '[]' or $mats[0] == null)
     <div id="noMatch">
