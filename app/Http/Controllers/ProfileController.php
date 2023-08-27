@@ -26,18 +26,25 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+   
+    public function update(Request $request, $id)
     {
-        $request->user()->fill($request->validated());
-
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
-
-        $request->user()->save();
-
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        #$user = User::whereRaw('name = ?', array($request->name))->get(); 
+        $user = User::find($id);
+        
+        $this->validate($request, [
+            'name' => 'max:255',
+            'email' => 'email',
+            'address' => 'max:255',
+        ]);
+        
+        $user->name = $request->name;
+        $user->email = $request->email; 
+        $user->address = $request->address; 
+        $user->save(); 
+        return redirect()->back();
     }
+    
 
     /**
      * Delete the user's account.
@@ -85,10 +92,13 @@ class ProfileController extends Controller
         $favs = []; 
         foreach($uMats as $d){
             $mat = Mat::find($d); 
-            $favs[] = $mat;
+            if($mat != null){
+                $favs[] = $mat;
+            }
         }
         
+        
        
-        return view('mats.type')->with('mats', $favs)->with('paginated', false); 
+        return view('mats.type')->with('mats', $favs)->with('paginated', false)->with('type', 'favs'); 
     }
 }

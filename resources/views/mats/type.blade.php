@@ -8,7 +8,7 @@
 <div id="bodyContainer">
     <div class="bodyOptions">
         <span class="emphasis"><a href="/mat-mart/public/">◄ </a> {{$type ?? "Wishlist"}} {{$filterTag ?? ""}} </span> 
-        
+            @if($type != 'favs')
             <div class="dropdown2">
                 <button class="dropbtn2"><i class="fa-solid fa-filter"> </i></button>
                 <div class="dropdown-content2">
@@ -32,10 +32,11 @@
                         </form>
                 </div>
             </div>
+            @endif
     </div>
    
     
-    @if($mats == '[]' or $mats[0] == null)
+    @if($mats == '[]')
     <div id="noMatch">
         <h1>No Mats Here :(</h1>
     </div>

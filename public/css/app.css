@@ -984,10 +984,11 @@ CART MODAL STYLING
 }
 
 .addy {
+    width:45%; 
     display: flex;
     justify-content: center;
     font-style: italic;
-    font-size: 16px;
+    font-size: 14px;
     margin: auto;
     font-family: 'Rubrik', Arial, Helvetica, sans-serif;
     font-weight: 600;

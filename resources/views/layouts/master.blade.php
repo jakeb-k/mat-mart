@@ -102,7 +102,7 @@
             <div id="accLinks">
                 @auth
                 @if(Auth::user()->role == 1)
-                <h3><a href="">{{Auth::user()->name}}</a></h3>
+                <h3><a data-toggle="modal" data-target="#exampleModal2">{{Auth::user()->name}}</a></h3>
                 @elseif(Auth::user()->role == 0)
                 <h3><a href="/mat-mart/public/orders">Admin</a></h3>
                 @endif
@@ -305,7 +305,7 @@
                 <div id="cartTitle">
                     <em> Order For: </em> <b> {{Auth::user()->name}} </b>
                 </div>
-            
+            <p class="addy"> {{Auth::user()->address}} · {{date('D jS M y g:i A')}} </p>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -412,6 +412,73 @@
         </div>
     </div>
     {{-- CART MODAL END HERE --}}
+
+
+
+
+    
+
+    {{-- acc modal start here  --}}
+
+    @auth
+    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3> {{Auth::user()->name}}'s Info</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+          
+               
+            <div class="modal-body">
+                    <form id="createForm" method="POST" action='/mat-mart/public/user/{{Auth::user()->id}}'enctype="multipart/form-data">
+                        {{csrf_field()}}
+                        
+                        <div class="createInput">
+                            <label class="form-label"> Name: </label>
+                            <input type="text" name="name" placeholder="Enter new Name" value="{{Auth::user()->name}}">
+                            @error('name')
+                                <div class="alert">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="line"> </div> 
+                        
+                        <div class="createInput">
+                            <label class="form-label"> Email: </label>
+                            <input type="text" name="email" placeholder="Enter new Email" value="{{Auth::user()->email}}"> 
+                            @error('email')
+                                <div class="alert">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="line">
+                        </div>
+
+                        <div class="createInput">
+                            <label class="form-label"> Address: </label>
+                            <input type="text" name="address" placeholder="Enter new Address" value="{{Auth::user()->address}}"> 
+                            @error('address')
+                                <div class="alert">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="line">
+                        </div>
+                        
+                        <input type="hidden" name="restaurant" value="{{Auth::user()->name}}" readonly>
+
+                        <div class="createSubmit2">
+                            <button type="submit"> <p>Update</p> </button>
+                        </div> 
+                    </form>
+                </div> 
+        </div>
+        </div>
+    </div>
+    @endauth
+    {{--acc modal end here  --}}
     </body>
 </html>
 
