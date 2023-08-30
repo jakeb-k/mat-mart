@@ -40,9 +40,9 @@
                 <div class="createInput">
                     <label class="form-label"> Type<span class="formReq">*</span>: </label><br /> 
                         <select name="type">
-                            <option value="Fitness">Fitness</option>
-                            <option value="Utility">Utility</option>
-                            <option value="Decorative">Decorative</option>
+                            @foreach($cats as $c)
+                            <option value="{{$c}}">{{$c}}</option>
+                            @endforeach
                         </select>
                     @error('type')
                         <div class="alert">{{ $message }}</div>

@@ -22,13 +22,13 @@
                         <form method="POST" action='{{url("mats/$type/filter")}}'>
                             {{csrf_field()}}
                         <input type="hidden" value="ex" name="filter" />
-                        <button type="submit"> Highest Priced </button>
+                        <button type="submit"> Lowest Priced </button>
                         </form>
 
                         <form method="POST" action='{{url("mats/$type/filter")}}'>
                             {{csrf_field()}}
                         <input type="hidden" value="ch" name="filter" />
-                        <button type="submit"> Lowest Priced</button>
+                        <button type="submit"> Highest Priced</button>
                         </form>
                 </div>
             </div>

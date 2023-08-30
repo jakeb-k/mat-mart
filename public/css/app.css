@@ -174,9 +174,7 @@ MENU BAR STYLING
     justify-content: center;
     text-align:center; 
 }
-.menuItem, .menuItem2 {
-    border-right: 2px solid #F49110;
-}
+
 .menuItem3 #login button {
     width:90%;
     padding:10px;
@@ -451,15 +449,12 @@ PRODUCT PAGE STYLING
 }
 
 .matBox h1{
-    font-family: 'League Gothic', Arial, Helvetica, sans-serif;
-}
-.matBox a {
-    
-    font-size: 18px;
-    font-family: 'League Gothic', Arial, Helvetica, sans-serif; 
+    font-family: 'Rubrik', Arial, Helvetica, sans-serif;
+    font-size:18px; 
+    color:white; 
 }
 
-.matBox a:hover {
+.matBox h1:hover{
     color:#bc700c; 
 }
 .matOps{
@@ -467,7 +462,6 @@ PRODUCT PAGE STYLING
 }
 
 .matBox {
-    font-family: 'League Gothic', Arial, Helvetica, sans-serif;
     background:rgb(64, 64, 64);
     box-shadow: 0 0 10px black; 
     padding-bottom:40px; 
@@ -477,13 +471,14 @@ PRODUCT PAGE STYLING
     margin: 2.5% 2.5% 2.5% 0;
     width: 30%;
     height:325px;  
-    color:#F49110; 
     text-align:center; 
+    border-radius:5px;
 }
 
 .matBox img {
     height: 250px;
     width: 100%;
+    border-radius:5px; 
 }
 
 
@@ -520,10 +515,6 @@ PRODUCT PAGE STYLING
 
 .favForm2 button {
     color: #F49110;
-}
-#bodyContainer a {
-    font-family: 'League Gothic', Arial, Helvetica, sans-serif;
-    font-size:32px; 
 }
 /*
 
@@ -1101,8 +1092,7 @@ ADMIN PAGE STYLING
 }
 
 #pageBar {
-    margin-left: 45%;
-    margin-top: 25px;
+    align-self:center; 
 }
 #ordContainer a {
     display:flex;
@@ -1333,8 +1323,6 @@ FOOTER STYLING
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-right: 3px solid #7cadc8;
-   
     padding: 0px 30px;
 }
 .fSection {

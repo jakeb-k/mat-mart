@@ -42,49 +42,48 @@
                 <p class="list_title">Fitness</p>
                 <div class="row">
                     <div class="col">
-                    <li class="list_item"><a href="#">Golf Mats</a></li>
-                    <li class="list_item"><a href="{{url('mats/yoga')}}">Yoga Mats</a></li>
-                    <li class="list_item"><a href="#">Anti-Fatigue</a></li>
-                    <li class="list_item"><a href="#">Landing Mats</a></li>
+                        <li class="list_item"><a href="{{url('mats/golf')}}">Golf</a></li>
+                        <li class="list_item"><a href="{{url('mats/yoga')}}">Yoga</a></li>
+                        <li class="list_item"><a href="{{url('mats/martial-arts')}}">Martial Arts</a></li>
                     </div>
                     <div class="col">
-                    <li class="list_item"><a href="#"> 01 Mats</a></li>
-                    <li class="list_item"><a href="#"> 02 Mats</a></li>
-                    <li class="list_item"><a href="#"> 03 Mats</a></li>
-                    <li class="list_item"><a href="#"> 04 Mats</a></li>
+                        <li class="list_item"><a href="{{url('mats/gymnastics')}}">Gymnastics</a></li>
+                        <li class="list_item"><a href="{{url('mats/weights')}}">Weight Lifiting</a></li>
                     </div>
                 </div>
                 <p class="list_title">Utility </p> 
                 <div class="row">
                     <div class="col">
-                    <li class="list_item"><a href="{{url('mats/car')}}">Car Mats</a></li>
-                    <li class="list_item"><a href="#">Non-Slip Mats</a></li>
-                    <li class="list_item"><a href="#">Coir Mats</a></li>
-                    <li class="list_item"><a href="#">Drying Mats</a></li>
+                        <li class="list_item"><a href="{{url('mats/vehicle')}}">Vehicle</a></li>
+                        <li class="list_item"><a href="{{url('mats/bathroom')}}">Bathroom</a></li>
+                        <li class="list_item"><a href="{{url('mats/office')}}">Office</a></li>
                     </div>
                     <div class="col">
-                    <li class="list_item"><a href="#">Kneeling Mats</a></li>
-                    <li class="list_item"><a href="#">Cleaning Mats</a></li>
-                    <li class="list_item"><a href="#"> 03 Mats</a></li>
-                    <li class="list_item"><a href="#"> 04 Mats</a></li>
+                         <li class="list_item"><a href="{{url('mats/removal')}}">Removal</a></li>
+                        <li class="list_item"><a href="{{url('mats/pets')}}">Pets</a></li>
+                        <li class="list_item"><a href="{{url('mats/fatigue')}}">Anti-Fatigue</a></li>
                     </div>
                 </div>
                 <p class="list_title">Decorative </p> 
                 <div class="row">
                     <div class="col">
-                    <li class="list_item"><a href="#">Placemats</a></li>
-                    <li class="list_item"><a href="#">Rugs</a></li>
-                    <li class="list_item"><a href="#">Comfort Mats</a></li>
-                    <li class="list_item"><a href="{{url('mats/door')}}">Welcome Mats</a></li>
+                        <li class="list_item"><a href="{{url('mats/placemats')}}">Placemats</a></li>
+                        <li class="list_item"><a href="{{url('mats/rugs')}}">Rugs</a></li>
+                        <li class="list_item"><a href="{{url('mats/kids')}}">Kids</a></li>
                     </div>
                     <div class="col">
-                    <li class="list_item"><a href="#"> 01 Mats</a></li>
-                    <li class="list_item"><a href="#"> 02 Mats</a></li>
-                    <li class="list_item"><a href="#"> 03 Mats</a></li>
-                    <li class="list_item"><a href="#"> 04 Mats</a></li>
+                        <li class="list_item"><a href="{{url('mats/welcome')}}">Welcome</a></li>
+                        <li class="list_item"><a href="{{url('mats/grass')}}"> Artifical Grass</a></li>
+                        <li class="list_item"><a href="{{url('mats/tapestry')}}">Tapestry</a></li>
                     </div>
                 </div>
             </ul>
+            <div class="menuItem2">
+                    <form method="GET" action="{{url('search')}}">
+                        <input id="searchInput" type="text" name="search" placeholder="Search Mats!" > 
+                        <button id="rm2" type="submit"> Find Mats! </button> 
+                    </form>
+            </div>
         </div>
     </div>
 
@@ -132,48 +131,43 @@
                                     <td>
                                         <div class="row">
                                             <div class="column">
-                                                <a href="#">Golf Mats</a>
-                                                <a href="#">Anti-Fatigue</a>
-                                                <a href="{{url('mats/yoga')}}">Yoga Mats</a>
-                                                <a href="#">Landing Mats</a>
+                                               <a href="{{url('mats/golf')}}">Golf</a>
+                                               <a href="{{url('mats/yoga')}}">Yoga</a>
+                                               <a href="{{url('mats/martial-arts')}}">Martial Arts</a>
                                             </div>
-                                            <div class="column">
-                                                <a href="#"> 01 Mats</a>
-                                                <a href="#"> 02 Mats</a>
-                                                <a href="#"> 03 Mats</a>
-                                                <a href="#"> 04 Mats</a>
+                                            <div class="col">
+                                               <a href="{{url('mats/gymnastics')}}">Gymnastics</a>
+                                               <a href="{{url('mats/weights')}}">Weight Lifiting</a>
                                             </div>
                                         </div>
                                     </td>
                                     <td> 
                                         <div class="row">
                                             <div class="column">  
-                                                <a href="{{url('mats/car')}}">Car Mats</a>
-                                                <a href="#">Non-Slip Mats</a>
-                                                <a href="#">Coir Mats</a>
-                                                <a href="#">Drying Mats</a>
+                                                <a href="{{url('mats/vehicle')}}">Vehicle</a>
+                                                <a href="{{url('mats/bathroom')}}">Bathroom</a>
+                                                <a href="{{url('mats/office')}}">Office</a>
+                                               
                                             </div>
                                             <div class="column">
-                                                <a href="#">Kneeling Mats</a>
-                                                <a href="#">Cleaning Mats</a>
-                                                <a href="#"> 03 Mats</a>
-                                                <a href="#"> 04 Mats</a>
+                                                <a href="{{url('mats/removal')}}">Removal</a>
+                                                <a href="{{url('mats/pets')}}">Pets</a>
+                                                <a href="{{url('mats/fatigue')}}">Anti-Fatigue</a>
+                                               
                                             </div>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="row">
                                             <div class="column">
-                                                <a href="#">Placemats</a>
-                                                <a href="#">Rugs</a>
-                                                <a href="#">Comfort Mats</a>
-                                                <a href="{{url('mats/door')}}">Welcome Mats</a>
+                                                <a href="{{url('mats/placemats')}}">Placemats</a>
+                                                <a href="{{url('mats/rugs')}}">Rugs</a>
+                                                <a href="{{url('mats/kids')}}">Kids</a>
                                             </div>
                                             <div class="column">
-                                                <a href="#"> 01 Mats</a>
-                                                <a href="#"> 02 Mats</a>
-                                                <a href="#"> 03 Mats</a>
-                                                <a href="#"> 04 Mats</a>
+                                                <a href="{{url('mats/welcome')}}">Welcome</a>
+                                                <a href="{{url('mats/grass')}}">Artifical Grass</a>
+                                                <a href="{{url('mats/tapestry')}}">Tapestry</a>
                                             </div>
                                         </div>
                                     </td>
@@ -227,46 +221,32 @@
                     
                        
                             <div class="column2">
-                                
                                 <h3>Fitness</h3>
-                                
-                                    <a href="#">Golf Mats</a>
-                                    <a href="#">Anti-Fatigue</a>
-                                    <a href="{{url('mats/yoga')}}">Yoga Mats</a>
-                                    <a href="#">Landing Mats</a>
-                                    <a href="#"> 01 Mats</a>
-                                    <a href="#"> 02 Mats</a>
-                                    <a href="#"> 03 Mats</a>
-                                    <a href="#"> 04 Mats</a>
-                               
+                                    <a href="{{url('mats/golf')}}">Golf</a>
+                                    <a href="{{url('mats/yoga')}}">Yoga</a>
+                                    <a href="{{url('mats/martial-arts')}}">Martial Arts</a>
+                                    <a href="{{url('mats/gymnastics')}}">Gymnastics</a>
+                                    <a href="{{url('mats/weights')}}">Weight Lifiting</a>
                             </div>
 
                             <div class="column2">
                                 <h3>Utility</h3>
-                                
-                                    <a href="#">Golf Mats</a>
-                                    <a href="#">Anti-Fatigue</a>
-                                    <a href="{{url('mats/yoga')}}">Yoga Mats</a>
-                                    <a href="#">Landing Mats</a>
-                                    <a href="#"> 01 Mats</a>
-                                    <a href="#"> 02 Mats</a>
-                                    <a href="#"> 03 Mats</a>
-                                    <a href="#"> 04 Mats</a>
-                                
+                                    <a href="{{url('mats/vehicle')}}">Vehicle</a>
+                                    <a href="{{url('mats/bathroom')}}">Bathroom</a>
+                                    <a href="{{url('mats/office')}}">Office</a>
+                                    <a href="{{url('mats/removal')}}">Removal</a>
+                                    <a href="{{url('mats/pets')}}">Pets</a>
+                                    <a href="{{url('mats/fatigue')}}">Anti-Fatigue</a>
                             </div>
 
                             <div class="column2">
                                 <h3>Decorative</h3>
-                                
-                                    <a href="#">Golf Mats</a>
-                                    <a href="#">Anti-Fatigue</a>
-                                    <a href="{{url('mats/yoga')}}">Yoga Mats</a>
-                                    <a href="#">Landing Mats</a>
-                                    <a href="#"> 01 Mats</a>
-                                    <a href="#"> 02 Mats</a>
-                                    <a href="#"> 03 Mats</a>
-                                    <a href="#"> 04 Mats</a>
-                                
+                                    <a href="{{url('mats/placemats')}}">Placemats</a>
+                                    <a href="{{url('mats/rugs')}}">Rugs</a>
+                                    <a href="{{url('mats/kids')}}">Kids</a>
+                                    <a href="{{url('mats/welcome')}}">Welcome</a>
+                                    <a href="{{url('mats/grass')}}">Artifical Grass</a>
+                                    <a href="{{url('mats/tapestry')}}">Tapestry</a>
                             </div>
                      
                  

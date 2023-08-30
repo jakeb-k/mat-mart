@@ -30,6 +30,13 @@
                 @enderror
             </div>
             <div class="createInput">
+                <label class="form-label"> SKU<span class="formReq">*</span>: </label>
+                <input type="text" name="sku" placeholder="Enter the Product SKU">
+                @error('sku')
+                    <div class="alert">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="createInput">
                 <label class="form-label"> Description<span class="formReq">*</span>: </label>
                 <input type="text" name="description" placeholder="A short description for customers (optional)">
                 @error('description')
@@ -40,9 +47,9 @@
             <div class="createInput">
                 <label class="form-label"> Type<span class="formReq">*</span>: </label><br /> 
                     <select name="type">
-                        <option value="Fitness">Fitness</option>
-                        <option value="Utility">Utility</option>
-                        <option value="Decorative">Decorative</option>
+                        @foreach($cats as $c)
+                        <option value="{{$c}}">{{$c}}</option>
+                        @endforeach
                     </select>
                 @error('type')
                     <div class="alert">{{ $message }}</div>

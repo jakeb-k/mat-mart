@@ -15,6 +15,7 @@
 
             <div>
                 <h1>{{$mat->name}}</h1>
+                <p> {{$mat->sku}} </p>
             </div>
             <div class="ratingsAvg">
                 {{number_format($mat->rating, 2)}} ★ ({{count($reviews)}})

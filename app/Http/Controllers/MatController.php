@@ -47,8 +47,8 @@ class MatController extends Controller
      */
     public function create()
     {
-        
-        return view('mats.create'); 
+        $cats = ['Golf','Yoga','Martial Arts','Gymnastics','Weight Lifting','Vehicle','Bathroom','Office','Removal','Pets','Anti-Fatigue','Placemats','Rugs','Kids','Welcome','Artifical Grass','Tapestry'];
+        return view('mats.create')->with('cats',$cats); 
     }
 
     /**
@@ -63,7 +63,8 @@ class MatController extends Controller
             'name'=>'required|max:255',
             'price'=>'required|numeric|gt:0',
             'type'=>'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'sku'=> 'required|max:30'
         ]);
         $mats = Mat::all(); 
         $matNames = [];
@@ -72,19 +73,21 @@ class MatController extends Controller
         foreach($mats as $mat) {
             $matNames[] = $mat->name;
         }
-        if(in_array($request->name, $matNames)== FALSE) {
+       
+        
             $mat = new Mat();
             $mat->name = $request->name; 
             $mat->price = $request->price;
             $mat->description = $request->description ?? ""; 
+            $mat->sku = $request->sku; 
             $mat->type = $request->type; 
             $mat->image = $fileName; 
-            $mat->tags = $request->type; 
+            $mat->tags = str_replace(" ", ",",$request->name);
             $mat->rating = 0; 
             //will need to add tags and image
             $mat->save();
-            return redirect('/orders')->with('success', 'Added Successfully!'); 
-        }
+        
+        return redirect('/mats/'.$request->type)->with('success', 'Added Successfully!'); 
     }
      /**
      * Show the form for editing the specified resource.
@@ -94,9 +97,10 @@ class MatController extends Controller
      */
     public function edit($id)
     {
+        $cats = ['Golf','Yoga','Martial Arts','Gymnastics','Weight Lifting','Vehicle','Bathroom','Office','Removal','Pets','Anti-Fatigue','Placemats','Rugs','Kids','Welcome','Artifical Grass','Tapestry'];
         $mat = Mat::find($id);
         $tags = explode(",", $mat->tags); 
-        return view('mats.edit')->with('mat', $mat)->with('tags', $tags); 
+        return view('mats.edit')->with('mat', $mat)->with('tags', $tags)->with('cats',$cats); 
     }
 
     /**
@@ -122,13 +126,18 @@ class MatController extends Controller
         } else {
             $fileName = $mat->image; 
         }
+        if($request->type == 'Golf'){
+            $type = $mat->type; 
+        } else {
+            $type = $request->type;
+        }
         $mat->name = $request->name; 
         $mat->price = $request->price;
         $mat->description = $request->description ?? ""; 
-        $mat->type = $request->type; 
+        $mat->type = $type; 
         $mat->image = $fileName; 
         $mat->save();
-        return redirect("/orders")->with('success', 'Added Successfully!'); 
+        return redirect('/mats/'.$type)->with('success', 'Added Successfully!'); 
         
     } 
 
@@ -160,7 +169,7 @@ class MatController extends Controller
             $avg = $totAvg / count($reviews);
             $mat->rating = $avg;  
         }
-        
+        $mat->price = floatval($mat->price); 
         
         return view('mats.show')->with('mat', $mat)->with('reviews', $reviews)->with('back', $mat->type); 
     }
