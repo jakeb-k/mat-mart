@@ -10,7 +10,7 @@
         </div>
         @elseif(Auth::user()->role == 0 and Auth::user()->id == 4)
         <div id="formContainer">
-            <span class="emphasis"><a href="/mat-mart/public/mat/{{$mat->id}}">◄</a> </span>
+            <span class="emphasis"><a href="/mat-mart/public/mats">◄</a> </span>
             <h1> Edit {{$mat->name}} </h1>
             <form id="form" method="POST" action='{{url("mat/$mat->id")}}' enctype="multipart/form-data">
                 {{csrf_field()}}

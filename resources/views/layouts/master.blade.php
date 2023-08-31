@@ -39,31 +39,8 @@
             <a href="{{url('/')}}">
             <img id="logo2" src="{{url('images/matMartLogo.png')}}" /> </a>
             <ul class="list_load">
-                <p class="list_title">Fitness</p>
-                <div class="row">
-                    <div class="col">
-                        <li class="list_item"><a href="{{url('mats/golf')}}">Golf</a></li>
-                        <li class="list_item"><a href="{{url('mats/yoga')}}">Yoga</a></li>
-                        <li class="list_item"><a href="{{url('mats/martial-arts')}}">Martial Arts</a></li>
-                    </div>
-                    <div class="col">
-                        <li class="list_item"><a href="{{url('mats/gymnastics')}}">Gymnastics</a></li>
-                        <li class="list_item"><a href="{{url('mats/weights')}}">Weight Lifiting</a></li>
-                    </div>
-                </div>
-                <p class="list_title">Utility </p> 
-                <div class="row">
-                    <div class="col">
-                        <li class="list_item"><a href="{{url('mats/vehicle')}}">Vehicle</a></li>
-                        <li class="list_item"><a href="{{url('mats/bathroom')}}">Bathroom</a></li>
-                        <li class="list_item"><a href="{{url('mats/office')}}">Office</a></li>
-                    </div>
-                    <div class="col">
-                         <li class="list_item"><a href="{{url('mats/removal')}}">Removal</a></li>
-                        <li class="list_item"><a href="{{url('mats/pets')}}">Pets</a></li>
-                        <li class="list_item"><a href="{{url('mats/fatigue')}}">Anti-Fatigue</a></li>
-                    </div>
-                </div>
+                
+                
                 <p class="list_title">Decorative </p> 
                 <div class="row">
                     <div class="col">
@@ -73,8 +50,33 @@
                     </div>
                     <div class="col">
                         <li class="list_item"><a href="{{url('mats/welcome')}}">Welcome</a></li>
-                        <li class="list_item"><a href="{{url('mats/grass')}}"> Artifical Grass</a></li>
+                        <li class="list_item"><a href="{{url('mats/outdoor')}}">Outdoor</a></li>
                         <li class="list_item"><a href="{{url('mats/tapestry')}}">Tapestry</a></li>
+                    </div>
+                </div>
+
+                <p class="list_title">Utility </p> 
+                <div class="row">
+                    <div class="col">
+                        <li class="list_item"><a href="{{url('mats/vehicle')}}">Vehicle</a></li>
+                        <li class="list_item"><a href="{{url('mats/bathroom')}}">Bathroom</a></li>
+                        <li class="list_item"><a href="{{url('mats/office')}}">Office</a></li>
+                    </div>
+                    <div class="col">
+                        <li class="list_item"><a href="{{url('mats/pets')}}">Pets</a></li>
+                        <li class="list_item"><a href="{{url('mats/fatigue')}}">Anti-Fatigue</a></li>
+                    </div>
+                </div>
+
+                <p class="list_title">Fitness</p>
+                <div class="row">
+                    <div class="col">
+                        <li class="list_item"><a href="{{url('mats/golf')}}">Golf</a></li>
+                        <li class="list_item"><a href="{{url('mats/yoga')}}">Yoga</a></li>
+                    </div>
+                    <div class="col">
+                        <li class="list_item"><a href="{{url('mats/gymnastics')}}">Gymnastics</a></li>
+                        <li class="list_item"><a href="{{url('mats/lifting')}}">Lifting</a></li>
                     </div>
                 </div>
             </ul>
@@ -102,11 +104,13 @@
                 @auth
                 @if(Auth::user()->role == 1)
                 <h3><a data-toggle="modal" data-target="#exampleModal2">{{Auth::user()->name}}</a></h3>
-                @elseif(Auth::user()->role == 0)
-                <h3><a href="/mat-mart/public/orders">Admin</a></h3>
-                @endif
                 <h3><a href="/mat-mart/public/favs/{{Auth::user()->id}}">Wishlist</a></h3>
                 <h3><a data-toggle="modal" data-target="#exampleModal">Cart</a></h3>
+                @elseif(Auth::user()->role == 0)
+                <h3><a href="/mat-mart/public/mats">Admin</a></h3>
+                <h3><a href="/mat-mart/public/orders">Orders</a></h3>
+                @endif
+               
                 @endauth
                 @guest
                 <h3><a href="{{url('/register')}}">Register</a></h3>
@@ -131,16 +135,18 @@
                                     <td>
                                         <div class="row">
                                             <div class="column">
-                                               <a href="{{url('mats/golf')}}">Golf</a>
-                                               <a href="{{url('mats/yoga')}}">Yoga</a>
-                                               <a href="{{url('mats/martial-arts')}}">Martial Arts</a>
+                                                <a href="{{url('mats/placemats')}}">Placemats</a>
+                                                <a href="{{url('mats/rugs')}}">Rugs</a>
+                                                <a href="{{url('mats/kids')}}">Kids</a>
                                             </div>
-                                            <div class="col">
-                                               <a href="{{url('mats/gymnastics')}}">Gymnastics</a>
-                                               <a href="{{url('mats/weights')}}">Weight Lifiting</a>
+                                            <div class="column">
+                                                <a href="{{url('mats/welcome')}}">Welcome</a>
+                                                <a href="{{url('mats/outdoor')}}">Outdoor</a>
+                                                <a href="{{url('mats/tapestry')}}">Tapestry</a>
                                             </div>
                                         </div>
                                     </td>
+
                                     <td> 
                                         <div class="row">
                                             <div class="column">  
@@ -150,24 +156,21 @@
                                                
                                             </div>
                                             <div class="column">
-                                                <a href="{{url('mats/removal')}}">Removal</a>
                                                 <a href="{{url('mats/pets')}}">Pets</a>
                                                 <a href="{{url('mats/fatigue')}}">Anti-Fatigue</a>
-                                               
                                             </div>
                                         </div>
                                     </td>
-                                    <td>
+
+                                     <td>
                                         <div class="row">
                                             <div class="column">
-                                                <a href="{{url('mats/placemats')}}">Placemats</a>
-                                                <a href="{{url('mats/rugs')}}">Rugs</a>
-                                                <a href="{{url('mats/kids')}}">Kids</a>
+                                               <a href="{{url('mats/golf')}}">Golf</a>
+                                               <a href="{{url('mats/yoga')}}">Yoga</a>
                                             </div>
-                                            <div class="column">
-                                                <a href="{{url('mats/welcome')}}">Welcome</a>
-                                                <a href="{{url('mats/grass')}}">Artifical Grass</a>
-                                                <a href="{{url('mats/tapestry')}}">Tapestry</a>
+                                            <div class="col">
+                                               <a href="{{url('mats/gymnastics')}}">Gymnastics</a>
+                                               <a href="{{url('mats/lifting')}}">Weight Lifting</a>
                                             </div>
                                         </div>
                                     </td>
@@ -213,41 +216,37 @@
 
                 <div class="fSection">
                     <h3>ABOUT</h3>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu molestie nisl. Mauris hendrerit vitae dolor eu efficitur. In ac orci nec mi aliquam finibus. 
-                        In ac dolor a dui sagittis venenatis. In hac habitasse platea dictumst.</p>
+                    <p> Welcome to Mat Mart , where we don't just believe that flooring should be fabulous - 
+                        we make it! Our quality selection of mats will blow your mind and cushion your feet, 
+                        all in one swift step.</p>
                 </div>
 
                <div class="fSection2">
-                    
-                       
-                            <div class="column2">
-                                <h3>Fitness</h3>
-                                    <a href="{{url('mats/golf')}}">Golf</a>
-                                    <a href="{{url('mats/yoga')}}">Yoga</a>
-                                    <a href="{{url('mats/martial-arts')}}">Martial Arts</a>
-                                    <a href="{{url('mats/gymnastics')}}">Gymnastics</a>
-                                    <a href="{{url('mats/weights')}}">Weight Lifiting</a>
-                            </div>
-
-                            <div class="column2">
-                                <h3>Utility</h3>
-                                    <a href="{{url('mats/vehicle')}}">Vehicle</a>
-                                    <a href="{{url('mats/bathroom')}}">Bathroom</a>
-                                    <a href="{{url('mats/office')}}">Office</a>
-                                    <a href="{{url('mats/removal')}}">Removal</a>
-                                    <a href="{{url('mats/pets')}}">Pets</a>
-                                    <a href="{{url('mats/fatigue')}}">Anti-Fatigue</a>
-                            </div>
-
                             <div class="column2">
                                 <h3>Decorative</h3>
                                     <a href="{{url('mats/placemats')}}">Placemats</a>
                                     <a href="{{url('mats/rugs')}}">Rugs</a>
                                     <a href="{{url('mats/kids')}}">Kids</a>
                                     <a href="{{url('mats/welcome')}}">Welcome</a>
-                                    <a href="{{url('mats/grass')}}">Artifical Grass</a>
+                                    <a href="{{url('mats/outdoor')}}">Outdoor</a>
                                     <a href="{{url('mats/tapestry')}}">Tapestry</a>
                             </div>
+                            <div class="column2">
+                                <h3>Utility</h3>
+                                    <a href="{{url('mats/vehicle')}}">Vehicle</a>
+                                    <a href="{{url('mats/bathroom')}}">Bathroom</a>
+                                    <a href="{{url('mats/office')}}">Office</a>
+                                    <a href="{{url('mats/pets')}}">Pets</a>
+                                    <a href="{{url('mats/fatigue')}}">Anti-Fatigue</a>
+                            </div>
+                            <div class="column2">
+                                <h3>Fitness</h3>
+                                    <a href="{{url('mats/golf')}}">Golf</a>
+                                    <a href="{{url('mats/yoga')}}">Yoga</a>
+                                    <a href="{{url('mats/gymnastics')}}">Gymnastics</a>
+                                    <a href="{{url('mats/lifting')}}">Weight Lifting</a>
+                            </div>
+
                      
                  
                 </div>

@@ -47,7 +47,7 @@ class MatController extends Controller
      */
     public function create()
     {
-        $cats = ['Golf','Yoga','Martial Arts','Gymnastics','Weight Lifting','Vehicle','Bathroom','Office','Removal','Pets','Anti-Fatigue','Placemats','Rugs','Kids','Welcome','Artifical Grass','Tapestry'];
+        $cats = ['Golf','Yoga','Martial Arts','Gymnastics','Lifting','Vehicle','Bathroom','Office','Removal','Pets','Fatigue','Placemats','Rugs','Kids','Welcome','Outdoor','Tapestry'];
         return view('mats.create')->with('cats',$cats); 
     }
 
@@ -60,7 +60,7 @@ class MatController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'name'=>'required|max:255',
+            'name'=>'required|max:100',
             'price'=>'required|numeric|gt:0',
             'type'=>'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -87,7 +87,7 @@ class MatController extends Controller
             //will need to add tags and image
             $mat->save();
         
-        return redirect('/mats/'.$request->type)->with('success', 'Added Successfully!'); 
+        return redirect('/mats')->with('success', 'Added Successfully!'); 
     }
      /**
      * Show the form for editing the specified resource.
@@ -97,7 +97,7 @@ class MatController extends Controller
      */
     public function edit($id)
     {
-        $cats = ['Golf','Yoga','Martial Arts','Gymnastics','Weight Lifting','Vehicle','Bathroom','Office','Removal','Pets','Anti-Fatigue','Placemats','Rugs','Kids','Welcome','Artifical Grass','Tapestry'];
+        $cats = ['Golf','Yoga','Martial Arts','Gymnastics','Lifting','Vehicle','Bathroom','Office','Removal','Pets','Fatigue','Placemats','Rugs','Kids','Welcome','Grass','Tapestry'];
         $mat = Mat::find($id);
         $tags = explode(",", $mat->tags); 
         return view('mats.edit')->with('mat', $mat)->with('tags', $tags)->with('cats',$cats); 
@@ -137,7 +137,7 @@ class MatController extends Controller
         $mat->type = $type; 
         $mat->image = $fileName; 
         $mat->save();
-        return redirect('/mats/'.$type)->with('success', 'Added Successfully!'); 
+        return redirect('/mats')->with('success', 'Added Successfully!'); 
         
     } 
 
@@ -273,6 +273,9 @@ class MatController extends Controller
     }
     public function filter(Request $request, $type){
         $fil = $request->filter; 
+        if($type == "Best Value Deals!") {
+            $type = 'mat';
+        }
        //add rating field to mats to sort by popularity
         switch($fil) {
             case 'ex':
@@ -290,5 +293,10 @@ class MatController extends Controller
         }
         
         return view('mats.type')->with('mats', $mats)->with('filterTag', $filterTag)->with('paginated', false)->with('type', $type); 
+    }
+    public function admin(){
+        $mats = Mat::all(); 
+
+        return view('mats.admin')->with('mats', $mats); 
     }
 }

@@ -8,14 +8,16 @@
     <div id="itemContainer">
 
         <div id="showImg">
-            <img src="{{url('images/noImg.jpg')}}" /> 
+             @if($mat->image)
+                    <img src="{{ asset('storage/images/'.$mat->image) }}" />
+                @else
+                     <img src="{{url('images/noImg.jpg')}}" /> 
+                @endif 
         </div>
 
         <div id="showDetails">
-
             <div>
                 <h1>{{$mat->name}}</h1>
-                <p> {{$mat->sku}} </p>
             </div>
             <div class="ratingsAvg">
                 {{number_format($mat->rating, 2)}} ★ ({{count($reviews)}})

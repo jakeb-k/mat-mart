@@ -99,6 +99,6 @@ class ProfileController extends Controller
         
         
        
-        return view('mats.type')->with('mats', $favs)->with('paginated', false)->with('type', 'favs'); 
+        return view('mats.type')->with('mats', $favs)->with('paginated', false)->with('type', 'Wishlist'); 
     }
 }

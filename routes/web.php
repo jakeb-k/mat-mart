@@ -19,7 +19,6 @@ use App\Http\Controllers\OrderController;
 |
 */
 Route::resource('mat', MatController::class); 
-Route::resource('order', OrderController::class); 
 Route::get('mats/{type}', [MatController::class, 'type']); 
 
 Route::any('mats/{type}/filter', [MatController::class, 'filter']);
@@ -56,6 +55,7 @@ Route::middleware('auth')->group(function () {
     Route::get('mat/create',  [MatController::class, 'create'])->name('mat.create');
     Route::post('mat/{id}/add-tag', [MatController::class, 'addTag']);
     Route::get('mat/{id}/add-tag/{tag}', [MatController::class, 'deleteTag']); 
+    Route::get('mats',[MatController::class, 'admin']); 
     Route::resource('orders', OrderController::class);
 });
 

@@ -545,7 +545,7 @@ PRODUCT DETAIL PAGE STYLING
     justify-content: center;
     margin: auto;
     font-family: 'League Gothic', Arial, Helvetica, sans-serif;
-    font-size:32px; 
+    font-size:24px; 
     background:#F49110;
 }
 
@@ -557,7 +557,7 @@ PRODUCT DETAIL PAGE STYLING
 #itemContainer {
     display: flex;
     flex-direction: row;
-    width: 60%;
+    width: 70%;
     align-self: center;
     margin: 20px;
     background:white;
@@ -584,7 +584,7 @@ PRODUCT DETAIL PAGE STYLING
 #showContainer h1{
     font-family:'League Gothic', Arial, Helvetica, sans-serif; 
     color:#F49110; 
-    font-size:42px; 
+    font-size:24px; 
 }
 
 
@@ -1410,7 +1410,10 @@ MEDIA QUERIES
     }
     .matBox {
         align-self:center;
-       
+        width:60%; 
+    }
+    .matBox h1 {
+        font-size:12px; 
     }
     .menuItem, .menuItem2 {
         border:none; 
@@ -1433,6 +1436,12 @@ MEDIA QUERIES
     }
 
 }
+@media only screen and (max-width: 1000px) {
+    .matBox h1 {
+        font-size:12px; 
+    }
+
+}
 @media only screen and (max-width:1200px){
     #rm2,.fSection {
             display: none;
@@ -1444,8 +1453,10 @@ MEDIA QUERIES
     .contentBox p {
         font-size: 20px;
     }
+    .matBox h1 {
+        font-size:14px; 
+    }
     
-
     
 }
 
@@ -1461,10 +1472,31 @@ MEDIA QUERIES
 
 
 
+/* ADMIN PAGE CODE */ 
+
+#adminContent table {
+    align-self:center; 
+    margin-top:50px; 
+    background:white;
+}
+#adminContent img {
+    width:100%;
+    height:150px; 
+}
+#adminContent td {
+    border:1px solid black; 
+}
+#adminContent {
+    align-self:center;
+}
 
 
 
 
+
+
+
+/* PULL OUT MENU CODE */
 
 
 
@@ -1652,6 +1684,7 @@ a,
 .column {
     display:flex;
     flex-direction:column;
+    align-self:flex-start;
 }
 .column2 {
     display:flex;
