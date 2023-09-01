@@ -43,7 +43,7 @@
         
     <div id="adminContent">
     <table>
-        <tr>
+        <tr style="font-weight:bold;">
             <td>Image</td>
             <td>Name</td>
             <td>SKU</td>
@@ -62,7 +62,7 @@
             <td style="width:300px; ">{{$mat->name}}</td>
             <td>{{$mat->sku}}</td>
             <td>{{$mat->price}}</td>
-            <td><b>{{$mat->type}}</b></td>
+            <td style="font-size:large;"><b>{{$mat->type}}</b></td>
             <td>
                 <a href='{{url("mat/$mat->id/edit")}}'><button>EDIT</button></a>  
             </td>

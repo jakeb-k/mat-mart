@@ -87,7 +87,7 @@ class MatController extends Controller
             //will need to add tags and image
             $mat->save();
         
-        return redirect('/mats')->with('success', 'Added Successfully!'); 
+        return redirect('/admin')->with('success', 'Added Successfully!'); 
     }
      /**
      * Show the form for editing the specified resource.
@@ -137,7 +137,7 @@ class MatController extends Controller
         $mat->type = $type; 
         $mat->image = $fileName; 
         $mat->save();
-        return redirect('/mats')->with('success', 'Added Successfully!'); 
+        return redirect('/admin')->with('success', 'Added Successfully!'); 
         
     } 
 
@@ -307,7 +307,7 @@ class MatController extends Controller
             $cats = ['Golf','Yoga','Gymnastics','Lifting','Vehicle','Bathroom','Office','Pets','Fatigue','Placemats','Rugs','Kids','Welcome','Outdoor','Tapestry'];
         
            
-            $mats =  Mat::where('tags', 'like', '%' . $fil . '%')->get(); 
+            $mats =  Mat::where('type', 'like', '%' . $fil . '%')->get(); 
     
             
             return view('mats.admin')->with('mats', $mats)->with('cats', $cats); 

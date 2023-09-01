@@ -4,22 +4,15 @@ Mat-Mart Orders
 @endsection
 @section('content')
 <div id="ordContainer">
-   
-        <div id="shopNow">
-             <a href='{{url("mat/create")}}'>
-            <p> Add Mat! </p>
-            <p> → </p>
-             </a>
+    <div id="orderOps">
+        <div>
+        <a href="/mat-mart/public/orders">◄ </a></div>
         </div>
-           
-            @if(count($orders) != 0)
-                @for($i = 0; $i < count($orders); $i++)
-                @if($orders[$i]->sent == false)
-                
+
                 <div class ="orderBox">
                     <img src="{{url('images/matMartLogo.png')}}" /> 
-                    <span class="orderTick"><a href='/mat-mart/public/order/{{$orders[$i]->id}}/edit'>✔</a></span>   
-                    <p class="time"><em>{{$orders[$i]->updated_at->format('D jS M y g:i A') ?? "none"}} </em></p>
+                    <span class="orderTick"><a href='/mat-mart/public/orders/{{$order->id}}/edit'>✔</a></span>   
+                    <p class="time"><em>{{$order->updated_at->format('D jS M y g:i A') ?? "none"}} </em></p>
                    
                     <div class="line">
                     </div> 
@@ -28,7 +21,7 @@ Mat-Mart Orders
                             Customer Name 
                         </div>
                         <div>
-                            {{$users[$i]->name}} 
+                            {{$user->name}} 
                         </div>
                     </div> 
                     <div class="rInfo">
@@ -36,7 +29,7 @@ Mat-Mart Orders
                             Customer Type
                         </div> 
                         <div>   
-                            R{{$users[$i]->role}} 
+                            R{{$user->role}} 
                         </div>
                     </div>
                     <div class="rInfo">
@@ -44,13 +37,13 @@ Mat-Mart Orders
                             Delivery Address 
                         </div>
                         <div>
-                            {{$users[$i]->address}} 
+                            {{$user->address}} 
                         </div>
                     </div> 
                     <div class="line">
                     </div>
-                @for($j = 0; $j <= count($ordered[$i])-1; $j+=2)
-                    <p class="oItems"><b class="quant"> {{$ordered[$i][$j]}} </b> x {{$ordered[$i][$j+1]}} </p>  
+                @for($j = 0; $j <= count($ordered)-1; $j+=2)
+                    <p class="oItems"><b class="quant"> {{$ordered[$j]}} </b> x {{$ordered[$j+1]}} </p>  
                 @endfor
                     <div class="line">
                     </div>
@@ -60,18 +53,9 @@ Mat-Mart Orders
                            <b> Total </b>  
                         </div>
                         <div>
-                          <b>  ${{number_format($total[$i], 2)}} </b> 
+                          <b>  ${{number_format($total, 2)}} </b> 
                         </div>
                     </div>
                 </div>
-                @else
-                
-                    <div class="spacer-box"></div>    
-                @endif 
-                @endfor
-
-            @else
-            <p> No orders have been made yet </p> 
-        @endif
 </div>
 @endsection

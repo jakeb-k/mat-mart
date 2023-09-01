@@ -9,28 +9,71 @@ use App\Models\User;
 
 class OrderController extends Controller
 {
-    public function index(){
+    public function show($id){
+        $order = Order::find($id); 
+        
+        $success = "";
+        $users = []; 
+       
+        $ordered = []; 
+        $total = $order->total; 
+        
+        $total = $order->total; 
+        $user = User::find($order->user_id); 
+        $users = $user; 
+        $ordered = explode(",",$order->products);
+
+        return view('mats.order')->with('order', $order)->with('user', $user)->with('ordered', $ordered)->with('total', $total); 
+    }
+    public function store(){
         $orders = Order::all(); 
         $success = "";
         $users = []; 
-        $dishes = []; 
+        
+       
         $ordered = []; 
         $total = []; 
         foreach($orders as $order){ 
             $total[] = $order->total; 
             $user = User::find($order->user_id); 
             $users[] = $user; 
-            $ordered[] = explode(",",$order->products);
         }
-        
-        return view('mats.orders')->with('orders', $orders)->with('users', $users)->with('ordered', $ordered)->with('total', $total); 
+        $sentB = request('sentB');
+        return view('mats.orderT')->with('orders', $orders)->with('users', $users)->with('totals', $total)->with('sentB', $sentB); 
+    
     }
     public function edit($id)
     {
         $order = Order::find($id); 
         $order->sent = true; 
         $order->save(); 
-         
-        return back();
+        $orders = Order::all(); 
+        $success = "";
+        $users = []; 
+        $sentB = false; 
+
+        $ordered = []; 
+        $total = []; 
+        foreach($orders as $order){ 
+            $total[] = $order->total; 
+            $user = User::find($order->user_id); 
+            $users[] = $user; 
+        }
+        return view('mats.orderT')->with('orders', $orders)->with('users', $users)->with('totals', $total)->with('sentB', $sentB);
+    }
+    public function index(){
+        $orders = Order::all(); 
+        $success = "";
+        $users = []; 
+        $sentB = false; 
+
+        $ordered = []; 
+        $total = []; 
+        foreach($orders as $order){ 
+            $total[] = $order->total; 
+            $user = User::find($order->user_id); 
+            $users[] = $user; 
+        }
+        return view('mats.orderT')->with('orders', $orders)->with('users', $users)->with('totals', $total)->with('sentB', $sentB); 
     }
 }
