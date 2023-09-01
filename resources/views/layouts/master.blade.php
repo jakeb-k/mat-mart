@@ -132,48 +132,24 @@
                         <div class="dropdown-content">
                             <table>
                                 <tr>
-                                    <td>
-                                        <div class="row">
-                                            <div class="column">
-                                                <a href="{{url('mats/placemats')}}">Placemats</a>
-                                                <a href="{{url('mats/rugs')}}">Rugs</a>
-                                                <a href="{{url('mats/kids')}}">Kids</a>
-                                            </div>
-                                            <div class="column">
-                                                <a href="{{url('mats/welcome')}}">Welcome</a>
-                                                <a href="{{url('mats/outdoor')}}">Outdoor</a>
-                                                <a href="{{url('mats/tapestry')}}">Tapestry</a>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                    <td> 
-                                        <div class="row">
-                                            <div class="column">  
-                                                <a href="{{url('mats/vehicle')}}">Vehicle</a>
-                                                <a href="{{url('mats/bathroom')}}">Bathroom</a>
-                                                <a href="{{url('mats/office')}}">Office</a>
-                                               
-                                            </div>
-                                            <div class="column">
-                                                <a href="{{url('mats/pets')}}">Pets</a>
-                                                <a href="{{url('mats/fatigue')}}">Anti-Fatigue</a>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                     <td>
-                                        <div class="row">
-                                            <div class="column">
-                                               <a href="{{url('mats/golf')}}">Golf</a>
-                                               <a href="{{url('mats/yoga')}}">Yoga</a>
-                                            </div>
-                                            <div class="col">
-                                               <a href="{{url('mats/gymnastics')}}">Gymnastics</a>
-                                               <a href="{{url('mats/lifting')}}">Weight Lifting</a>
-                                            </div>
-                                        </div>
-                                    </td>
+                                    <td><a href="{{url('mats/placemats')}}">Placemats</a>
+                                        <a href="{{url('mats/rugs')}}">Rugs</a>
+                                        <a href="{{url('mats/kids')}}">Kids</a>
+                                        <a href="{{url('mats/welcome')}}">Welcome</a>
+                                        <a href="{{url('mats/outdoor')}}">Outdoor</a>
+                                        <a href="{{url('mats/tapestry')}}">Tapestry</a></td>
+                                
+                                    <td><a href="{{url('mats/vehicle')}}">Vehicle</a>
+                                         <a href="{{url('mats/bathroom')}}">Bathroom</a>
+                                        <a href="{{url('mats/office')}}">Office</a>
+                                        <a href="{{url('mats/pets')}}">Pets</a>
+                                        <a href="{{url('mats/fatigue')}}">Anti-Fatigue</a></td>
+                               
+                                    <td><a href="{{url('mats/golf')}}">Golf</a>
+                                        <a href="{{url('mats/yoga')}}">Yoga</a>
+                                        <a href="{{url('mats/gymnastics')}}">Gymnastics</a>
+                                        <a href="{{url('mats/lifting')}}">Weight Lifting</a></td>
+                                
                                 </tr>
                             </table>
                             
