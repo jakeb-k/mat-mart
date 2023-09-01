@@ -1,3 +1,4 @@
+<title> Reset Password </title> 
 <x-guest-layout>
     <div id="logo" style="margin-left:20%; ">
                 <a href="{{url('/')}}">

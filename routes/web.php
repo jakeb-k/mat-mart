@@ -58,6 +58,7 @@ Route::middleware('auth')->group(function () {
     Route::get('admin',[MatController::class, 'admin']); 
     Route::post('admin/filter',[MatController::class, 'adminFilter']); 
     Route::resource('orders', OrderController::class);
+    Route::get('user/orders', [ProfileController::class, 'orders']); 
 });
 
 require __DIR__.'/auth.php';

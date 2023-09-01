@@ -482,7 +482,7 @@ PRODUCT PAGE STYLING
     align-items: center;
     margin: 2.5% 2.5% 2.5% 0;
     width: 30%;
-    height:325px;  
+    height:360px;  
     text-align:center; 
     border-radius:5px;
 }
@@ -492,7 +492,10 @@ PRODUCT PAGE STYLING
     width: 100%;
     border-radius:5px; 
 }
-
+.matBox p {
+    color:#F49110; 
+    align-self:left;  
+}
 
 
 .productLinks {
@@ -870,7 +873,24 @@ CART MODAL STYLING
     margin: 10px 0px 0px 0px;
     padding: 10px;
 }
-
+.quantityInput {
+    display:flex;
+    flex-direction:row;
+    overflow: hidden;
+    height:100px; 
+}
+.quantityInput button {
+    background:none;
+    border:none; 
+    color: #F49110;
+}
+.quantityInput button:hover {
+    border-radius:100%;
+   
+    background:#F49110;
+    color:white; 
+    
+}
 #deleteCart button,
 #purchaseCart button {
     width: 245px;

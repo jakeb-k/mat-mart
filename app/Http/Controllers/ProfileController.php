@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\User;
 use App\Models\Mat;
+use App\Models\Order; 
 
 class ProfileController extends Controller
 {
@@ -100,5 +101,13 @@ class ProfileController extends Controller
         
        
         return view('mats.type')->with('mats', $favs)->with('paginated', false)->with('type', 'Wishlist'); 
+    }
+    public function orders() {
+        $id = Auth::user()->id; 
+        $orders = Order::where('user_id', 'like', '%' . $id . '%')->get(); 
+        
+        
+
+        return view('mats.orderU')->with('orders', $orders)->with('users', )->with('sentB', "");
     }
 }

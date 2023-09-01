@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>@yield('title')</title>
-
+        @yield('meta')
         <!-- Fonts -->
         
         <link rel="stylesheet" href="{{asset('css/app.css')}}" type="text/css">
@@ -97,7 +97,7 @@
 
         <div id="accBar">
             <div id="accLinks">
-                <div><h3><a href="mailto:jk_web_dev@outlook.com">jk_web_dev@outlook.com</a></h3></div>
+                <div><h3><a href="{{url('user/orders')}}">Orders</a></h3></div>
                 <h3><a href="/mat-mart/public/deals">Deals</a></h3>
             </div>
             <div id="accLinks">
@@ -231,7 +231,7 @@
                     <h3>CONTACT</h3>
 
                     <div class="cInfo">
-                        <p>Email: place@holder.com</p>
+                       <p><a href="mailto:jk_web_dev@outlook.com">jk_web_dev@outlook.com</a></p>
                     </div>
 
                     <div class="cInfo">
@@ -273,17 +273,22 @@
             <div class="cartItem">
                 <div id="cartImg">
                     
-                    <img src="{{url('images/noImg.jpg')}}"/>
+                     @if($mat->image)
+                    <img src="{{ asset('storage/images/'.$mat->image) }}" />
+                    @else
+                     <img src="{{url('images/noImg.jpg')}}" /> 
+                     @endif
 
                 </div>
                 <div class="cartInfo"> 
                     <div class="cartDetails">
                         <div class="quantityInput"> 
-                            <span class="quant">
-                                <input type="number" value="{{$details['quantity']}}" min=1 step=1 name='quantity'/>
-                                 
-                            </span>
-                           x {{$details['name']}} 
+                               <div> {{$details['quantity']}} </div>
+                               <div class="addBtn">
+                                 <a href='{{url("add-to-cart/$id")}}'>
+                                    <button> + </button>
+                                </a></div> 
+                                <div>{{$details['name']}}</div>
                         </div>
 
                             <div id ="clearCart"> 

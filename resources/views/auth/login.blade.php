@@ -1,3 +1,4 @@
+<title> Login </title> 
 <x-guest-layout>
     <!-- Session Status -->
     
