@@ -295,8 +295,22 @@ class MatController extends Controller
         return view('mats.type')->with('mats', $mats)->with('filterTag', $filterTag)->with('paginated', false)->with('type', $type); 
     }
     public function admin(){
+        $cats = ['Golf','Yoga','Gymnastics','Lifting','Vehicle','Bathroom','Office','Pets','Fatigue','Placemats','Rugs','Kids','Welcome','Outdoor','Tapestry'];
+        
         $mats = Mat::all(); 
 
-        return view('mats.admin')->with('mats', $mats); 
+        return view('mats.admin')->with('mats', $mats)->with('cats', $cats); 
     }
+    
+    public function adminFilter(Request $request){
+            $fil = $request->filter; 
+            $cats = ['Golf','Yoga','Gymnastics','Lifting','Vehicle','Bathroom','Office','Pets','Fatigue','Placemats','Rugs','Kids','Welcome','Outdoor','Tapestry'];
+        
+           
+            $mats =  Mat::where('tags', 'like', '%' . $fil . '%')->get(); 
+    
+            
+            return view('mats.admin')->with('mats', $mats)->with('cats', $cats); 
+        }
+
 }

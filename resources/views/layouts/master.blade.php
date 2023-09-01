@@ -107,7 +107,7 @@
                 <h3><a href="/mat-mart/public/favs/{{Auth::user()->id}}">Wishlist</a></h3>
                 <h3><a data-toggle="modal" data-target="#exampleModal">Cart</a></h3>
                 @elseif(Auth::user()->role == 0)
-                <h3><a href="/mat-mart/public/mats">Admin</a></h3>
+                <h3><a href="/mat-mart/public/admin">Admin</a></h3>
                 <h3><a href="/mat-mart/public/orders">Orders</a></h3>
                 @endif
                

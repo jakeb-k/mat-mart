@@ -1489,6 +1489,18 @@ MEDIA QUERIES
 #adminContent {
     align-self:center;
 }
+#adminOps {
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+}
+#adminOps .dropbtn2 {
+    margin-top:55px; 
+    font-size:42px; 
+}
+#adminOps .dropdown-content2 {
+    margin-left:-220px; 
+}
 
 
 

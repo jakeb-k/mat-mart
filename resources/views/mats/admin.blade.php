@@ -4,12 +4,43 @@
 @endsection
 @section('content')
 <div id="bodyContainer">
-        <div id="shopNow" style="margin-top:50px;">
+    <div id="adminOps">
+        <div class="dropdown2">
+                <button class="dropbtn2"><i class="fa-solid fa-filter"> </i></button>
+                <div class="dropdown-content2">
+                    <h3>Filter Options </h3>
+                    <table>
+                        <tr>
+                        @foreach($cats as $c)
+                        @if($loop->index % 5 == 0)
+                        </tr><tr>
+                        <td>
+                            <form method="POST" action='{{url("admin/filter")}}'>
+                                {{csrf_field()}}
+                            <input type="hidden" value="{{$c}}" name="filter" />
+                            <button type="submit"> {{$c}}</button>
+                            </form></td>
+                        @else
+                        <td>
+                            <form method="POST" action='{{url("admin/filter")}}'>
+                                {{csrf_field()}}
+                            <input type="hidden" value="{{$c}}" name="filter" />
+                            <button type="submit"> {{$c}}</button>
+                            </form></td>
+                        @endif
+                        @endforeach
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id="shopNow" style="margin-top:50px;">
              <a href='{{url("mat/create")}}'>
             <p> Add Mat! </p>
             <p> → </p>
              </a>
         </div>
+    </div>
+        
     <div id="adminContent">
     <table>
         <tr>
