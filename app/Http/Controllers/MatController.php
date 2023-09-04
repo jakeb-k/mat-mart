@@ -53,7 +53,7 @@ class MatController extends Controller
      */
     public function create()
     {
-        $cats = ['Golf','Yoga','Martial Arts','Gymnastics','Lifting','Vehicle','Bathroom','Office','Removal','Pets','Fatigue','Placemats','Rugs','Kids','Welcome','Outdoor','Tapestry'];
+        $cats = ['Golf','Yoga','Martial Arts','Gymnastics','Lifting','Vehicle','Bathroom','Office','Pets','Fatigue','Placemats','Rugs','Kids','Welcome','Outdoor','Tapestry'];
         return view('mats.create')->with('cats',$cats); 
     }
 
@@ -111,7 +111,7 @@ class MatController extends Controller
      */
     public function edit($id)
     {
-        $cats = ['Golf','Yoga','Martial Arts','Gymnastics','Lifting','Vehicle','Bathroom','Office','Removal','Pets','Fatigue','Placemats','Rugs','Kids','Welcome','Grass','Tapestry'];
+        $cats = ['Golf','Yoga','Martial Arts','Gymnastics','Lifting','Vehicle','Bathroom','Office','Pets','Fatigue','Placemats','Rugs','Kids','Welcome','Grass','Tapestry'];
         $mat = Mat::find($id);
         $tags = explode(",", $mat->tags); 
         return view('mats.edit')->with('mat', $mat)->with('tags', $tags)->with('cats',$cats); 
@@ -208,6 +208,8 @@ class MatController extends Controller
         if(!$mat) {
             abort(404);
         }
+        $a = explode(",",$mat->image); 
+        $image = $a[0]; 
         $cart = session()->get('cart');
         
         // if cart is empty then this the first product
@@ -217,7 +219,8 @@ class MatController extends Controller
                         "id"=> $mat->id, 
                         "name" => $mat->name,
                         "quantity" => 1,
-                        "price" => $mat->price
+                        "price" => $mat->price,
+                        "image"=>$image
                     ]
             ];
             session()->put('cart', $cart);
@@ -235,8 +238,8 @@ class MatController extends Controller
             "id"=> $mat->id,
             "name" => $mat->name,
             "quantity" => 1,
-            "price" => $mat->price
-            //"photo" => $product->photo
+            "price" => $mat->price,
+            "image" => $image 
         ];
         session()->put('cart', $cart);
        

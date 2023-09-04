@@ -113,7 +113,7 @@
                 @endif
             </div>
                 <h1> {{$mat->name}} </h1> 
-                <p> ${{$mat->price}} </p>
+                <p> ${{number_format($mat->price, 2)}} </p>
             </a>
         </div>
         
@@ -180,7 +180,7 @@
                 @endif 
             </div>
             <h1>{{$mat->name}}</h1>  
-            <p> ${{$mat->price}} </p>
+            <p>  ${{number_format($mat->price, 2)}}</p>
             </a>
             
         
