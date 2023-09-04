@@ -97,7 +97,11 @@
 
         <div id="accBar">
             <div id="accLinks">
+                @auth
+                @if(Auth::user()->role == 1)
                 <div><h3><a href="{{url('user/orders')}}">Orders</a></h3></div>
+                @endif
+                @endauth
                 <h3><a href="/mat-mart/public/deals">Deals</a></h3>
             </div>
             <div id="accLinks">

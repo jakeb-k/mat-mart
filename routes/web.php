@@ -41,7 +41,9 @@ Route::get('/success', 'App\Http\Controllers\StripeController@success')->name('s
 
 Route::post('/addReview/{id}', [ReviewController::class, 'addReview']);
 
-
+Route::get('/test', function(){
+    return view('mats.test'); 
+}); 
 Route::get('/dashboard', function () {
     return redirect('/')->with('mats', Mat::paginate(6));
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -56,7 +58,7 @@ Route::middleware('auth')->group(function () {
     Route::post('mat/{id}/add-tag', [MatController::class, 'addTag']);
     Route::get('mat/{id}/add-tag/{tag}', [MatController::class, 'deleteTag']); 
     Route::get('admin',[MatController::class, 'admin']); 
-    Route::post('admin/filter',[MatController::class, 'adminFilter']); 
+    Route::any('admin/filter',[MatController::class, 'adminFilter']); 
     Route::resource('orders', OrderController::class);
     Route::get('user/orders', [ProfileController::class, 'orders']); 
 });

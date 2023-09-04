@@ -47,6 +47,8 @@
     <div id="row">
 
    @foreach($mats as $mat)
+   <?php $images = explode(",",$mat->image); 
+   ?>
     @if($loop->index % 3 == 2 && $loop->index > 0)
         <div class="matBox">
          
@@ -105,7 +107,7 @@
 
             <div>
                 @if($mat->image)
-                    <img src="{{ asset('storage/images/'.$mat->image) }}" />
+                    <img src="{{ asset('storage/images/'.$images[0]) }}" />
                 @else
                      <img src="{{url('images/noImg.jpg')}}" /> 
                 @endif
@@ -170,8 +172,9 @@
             </div>
 
             <div>
+            
                 @if($mat->image)
-                    <img src="{{ asset('storage/images/'.$mat->image) }}" />
+                    <img src="{{ asset('storage/images/'.$images[0]) }}" />
                 @else
                      <img src="{{url('images/noImg.jpg')}}" /> 
                 @endif 

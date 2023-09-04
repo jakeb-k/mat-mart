@@ -29,14 +29,20 @@ class MatController extends Controller
     public function type($type){
         
         $mats = Mat::where('tags', 'like', '%' . $type . '%')->paginate(6); 
+       
         
         return view('mats.type')->with('mats', $mats)->with('type', $type)->with('paginated', true); 
     }
 
     public function search() {
-        $search = request('search'); 
-         
-        $mats = Mat::where('tags', 'like', '%' . request('search') . '%')->get(); 
+        $s = request('search'); 
+        
+        $search = preg_replace('/-/', " ", $s);
+        
+      
+        $mats = Mat::where('tags', 'like', '%' . $search . '%')->get(); 
+       
+        
         
         return view('mats.type')->with('mats', $mats)->with('type', $search)->with('paginated', false); 
     }
@@ -63,25 +69,33 @@ class MatController extends Controller
             'name'=>'required|max:100',
             'price'=>'required|numeric|gt:0',
             'type'=>'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'imageFile' => 'required',
+            'imageFile.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'sku'=> 'required|max:30'
         ]);
+       
         $mats = Mat::all(); 
         $matNames = [];
-        $fileName = time() . '.' . $request->image->extension();
-        $request->image->storeAs('public/images', $fileName);
+        //$fileName = time() . '.' . $request->image->extension();
+        //$request->image->storeAs('public/images', $fileName);
         foreach($mats as $mat) {
             $matNames[] = $mat->name;
         }
-       
-        
+        $count = 0; 
+        foreach ($request->file('imageFile') as $file) {   
+            $count++; 
+            $fileName = time() .$count. '.' . $file->extension();
+            $path = $file->storeAs('public/images', $fileName); 
+            $images[] = $fileName; 
+        }
+           
             $mat = new Mat();
             $mat->name = $request->name; 
             $mat->price = $request->price;
             $mat->description = $request->description ?? ""; 
             $mat->sku = $request->sku; 
             $mat->type = $request->type; 
-            $mat->image = $fileName; 
+            $mat->image = implode(",",$images); 
             $mat->tags = str_replace(" ", ",",$request->name);
             $mat->rating = 0; 
             //will need to add tags and image
@@ -118,8 +132,21 @@ class MatController extends Controller
             'type'=>'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
-       
         $mat = Mat::find($id); 
+        $count = 0; 
+        if($request->file('imageFile')) {
+            foreach ($request->file('imageFile') as $file) {   
+                $count++; 
+                $fileName = time() .$count. '.' . $file->extension();
+                $path = $file->storeAs('public/images', $fileName); 
+                $images[] = $fileName; 
+            }
+            $img =  implode(",", $images);
+        } else {
+            $img = $mat->image; 
+        }
+       
+        
         if($request->image != null) {
             $fileName = time() . '.' . $request->image->extension();
             $request->image->storeAs('public/images', $fileName);
@@ -135,7 +162,7 @@ class MatController extends Controller
         $mat->price = $request->price;
         $mat->description = $request->description ?? ""; 
         $mat->type = $type; 
-        $mat->image = $fileName; 
+        $mat->image = $img; 
         $mat->save();
         return redirect('/admin')->with('success', 'Added Successfully!'); 
         
@@ -170,8 +197,8 @@ class MatController extends Controller
             $mat->rating = $avg;  
         }
         $mat->price = floatval($mat->price); 
-        
-        return view('mats.show')->with('mat', $mat)->with('reviews', $reviews)->with('back', $mat->type); 
+        $images = explode(",",$mat->image);  
+        return view('mats.show')->with('mat', $mat)->with('reviews', $reviews)->with('back', $mat->type)->with('images',$images); 
     }
      public function addToCart($id)
     {

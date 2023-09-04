@@ -45,7 +45,11 @@ class OrderController extends Controller
     public function edit($id)
     {
         $order = Order::find($id); 
-        $order->sent = true; 
+        if($order->sent == true){
+            $order->sent = false; 
+        } else {
+            $order->sent = true; 
+        }
         $order->save(); 
         $orders = Order::all(); 
         $success = "";

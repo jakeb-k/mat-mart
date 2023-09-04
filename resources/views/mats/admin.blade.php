@@ -53,9 +53,10 @@
             <td>DELETE </td>
         </tr>
         @foreach($mats as $mat)
+        <?php $images = explode(",",$mat->image); ?>
         <tr>
             <td> @if($mat->image)
-                    <img src="{{ asset('storage/images/'.$mat->image) }}" />
+                    <img src="{{ asset('storage/images/'.$images[0]) }}" />
                 @else
                      <img src="{{url('images/noImg.jpg')}}" /> 
                 @endif</td>
