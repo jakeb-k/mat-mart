@@ -20,7 +20,7 @@
                     <div class="matOps">
                     @if(in_array(strval($mat->id), $check, true)) 
                     <span class="favButton">
-                            <form class="favForm2" method="POST" action="{{url('user/'.Auth::user()->id'./new-fav')}}" enctype="multipart/form-data">
+                            <form class="favForm2" method="POST" action="{{url('user/'.Auth::user()->id.'/new-fav')}}" enctype="multipart/form-data">
                             {{csrf_field()}}
                             {{method_field('POST')}}
                             <input name="mat_id" type="hidden" value="{{$mat->id}}" /> 
@@ -31,7 +31,7 @@
                         </span>
                     @else 
                         <span class="favButton">
-                            <form class="favForm" method="POST" action="{{url('user/'.Auth::user()->id'./new-fav')}}" enctype="multipart/form-data">
+                            <form class="favForm" method="POST" action="{{url('user/'.Auth::user()->id.'/new-fav')}}" enctype="multipart/form-data">
                             {{csrf_field()}}
                             {{method_field('POST')}}
                             <input name="mat_id" type="hidden" value="{{$mat->id}}" /> 
@@ -91,7 +91,7 @@
                     <div class="matOps">
                     @if(in_array(strval($mat->id), $check, true)) 
                     <span class="favButton">
-                            <form class="favForm2" method="POST" action="{{url('user/'.Auth::user()->id'./new-fav')}}" enctype="multipart/form-data">
+                            <form class="favForm2" method="POST" action="{{url('user/'.Auth::user()->id.'/new-fav')}}" enctype="multipart/form-data">
                             {{csrf_field()}}
                             {{method_field('POST')}}
                             <input name="mat_id" type="hidden" value="{{$mat->id}}" /> 
@@ -102,7 +102,7 @@
                         </span>
                     @else 
                         <span class="favButton">
-                            <form class="favForm" method="POST" action="{{url('user/'.Auth::user()->id'./new-fav')}}" enctype="multipart/form-data">
+                            <form class="favForm" method="POST" action="{{url('user/'.Auth::user()->id.'/new-fav')}}" enctype="multipart/form-data">
                             {{csrf_field()}}
                             {{method_field('POST')}}
                             <input name="mat_id" type="hidden" value="{{$mat->id}}" /> 
