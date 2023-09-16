@@ -72,6 +72,7 @@ class ProfileController extends Controller
         $user = User::find($id);
         
         $message = "";
+       
         $favs = explode(",",$user->favs); 
         if(in_array($request->mat_id, $favs)){
             $index = array_search($request->mat_id, $favs);
@@ -83,6 +84,7 @@ class ProfileController extends Controller
             $user->favs = implode(",",$favs); 
             $user->save();
         }
+
         return redirect()->back()->with('message', $message);
     }
     public function show($id)

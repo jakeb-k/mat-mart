@@ -43,7 +43,7 @@ class UserSeeder extends Seeder
             'role'=>0,
             'address'=>'',
             'favs'=>'4,5,8',
-            'password' => bcrypt('123456'),
+            'password' => bcrypt('~i4Gt5W3a~aE'),
         ]);
     }
 }

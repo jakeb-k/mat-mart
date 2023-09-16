@@ -6,12 +6,12 @@ Mat-Mart Orders
 <div id="ordContainer">
     <div id="orderOps">
         <div>
-        <a href="/mat-mart/public/orders">◄ </a></div>
+        <a href="{{url('orders')}}">◄ </a></div>
         </div>
 
                 <div class ="orderBox">
                     <img src="{{url('images/matMartLogo.png')}}" /> 
-                    <span class="orderTick"><a href='/mat-mart/public/orders/{{$order->id}}/edit'>✔</a></span>   
+                    <span class="orderTick"><a href="{{url('orders/'.$order->id.'/edit')}}">✔</a></span>   
                     <p class="time"><em>{{$order->updated_at->format('D jS M y g:i A') ?? "none"}} </em></p>
                    
                     <div class="line">

@@ -97,17 +97,17 @@
 
         <div id="accBar">
             <div id="accLinks">
-                <h3><a href="/mat-mart/public/deals">Deals</a></h3>
+                <h3><a href="{{url('deals')}}">Deals</a></h3>
             </div>
             <div id="accLinks">
                 @auth
                 @if(Auth::user()->role == 1)
                 <h3><a data-toggle="modal" data-target="#exampleModal2">{{Auth::user()->name}}</a></h3>
-                <h3><a href="/mat-mart/public/favs/{{Auth::user()->id}}">Wishlist</a></h3>
+                <h3><a href="{{url('favs/'.Auth::user()->id)}}">Wishlist</a></h3>
                 <h3><a data-toggle="modal" data-target="#exampleModal">Cart</a></h3>
                 @elseif(Auth::user()->role == 0)
-                <h3><a href="/mat-mart/public/admin">Admin</a></h3>
-                <h3><a href="/mat-mart/public/orders">Orders</a></h3>
+                <h3><a href="{{url('admin')}}">Admin</a></h3>
+                <h3><a href="{{url('orders')}}">Orders</a></h3>
                 @endif
                
                 @endauth

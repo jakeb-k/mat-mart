@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 <div id="showContainer">
-    <span class="emphasis"><a href="/mat-mart/public/mats/{{$mat->type}}">◄</a>{{$mat->type}}</span>
+    <span class="emphasis"><a href="{{url('mats/'.$mat->type)}}">◄</a>{{$mat->type}}</span>
     <div id="itemContainer">
 
         <div id="showImg">

@@ -11,8 +11,7 @@
     @foreach($mats as $mat)
     @if($loop->index % 3 == 2 && $loop->index > 0)
         <div class="matBox">
-         
-        <a href="mat/{{$mat->id}}">
+        <a href="{{url('mat/'.$mat->id)}}">
             <div class="productLinks">
                 <h1> {{$mat->name}} </h1> 
                 @auth
@@ -21,7 +20,7 @@
                     <div class="matOps">
                     @if(in_array(strval($mat->id), $check, true)) 
                     <span class="favButton">
-                            <form class="favForm2" method="POST" action="/mat-mart/public/user/{{Auth::user()->id}}/new-fav" enctype="multipart/form-data">
+                            <form class="favForm2" method="POST" action="{{url('user/'.Auth::user()->id'./new-fav')}}" enctype="multipart/form-data">
                             {{csrf_field()}}
                             {{method_field('POST')}}
                             <input name="mat_id" type="hidden" value="{{$mat->id}}" /> 
@@ -32,7 +31,7 @@
                         </span>
                     @else 
                         <span class="favButton">
-                            <form class="favForm" method="POST" action="/mat-mart/public/user/{{Auth::user()->id}}/new-fav" enctype="multipart/form-data">
+                            <form class="favForm" method="POST" action="{{url('user/'.Auth::user()->id'./new-fav')}}" enctype="multipart/form-data">
                             {{csrf_field()}}
                             {{method_field('POST')}}
                             <input name="mat_id" type="hidden" value="{{$mat->id}}" /> 
@@ -83,7 +82,7 @@
     @else 
        <div class="matBox">
         
-        <a href="mat/{{$mat->id}}">
+        <a action="{{url('mat/'.$mat->id)}}">
             <div class="productLinks">
             <h1>{{$mat->name}}</h1>  
              @auth
@@ -92,7 +91,7 @@
                     <div class="matOps">
                     @if(in_array(strval($mat->id), $check, true)) 
                     <span class="favButton">
-                            <form class="favForm2" method="POST" action="/mat-mart/public/user/{{Auth::user()->id}}/new-fav" enctype="multipart/form-data">
+                            <form class="favForm2" method="POST" action="{{url('user/'.Auth::user()->id'./new-fav')}}" enctype="multipart/form-data">
                             {{csrf_field()}}
                             {{method_field('POST')}}
                             <input name="mat_id" type="hidden" value="{{$mat->id}}" /> 
@@ -103,7 +102,7 @@
                         </span>
                     @else 
                         <span class="favButton">
-                            <form class="favForm" method="POST" action="/mat-mart/public/user/{{Auth::user()->id}}/new-fav" enctype="multipart/form-data">
+                            <form class="favForm" method="POST" action="{{url('user/'.Auth::user()->id'./new-fav')}}" enctype="multipart/form-data">
                             {{csrf_field()}}
                             {{method_field('POST')}}
                             <input name="mat_id" type="hidden" value="{{$mat->id}}" /> 

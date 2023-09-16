@@ -1786,3 +1786,89 @@ a,
     width:100%; 
     align-items:center;   
 }
+/*
+
+
+
+
+AUTH FORM PAGE
+
+
+
+
+
+*/
+#authForm, #regForm {
+    width:400px; 
+    height:500px; 
+    background:white; 
+    border-radius:5px; 
+    align-self:center;
+    display:flex;
+    align-items: center;
+    font-family:'Rubik', Arial, Helvetica, sans-serif; 
+    margin:auto; 
+    box-shadow:0 0 10px rgb(43, 43, 43);
+}
+#regForm {
+    height:700px; 
+}
+#authForm div, #regForm div {
+    margin:20px; 
+}
+.authInput {
+    margin:auto; 
+    display:flex;
+    flex-direction:column;
+    align-items: flex-start;
+    align-self:center; 
+}
+.authInput input{
+    padding:5px;
+    align-self: center;
+    margin:5px 0;
+    width:100%; 
+}
+.authInput input:focus {
+    outline:1px solid #F49110;
+    border:1px solid #bc700c; 
+    border-radius:5px;
+    padding:6px;
+}
+.forPass a {
+    text-decoration: none;
+    box-shadow: inset 0 0 0 0 #F49110;
+    color: black;
+    margin: 0 -.25rem;
+    padding: 0 .25rem;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+.forPass a:hover {
+    box-shadow: inset 175px 0 0 0 #F49110;
+    color: white;
+}
+#authForm form, #regForm form {
+    align-items:center; 
+    width:100%;
+    text-align:center; 
+  
+}
+#authForm button, #regForm button {
+    width: 100%;
+    font-family: 'League Gothic', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:32px; 
+    border:2px solid #F49110;
+    background:none; 
+    border-radius:10px; 
+    padding:10px; 
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+}
+#authForm button:hover, #regForm button:hover {
+    color:white; 
+    background:#F49110;
+}
+#authForm img, #regForm img{
+    padding-right:70px; 
+}

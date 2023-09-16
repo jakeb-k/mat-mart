@@ -126,7 +126,7 @@ class MatController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $this->validate($request,[
+        $this->validate($request,[
             'name'=>'required|max:255',
             'price'=>'required|numeric|gt:0',
             'type'=>'required',

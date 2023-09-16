@@ -33,7 +33,7 @@ Orders
                 <td>{{$orders[$i]->id}}</td>
                 <td>{{$users[$i]->name}}</td>
                 <td>${{number_format($totals[$i], 2)}}</td>
-                <td><a href='/mat-mart/public/orders/{{$orders[$i]->id}}'><button>VIEW</button></a></td>
+                <td><a href="{{url('orders/'.$orders[$i]->id)}}"  ><button>VIEW</button></a></td>
                 <td>@if($orders[$i]->sent == 1)
                     true
                     @else 
@@ -46,7 +46,7 @@ Orders
                 <td>{{$orders[$i]->id}}</td>
                 <td>{{$users[$i]->name}}</td>
                 <td>${{number_format($totals[$i], 2)}}</td>
-                <td><a href='/mat-mart/public/orders/{{$orders[$i]->id}}'><button>VIEW</button></a></td>
+                <td><a href="{{url('orders/'.$orders[$i]->id)}}"><button>VIEW</button></a></td>
                 <td>@if($orders[$i]->sent == 1)
                     true
                     @else 
