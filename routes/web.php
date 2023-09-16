@@ -62,5 +62,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('orders', OrderController::class);
     Route::get('user/orders', [ProfileController::class, 'orders']); 
 });
-
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});
 require __DIR__.'/auth.php';
