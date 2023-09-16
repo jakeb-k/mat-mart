@@ -10,7 +10,7 @@
 @section('content')
 <div id="bodyContainer">
     <div class="bodyOptions">
-        <span class="emphasis"><a href="/mat-mart/public/">◄ </a> {{$type ?? "Wishlist"}} {{$filterTag ?? ""}} </span> 
+        <span class="emphasis"><a href='{{url("/")}}'>◄ </a> {{$type ?? "Wishlist"}} {{$filterTag ?? ""}} </span> 
             @if($type != 'Wishlist')
             <div class="dropdown2">
                 <button class="dropbtn2"><i class="fa-solid fa-filter"> </i></button>
