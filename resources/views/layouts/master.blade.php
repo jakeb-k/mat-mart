@@ -6,6 +6,7 @@
 
         <title>@yield('title')</title>
         @yield('meta')
+        <link rel="icon" type="image/x-icon" href="{{url('images/favicon.ico')}}">
         <!-- Fonts -->
         
         <link rel="stylesheet" href="{{asset('css/app.css')}}" type="text/css">

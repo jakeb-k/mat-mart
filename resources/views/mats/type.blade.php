@@ -5,7 +5,7 @@
 
 @endsection
 @section('meta')
-<meta name="description" content="Discover the perfect online store that offers a wide variety of mats, specifically catering to {{$type}} enthusiasts. Browse through our extensive collection and find the ideal mat for your yoga practice or ANY other activities here at Mat-Mart.">
+<meta name="description" content="Discover the perfect online store that offers a wide variety of {{$type}} mats, specifically catering to {{$type}} enthusiasts. Browse through our extensive collection and find the ideal mat for your {{$type}} practice or ANY other activities here at Mat-Mart.">
 @endsection
 @section('content')
 <div id="bodyContainer">

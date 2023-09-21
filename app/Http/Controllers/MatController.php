@@ -38,9 +38,9 @@ class MatController extends Controller
         $s = request('search'); 
         
         $search = preg_replace('/-/', " ", $s);
-        
-      
-        $mats = Mat::where('tags', 'like', '%' . $search . '%')->get(); 
+        $a = explode(" ", $search); 
+        $b = $a[0];
+        $mats = Mat::where('tags', 'like', '%' . $b . '%')->get(); 
        
         
         

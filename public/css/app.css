@@ -1356,7 +1356,7 @@ FOOTER STYLING
     font-family: 'League Gothic', Arial, Helvetica, sans-serif; 
     font-size:28px; 
 }
-.fSection, .fSection2 {
+.fSection{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1366,6 +1366,7 @@ FOOTER STYLING
     width:50%;
 }
 .fSection2 {
+    display:flex; 
     width:140%;
     flex-direction:row; 
     justify-content:space-between ;
@@ -1425,6 +1426,7 @@ MEDIA QUERIES
 
 
 */
+
 @media only screen and (max-width: 800px) {
     
     img {
@@ -1447,7 +1449,7 @@ MEDIA QUERIES
     }
     .matBox {
         align-self:center;
-        width:60%; 
+        width:90%; 
     }
     .matBox h1 {
         font-size:12px; 
@@ -1602,10 +1604,10 @@ MEDIA QUERIES
 
 
 #logo2 {
-    scale:0.5; 
+    scale:0.9; 
     background:rgb(255, 255, 255);
     border-radius:25px; 
-    margin:-35px 0 -35px -70px; 
+    margin:0 0 0 -20px; 
     border:3px solid #F49110;  
     
 }
@@ -1640,6 +1642,7 @@ a,
     z-index:1; 
     font-family: 'Rubrik', Arial, Helvetica, sans-serif;
     font-size:12px; 
+   
 }
 .list_title {
     font-family:'League Gothic',Arial, Helvetica, sans-serif; 
@@ -1648,11 +1651,14 @@ a,
     margin-bottom:0px; 
 }
 .side_menu .container {
+    overflow-x:hidden; 
+    overflow-y:scroll; 
     padding: 0 1em;
 }
 
 /* HAMBURGER STYLES ----- */
 .burger_box {
+    margin-top:5px; 
     display: block;
     float: right;
     margin-right: -45px;
