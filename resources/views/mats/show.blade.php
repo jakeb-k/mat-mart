@@ -53,7 +53,7 @@
             <div class="line"></div>
 
             <div id="desc">
-                {{$mat->description}}
+                <p> {{$mat->description}} </p>
             </div>
 
             <div class="line"></div>

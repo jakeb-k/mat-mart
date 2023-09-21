@@ -1426,7 +1426,20 @@ MEDIA QUERIES
 
 
 */
-
+@media only screen and (max-width:650px) {
+    .rating{
+        font-size:32px; 
+    }
+    #reviewContainer {
+        width:95%; 
+    }
+    #itemContainer {
+        width:95%; 
+    }
+    #desc p{
+        font-size:12px; 
+    }
+}
 @media only screen and (max-width: 800px) {
     
     img {
@@ -1805,7 +1818,7 @@ AUTH FORM PAGE
 
 */
 #authForm, #regForm {
-    width:400px; 
+    width:70%; 
     height:500px; 
     background:white; 
     border-radius:5px; 
