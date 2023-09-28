@@ -66,11 +66,19 @@
                         </a>  
                     </div>
             @elseif(Auth::user()->role == 1)
-            <div id="addCartButton">
-                <a href='{{url("add-to-cart/$mat->id")}}'>
-                    <button>Add To Cart! </button>
-                </a>
-            </div>
+                @if($mat->available)
+                <div id="addCartButton">
+                    <a href='{{url("add-to-cart/$mat->id")}}'>
+                        <button>Add To Cart! </button>
+                    </a>
+                </div>
+                @else
+                <div id="addCartButton">
+                    <a href='{{url("#")}}'>
+                        <button disabled>Item out of Stock</button>
+                    </a>
+                </div>
+                @endif
             @endif
 
             @else

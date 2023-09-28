@@ -51,6 +51,7 @@
             <td>Type</td>
             <td>EDIT</td>
             <td>DELETE </td>
+            <td>Available</td>
         </tr>
         @foreach($mats as $mat)
         <?php $images = explode(",",$mat->image); ?>
@@ -77,6 +78,15 @@
                         DELETE
                     </button>
                 </form>
+            </td>
+            <td>
+                <a href='{{url("mat/$mat->id/available")}}'>
+                    @if($mat->available == 1)
+                    True
+                    @else
+                    False
+                    @endif
+                </a> 
             </td>
         </tr>
         @endforeach

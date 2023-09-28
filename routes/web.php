@@ -57,6 +57,7 @@ Route::middleware('auth')->group(function () {
     Route::get('mat/create',  [MatController::class, 'create'])->name('mat.create');
     Route::post('mat/{id}/add-tag', [MatController::class, 'addTag']);
     Route::get('mat/{id}/add-tag/{tag}', [MatController::class, 'deleteTag']); 
+    Route::get('mat/{id}/available', [MatController::class, 'available']);
     Route::get('admin',[MatController::class, 'admin']); 
     Route::any('admin/filter',[MatController::class, 'adminFilter']); 
     Route::resource('orders', OrderController::class);

@@ -343,4 +343,22 @@ class MatController extends Controller
             return view('mats.admin')->with('mats', $mats)->with('cats', $cats); 
         }
 
+    public function available($id){
+        $mat = Mat::find($id); 
+        $x = $mat->available; 
+        if($x == 1) {
+            $mat->available = false; 
+             
+        } else {
+            $mat->available = true; 
+        }
+      
+        $mat->save(); 
+        $cats = ['Golf','Yoga','Gymnastics','Lifting','Vehicle','Bathroom','Office','Pets','Fatigue','Placemats','Rugs','Kids','Welcome','Outdoor','Tapestry'];
+        
+        $mats = Mat::all(); 
+
+        return redirect()->back();
+    }
+
 }

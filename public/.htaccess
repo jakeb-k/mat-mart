@@ -20,5 +20,5 @@
     RewriteRule ^ index.php [L]
 
     # Public Storage Access
-    RewriteRule ^storage/app/public/(.*)$ public/storage/$1 [L]
+    #RewriteRule ^storage/app/public/(.*)$ public/storage/$1 [L]
 </IfModule>

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('tags')->nullable(); 
             $table->float('rating')->nullable(); 
+            $table->boolean('available'); 
             $table->timestamps();
         });
     }
