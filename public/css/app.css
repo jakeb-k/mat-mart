@@ -1819,7 +1819,7 @@ AUTH FORM PAGE
 */
 #authForm, #regForm {
     width:70%; 
-    height:500px; 
+    height:90%; 
     background:white; 
     border-radius:5px; 
     align-self:center;
@@ -1830,7 +1830,7 @@ AUTH FORM PAGE
     box-shadow:0 0 10px rgb(43, 43, 43);
 }
 #regForm {
-    height:700px; 
+    height:90%; 
 }
 #authForm div, #regForm div {
     margin:20px; 

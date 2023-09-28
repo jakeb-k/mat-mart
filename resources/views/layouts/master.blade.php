@@ -270,11 +270,13 @@
             <div class="modal-body">
                   @foreach(session('cart') as $id => $details)
             <?php $total += $details['price'] * $details['quantity'] ?>
+            <?php $images = explode(",",$details['image']); ?>
             <div class="cartItem">
                 <div id="cartImg">
                     
                      @if($mat->image)
-                    <img src="{{ asset('storage/images/'.$details['image']) }}" />
+                    <img src="{{ Storage::disk('public')->url('images/'.$images[0]) }}" /> 
+                    
                     @else
                      <img src="{{url('images/noImg.jpg')}}" /> 
                      @endif

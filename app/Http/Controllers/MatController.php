@@ -70,7 +70,7 @@ class MatController extends Controller
             'price'=>'required|numeric|gt:0',
             'type'=>'required',
             'imageFile' => 'required',
-            'imageFile.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'imageFile.*' => 'image|mimes:jpeg,png,jpg,gif,svg,avif|max:2048',
             'sku'=> 'required|max:30'
         ]);
        
@@ -130,7 +130,7 @@ class MatController extends Controller
             'name'=>'required|max:255',
             'price'=>'required|numeric|gt:0',
             'type'=>'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg,avif|max:2048'
         ]);
         $mat = Mat::find($id); 
         $count = 0; 

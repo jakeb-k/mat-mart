@@ -56,7 +56,8 @@
         <?php $images = explode(",",$mat->image); ?>
         <tr>
             <td> @if($mat->image)
-                    <img src="{{ asset('storage/images/'.$images[0]) }}" />
+                    <img src="{{ Storage::disk('public')->url('images/'.$images[0]) }}" /> 
+                    
                 @else
                      <img src="{{url('images/noImg.jpg')}}" /> 
                 @endif</td>
