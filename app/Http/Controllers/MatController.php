@@ -98,6 +98,7 @@ class MatController extends Controller
             $mat->image = implode(",",$images); 
             $mat->tags = str_replace(" ", ",",$request->name);
             $mat->rating = 0; 
+            $mat->available = true; 
             //will need to add tags and image
             $mat->save();
         

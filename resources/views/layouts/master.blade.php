@@ -274,7 +274,7 @@
             <div class="cartItem">
                 <div id="cartImg">
                     
-                     @if($mat->image)
+                     @if($mat->image ?? "")
                     <img src="{{ Storage::disk('public')->url('images/'.$images[0]) }}" /> 
                     
                     @else
@@ -355,7 +355,7 @@
                 </form>
             </div>
             <div id="purchaseCart">
-                <form action='/mat-mart/public/checkout' method="POST">
+                <form action='{{url("checkout")}}' method="POST">
                     {{csrf_field()}}
                     <input type="hidden" value="{{number_format(($total + $total*0.1),2)}}" name="price" /> 
                     <button type="submit"> Purchase </button> 
@@ -395,7 +395,7 @@
           
                
             <div class="modal-body">
-                    <form id="createForm" method="POST" action='/mat-mart/public/user/{{Auth::user()->id}}'enctype="multipart/form-data">
+                    <form id="createForm" method="POST" action='{{url("user/".Auth::user()->id)}}'enctype="multipart/form-data">
                         {{csrf_field()}}
                         
                         <div class="createInput">
