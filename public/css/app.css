@@ -1439,6 +1439,9 @@ MEDIA QUERIES
     #desc p{
         font-size:12px; 
     }
+    #authForm, #regForm {
+        width:95% !important; 
+    }
 }
 @media only screen and (max-width: 800px) {
     
@@ -1845,6 +1848,7 @@ AUTH FORM PAGE
     align-self: center;
     margin:10px 0;
     width:100%; 
+    font-size: 16px;
 }
 .authInput input:focus {
     outline:1px solid #F49110;
